@@ -1,0 +1,32 @@
+* v2.04
+- Upgrade to RPG Maker 2000 Value! binary
+- Fix bug with Clairvoyance spell not working
+- Fix some typos in descriptions
+
+* v2.03
+- Few more bug fixes
+
+* v2.02
+- Fixed a bug that would cause game to lock up
+
+* v2.00
+- About 15-20 hours of playable content
+- All of the Content from the first demo has been improved
+- All custom systems have been refactored
+
+* v1.27
+- Bug fixes
+
+* v1.25
+- Replaced some missing graphics
+
+* v1.20
+- Fixed missing spell animation
+
+* v1.10
+- fixed spell descriptions
+- reduced file size a bit
+- find traps spell works now
+
+* v1.00
+- First HH3 demo

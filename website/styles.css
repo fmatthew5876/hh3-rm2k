@@ -1,0 +1,9 @@
+body {background-color: black}
+body {color: white}
+h1,h2,h3,h4,h5,h6 {color: yellow}
+h1,h2,h3,h4,h5,h6 {text-decoration: underline}
+p,li,ul {color: white}
+a:link {color: lime}
+a:visited {color: red}
+a:hover {color: blue}
+img {}
