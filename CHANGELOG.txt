@@ -1,3 +1,10 @@
+* v2.1
+- MAJOR: Replaced WAV's with mp3.
+- MAJOR: Story / Character updates.
+- Many small bug fixes for issues reported by Daniel Son.
+- Refactored Pick Spells menu in class selection for Mage and Sorcerer. Simplified the code and fixed several Sorcerer bugs.
+- Refactored and fixed bugs in Detect Traps / Walk Silent / Cold / Noise
+
 * v2.04
 - Upgrade to RPG Maker 2000 Value! binary
 - Fix bug with Clairvoyance spell not working
