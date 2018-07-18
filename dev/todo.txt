@@ -495,3 +495,29 @@ Screen showed after Abel
 
 
 Consider replacing headset with a tutorial system.
+
+Party caution skill
+
+area change transition event
+
+Seppuku requires katana?
+
+area change anim
+
+Party change should always reset walk/det
+
+Warehouse no icons
+
+test detect/walk/caution/run
+
+detect then walk -> 2x slow
+
+# of steps 238 in warehouse??
+
+# of steps race condition
+
+Remove XP Box
+
+Walk Silently increase first strike chance too
+
+Reset map icons on exit menu
