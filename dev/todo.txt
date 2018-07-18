@@ -55,7 +55,6 @@ Balance Prot Good / Evil
 
 How does Timon regulate harsh desert climate? Elevation?
 
-Sorcbook no descriptions on select to learn
 Fix Sorc book tutorial BG
 
 
@@ -465,15 +464,4 @@ some debug info showing battle cleanup called
 
 cms skills menu, up to move to last, down to first
 
-
-Testing Notes:
-- Enable switch 33:DEBUG CHECKS
-- After every battle should see "Battle Win" or "Battle Loss" animation
- - "Battle Win" if you won the battle
- - "Battle Loss" if you died (scripted no game over), or ran away
- - Should always work for random encounters
- - Check that it happens always immediately after boss battles
-- Should see debug boxes in upper right
- - Outside or Inside, depending on map
- - Menu, Regen, Enemies normally on, off for cutscenes and scripted movement.
- - Day / Night, depending on events
+running away on first turn does not trigger battle cleanup
