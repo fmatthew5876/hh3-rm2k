@@ -33,3 +33,9 @@ the state of some hidden variables in game.
     * Outside or Inside, depending on map
     * Menu, Regen, Enemies normally on, off for cutscenes and scripted movement.
     * Day / Night, depending on events
+
+Save the game anywhere
+----------------------
+
+Call the debug menu (see above) and choose option `22` to save the game
+anywhere. Please provide save game files with bug reports.

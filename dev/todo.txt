@@ -474,13 +474,24 @@ Spell book up from arrow should work
 
 redo backstab algo (multiply atk first, then subtract def)
 
-Frenzy description
 
 Review using EP for fighter skills
 
 EP healing items should not work on:
 - FGT, MNK, Sirran, Fleet
 
-Debugger should be first item, not headset
 
 Remedy and Krista Plant restore fighters EP
+
+Class help instant
+
+Anim for rest recover
+
+Debug icon for visibility level
+
+No Katana for sale in Timon, must find one
+
+Screen showed after Abel
+
+
+Consider replacing headset with a tutorial system.
