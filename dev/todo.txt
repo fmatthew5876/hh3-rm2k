@@ -520,4 +520,6 @@ Remove XP Box
 
 Walk Silently increase first strike chance too
 
+Memory Up, EP Up, EP Regen require higher levels for hybrids
+
 Reset map icons on exit menu
