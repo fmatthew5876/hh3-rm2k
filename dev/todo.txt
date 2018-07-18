@@ -1,0 +1,479 @@
+Major Refactors:
+Knock doors
+Mp3 music speed
+Map transition call events
+autorun and erase event for num events setter. Only needed for != 0
+Rename Rufus to Faisal
+Encounters:
+- Remove wait
+- Remove save fight steps switch
+- Remove first strike roll
+- Don't use else branches
+- Use parent map battle bg
+Fix level 3 mage spells offset by 1 (treasure chests)
+Verify Character vars are accurate
+Verify char locks
+test Clairvoyance (switch 113) on every map with a hidden room
+ADD:Linup event moved
+PARTYTalktoAnimals
+
+Revisit disclaimer at beginning of game
+Fix battle music mp3
+Fix Yxxta mp3
+fix repeat loop on music when Kahran dies. Small blip at the end
+
+Refactor Regen
+- Balance amount
+- Balance regen skills
+- Balance regen items
+
+Kahran lower level spells
+Kahran not all sword skills. Remove some.
+Heavenly Shock explanation in skills menu
+Fix Kahran dead sprite
+
+No reset battle BGM on enter/exit
+Part 1 display is too slow
+Confirm Save fight steps is working
+Ivor Ghetto - extra house add enemies
+
+Cast dimension door on a save point?
+Celine computer event should be disabled after finish mission.
+Second computer Celine again
+test cms on a ladder
+
+What is switch 44 Ayen and why do we set it when we start game?
+
+Had to remove direction setting in restore events. Trying to set direction
+of an inactive event and then waiting on movement causes the game to crash.
+
+
+Why do world map teleports reset battle music?
+
+Balance Prot Good / Evil
+
+
+How does Timon regulate harsh desert climate? Elevation?
+
+Sorcbook no descriptions on select to learn
+Fix Sorc book tutorial BG
+
+
+Prot from Good / Prot from Evil??
+Add more npcs to opening with dialog.
+Improve Kharan Abel dialogue
+Opening should have futuristic interior
+History Great War / Great Catastrophy which reshaped the world.
+Better intro Celine / Ayen
+
+World map scene too dark
+
+Rename resistance
+Wierd.png makes things too dark.
+Balance rune blade to be less powerful.
+Light flicker when first see Timon map after class select
+
+Skills menu descriptions
+Noise is broken
+Noise needs a sound effect
+Wait for all move in normal events causes freeze after cms
+face left in warehouse teleport is delayed. Adding wait for all causes crash after access cms. How to fix?
+
+Figure out class name for King Faisal.
+
+Rename elements
+
+Reform party on the world map. Don't require finding npcs in towns.
+
+Switch to STD enter / exit dungeon
+
+Better attack anim for spear Ayen
+Fighter has no skills for Knight Swords
+
+Both club and mace available in beginning of game
+
+Wakazaishi, same skill as sword
+
+Offensive and Defensive Stance?
+No Control Undead
+
+Consider magic missle that goes up with level
+
+Redo Bard songs
+
+Readjust Off/Def stance
+
+Refactor drinking and smoking
+
+Remove Rogue, Rebalance Thief, Treasure Hunter, Ninja
+
+No traps/walk icons in cms maps
+
+
+Ensure 1HS, hit rate, etc... are accurate
+Heavy weapons lowering dex? - guard at base talks about this
+
+We need to talk to the commander. Add period and step back
+
+Save points should let you save directly
+Call erase event on all map setters
+Why do we need reset switch common event?
+
+Consider one event per map to set map settings. 
+- Outside or no
+ - Aether storm image or no
+- Number of events
+- dungeon setup
+- BattleEnd BGM
+- Detect traps / walk / etc..
+
+
+Your Lieutenant
+Should say something after you knew..
+We have to stay on par -> no face
+luxory
+He is very good -> propaganda
+
+carefree life of luxury?? -> Fleet briefing
+Eastland being the major one -> Fleet briefing
+some stuff in -> supplies
+2 spells in box
+
+is some supplies
+
+Assassin mission
+-Olvan gives device to cloak ether signal
+-Ayen questions mission
+-Special side story talk with Celine about Fleet
+
+What if we enter party change menu when max allowable chars < party size?
+
+Rats in Timon towers - ranger/druid can talk
+
+Bard requires instruments
+
+Faisal King 2nd class?
+- Add Leadership skillset
+- One level 35 skill
+
+
+What is XP drained once? Switch?
+
+Liquid Sword?
+
+Paladin
+- Damage undead attack for free
+- Resist XP drain
+
+Add party skills concept.
+ - Talk to animals - if one has it, party has it. Use single switch to control
+Refresh on event
+ - After level up
+ - After party change
+ - After skills learned
+ - After menu access
+
+Consider Steal for Herp
+
+Backstab +5?
+Balance backstabs
+
+Free skill slots
+  48, 49
+
+Show some icon to indicate [Shift] for help
+
+Fix Requires sword for sword skills.
+- Skill descriptions
+- Use physical element
+
+Mystic skill for mages
+
+Elizabeth Backstab x5 not working
+- Rogues should start with backstab level 1 always
+
+Remove Gale - Ayen, Celine, Olvan, switches and battle events
+
+Elizabeth - only get Sorcerer 2nd class when learns first spell at level 10.
+
+Animal Strike animation for Ayen
+Undead Strike animation for Ayen and Daniel
+
+Balance Holy Strike vs Undead Strike
+
+Implement Resist XP Drain Skill
+
+
+Fighter skills use physical elements and don't add remove them in CMS code. (Except Spray for anims)
+
+Paladin Raise Dead - add to scrolls for memorization, don't add all the time.
+SHD - Energy Drain - add to spellbook for memo
+
+Make first aid kits rare
+
+Only Thief and Ninja, no more Rogue / Treasure Hunter
+
+Level up stats needs rebalancing. Scales way too high from level 45-50. S shaped curve?
+
+Add icon to tell play they can use [Shift] to see help.
+
+Priest AP skill for more secret spells?
+Hidden priest spells learnable from scrolls?
+
+Refactor Class Selection
+- Show skills available for level 1 character with help messages.
+
+Make Dual Wield a flavor skill
+
+Fighter skills decrease blunt defense
+
+Fix Righteous Hammer
+- Not implemented for Ayen
+- Remove for Daniel (From battles)
+- Verify working for Marx
+
+Refactor GoodBerry spell - Maybe learnable from scroll?
+
+More ice and lightning spells
+
+More cause wounds spells for lower levels
+
+Saving from menu.. After reloading menu cleanup events don't occur.
+- does this break scroll learning?
+
+Memory up + 1 broke
+
+Redo memorization levels (6 levels + 3 skill)
+Redo spell levels
+
+Cast find traps when already detecting traps
+
+What happens to memorization when we down-level from XP drain?
+
+Rename Priest back to Cleric..
+
+Verify regrowth and regeneration icons
+
+Remove Curse is useless, dispell magic does it
+
+Rename ProtGood/ProtEvil/Silence N' Radius -> Mass XXX
+
+True Seeing and True Sight - same icon / spell
+
+Do we need copies of spells for mage/cleric/druid?
+ - messed up sort order if reused
+
+Make some spells outdoor only, particularly druid.
+- Call Lightning
+- Natures Beauty
+
+When removing spell, if nothing in memo slot move left
+
+When reloading from saved game all events seem to restart.
+- Menu cleanup?
+- Weapons
+- Spell conditions
+
+Reconsider location of goodberry spell. Should be in Sanctus Silva after
+Ivory mission finished in north area. Well hidden.
+
+Make mage scrolls more expensive and rare
+
+Maybe remove Olvan Phantom Blade
+
+Curious switches
+1536 ISOMETRICS
+114 Book spells on
+1743 ON THE SHIP!!
+638 TXXXXX8
+857-860 Txxxx3-5
+
+Fix level 3 spells, start Clairvoyance at 1, not 0.
+- Fix drops / treasure
+
+Sidequest stories
+- 2nd world, sad stories of struggle in dieing world
+
+7th saga sword enemy - Mordenkainen's sword animation
+
+Mild Wave Scroll and condition?? - Is it mirror?
+
+Test all scrolls. Make sure correct spell is leanred.
+- AyenSHD
+- AyenMAG
+- Celine - tested
+- Yurak
+
+Reorder scrolls to match mage spells
+
+Test XP loss
+- Relation to skills
+- Relation to memorized spells when lost memo
+- Relation to spells when underleveled
+- Add Debug Mode command to inflict XP loss
+
+Protection from Elements icon seems wrong
+
+Refactor spell conditions to 200 conditions exactly matching spell positions.
+Support all 200 of them in code to allow easily swapping spells around.
+
+
+Up from left arrow to select first slot
+Up from right arrow to select right most slot
+
+Scrolls - skills - CMS help - spell names don't always match
+
+ExtraLvSpell skill - match level requirements for Sorc/Sam
+
+Level 10 spells for Sorcerer Ayen?
+
+Let hybrids use katana
+
+1H Swords for Druid
+
+Backstab always available with level switch = 0
+- Must adjust battle events to handle 0-4 instead of 1-5
+
+USE MINICUT FOR CMSes?
+
+freeze timer during CMS
+
+Make Sneak / Backstab depend on AGI
+- Use Hide condition, not a switch
+- Detect Illusion and other such skills can remove Hide
+
+Finished at 32
+
+Sneak
+- Add hide status
+- Change weapons to backstab x N
+- Hide can be dispelled by illusion removers
+- Hide can be removed when attacked
+- Each turn
+-  If hide removed, restore weapons
+
+Class select stats with no equipment
+
+
+New Sneak formula:
+
+First time:
+CharAGI / (2.0 * MaxEnemyAGI) * 100 -> %success : 
+2nd time:
+CharAGI / (5.0 * MaxEnemyAGI) * 100 -> %success
+3rd time:
+CharAGI / (10.0 * MaxEnemyAGI) * 100 -> %success
+Nth time:
+CharAGI / (N*5.0 * MaxEnemyAGI) * 100 -> %success
+
+Accessory -> Doubles % chance
+
+SOR/SAM should only have LearnSpells when can learn something
+
+Compute enemy party AVG AGI each turn
+
+
+Level 10 / infinity magic
+- Need to display level on mage book
+- Need to display on sorcerer level BOX
+
+New LoH animation with hands spread out glowing blue
+- Ayen
+- Daniel
+
+Move title1 - title2 in colluseum
+
+Check if char N backup vars still used by party events
+
+Implement HP/EP Regen
+
+BATTLE COPY CHECKLIST:
+- Which enemies
+- AP award
+- Stolen items
+- 
+
+
+
+CHANGE MAGE SPELL CHECKLIST:
+- Change skill
+- Change scroll to match skill id
+- Edit SpellOpsMage (Id, Description)
+- Edit LearnFromScrolls (Ayen, Celine, Yurak)
+- Edit SetSpellConditions (Ayen, Celine, Yurak)
+
+
+TImestop icon should be White
+
+Debug menu use \n[\v]
+
+Yurak Dark Magic
+
+Separate steal anims for Ayen, Elizabeth, Yurak
+
+Steal Tests:
+- Test with no mods
+- Test with skill mod
+- Test with all 3 accesories
+- Test enemy cannot move
+- Try 2 times, to ensure second time cannot steal anything
+- Test 999 AGI with all bonuses for overflow
+- Test 1 AGI no bonuses behaves properly
+
+Seppuku animation
+
+Backstab description
+
+Ayen / Elizabeth Backstab anims
+
+Try Phant Blade followed by Black Blade. Make sure they don't mess up.
+
+IvorGhetto, not all spells for sale
+
+Celine Bladeblade switch name
+
+
+Fix Celine Blade Blade anim
+
+
+Backstab with a gun?
+
+Verify weapon animations for all playable chars.
+- Including NPC chars
+- Including bare handed attack
+
+Improved Crit rate for fighter
+
+disable skills menu for NPCs
+
+
+retest fleet spray animations
+
+Need post equip after party change
+
+Daniel mace and staff?
+
+test LearnSpells
+
+Should not get LearnSpells after recover XP loss
+
+XP loss should go in AfterPossibleLevelUp
+
+Axes double crit rate
+
+some debug info showing battle cleanup called
+
+cms skills menu, up to move to last, down to first
+
+
+Testing Notes:
+- Enable switch 33:DEBUG CHECKS
+- After every battle should see "Battle Win" or "Battle Loss" animation
+ - "Battle Win" if you won the battle
+ - "Battle Loss" if you died (scripted no game over), or ran away
+ - Should always work for random encounters
+ - Check that it happens always immediately after boss battles
+- Should see debug boxes in upper right
+ - Outside or Inside, depending on map
+ - Menu, Regen, Enemies normally on, off for cutscenes and scripted movement.
+ - Day / Night, depending on events
