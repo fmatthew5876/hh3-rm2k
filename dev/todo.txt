@@ -465,3 +465,22 @@ some debug info showing battle cleanup called
 cms skills menu, up to move to last, down to first
 
 running away on first turn does not trigger battle cleanup
+
+Druid transform into animal
+
+what states are resisted by frenzy / tenser
+
+Spell book up from arrow should work
+
+redo backstab algo (multiply atk first, then subtract def)
+
+Frenzy description
+
+Review using EP for fighter skills
+
+EP healing items should not work on:
+- FGT, MNK, Sirran, Fleet
+
+Debugger should be first item, not headset
+
+Remedy and Krista Plant restore fighters EP
