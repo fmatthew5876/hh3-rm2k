@@ -10,6 +10,7 @@ Basic Detect Traps tests
 * Learn caution when detect is off -> turns on icon
 * Party change when detect is on, party no caution -> detect off
 * Party change add member with caution -> icon on after party change
+* Cast FindTraps while Detecting -> continue detecting after done.
 
 Basic Walk Silently tests
 

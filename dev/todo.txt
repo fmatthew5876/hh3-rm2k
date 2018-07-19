@@ -16,6 +16,7 @@ Verify char locks
 test Clairvoyance (switch 113) on every map with a hidden room
 ADD:Linup event moved
 PARTYTalktoAnimals
+Implement onAreaChange
 
 Revisit disclaimer at beginning of game
 Fix battle music mp3
@@ -263,10 +264,9 @@ Do we need copies of spells for mage/cleric/druid?
  - messed up sort order if reused
 
 Make some spells outdoor only, particularly druid.
-- Call Lightning
+- Call Lightning - Done
 - Natures Beauty
 
-When removing spell, if nothing in memo slot move left
 
 When reloading from saved game all events seem to restart.
 - Menu cleanup?
@@ -295,7 +295,6 @@ Sidequest stories
 
 7th saga sword enemy - Mordenkainen's sword animation
 
-Mild Wave Scroll and condition?? - Is it mirror?
 
 Test all scrolls. Make sure correct spell is leanred.
 - AyenSHD
@@ -303,7 +302,6 @@ Test all scrolls. Make sure correct spell is leanred.
 - Celine - tested
 - Yurak
 
-Reorder scrolls to match mage spells
 
 Test XP loss
 - Relation to skills
@@ -311,18 +309,12 @@ Test XP loss
 - Relation to spells when underleveled
 - Add Debug Mode command to inflict XP loss
 
-Protection from Elements icon seems wrong
 
 Refactor spell conditions to 200 conditions exactly matching spell positions.
 Support all 200 of them in code to allow easily swapping spells around.
 
 
-Up from left arrow to select first slot
-Up from right arrow to select right most slot
-
 Scrolls - skills - CMS help - spell names don't always match
-
-ExtraLvSpell skill - match level requirements for Sorc/Sam
 
 Level 10 spells for Sorcerer Ayen?
 
@@ -330,16 +322,8 @@ Let hybrids use katana
 
 1H Swords for Druid
 
-Backstab always available with level switch = 0
-- Must adjust battle events to handle 0-4 instead of 1-5
-
-USE MINICUT FOR CMSes?
 
 freeze timer during CMS
-
-Make Sneak / Backstab depend on AGI
-- Use Hide condition, not a switch
-- Detect Illusion and other such skills can remove Hide
 
 Finished at 32
 
@@ -350,8 +334,6 @@ Sneak
 - Hide can be removed when attacked
 - Each turn
 -  If hide removed, restore weapons
-
-Class select stats with no equipment
 
 
 New Sneak formula:
@@ -367,9 +349,6 @@ CharAGI / (N*5.0 * MaxEnemyAGI) * 100 -> %success
 
 Accessory -> Doubles % chance
 
-SOR/SAM should only have LearnSpells when can learn something
-
-Compute enemy party AVG AGI each turn
 
 
 Level 10 / infinity magic
@@ -381,8 +360,6 @@ New LoH animation with hands spread out glowing blue
 - Daniel
 
 Move title1 - title2 in colluseum
-
-Check if char N backup vars still used by party events
 
 Implement HP/EP Regen
 
@@ -401,8 +378,6 @@ CHANGE MAGE SPELL CHECKLIST:
 - Edit LearnFromScrolls (Ayen, Celine, Yurak)
 - Edit SetSpellConditions (Ayen, Celine, Yurak)
 
-
-TImestop icon should be White
 
 Debug menu use \n[\v]
 
@@ -425,7 +400,6 @@ Backstab description
 
 Ayen / Elizabeth Backstab anims
 
-Try Phant Blade followed by Black Blade. Make sure they don't mess up.
 
 IvorGhetto, not all spells for sale
 
@@ -448,7 +422,6 @@ disable skills menu for NPCs
 
 retest fleet spray animations
 
-Need post equip after party change
 
 Daniel mace and staff?
 
@@ -460,7 +433,6 @@ XP loss should go in AfterPossibleLevelUp
 
 Axes double crit rate
 
-some debug info showing battle cleanup called
 
 cms skills menu, up to move to last, down to first
 
@@ -469,11 +441,6 @@ running away on first turn does not trigger battle cleanup
 Druid transform into animal
 
 what states are resisted by frenzy / tenser
-
-Spell book up from arrow should work
-
-redo backstab algo (multiply atk first, then subtract def)
-
 
 Review using EP for fighter skills
 
@@ -496,17 +463,9 @@ Screen showed after Abel
 
 Consider replacing headset with a tutorial system.
 
-Party caution skill
-
-area change transition event
-
 Seppuku requires katana?
 
 area change anim
-
-Party change should always reset walk/det
-
-Warehouse no icons
 
 
 Walk Silently increase first strike chance too
@@ -516,3 +475,4 @@ Memory Up, EP Up, EP Regen require higher levels for hybrids
 Reset map icons on exit menu
 
 
+SHD Chaos Bite -> maybe battle event
