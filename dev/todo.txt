@@ -508,15 +508,6 @@ Party change should always reset walk/det
 
 Warehouse no icons
 
-test detect/walk/caution/run
-
-detect then walk -> 2x slow
-
-# of steps 238 in warehouse??
-
-# of steps race condition
-
-Remove XP Box
 
 Walk Silently increase first strike chance too
 
