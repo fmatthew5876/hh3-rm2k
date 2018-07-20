@@ -41,12 +41,9 @@ Ivor Ghetto - extra house add enemies
 Cast dimension door on a save point?
 Celine computer event should be disabled after finish mission.
 Second computer Celine again
-test cms on a ladder
 
-What is switch 44 Ayen and why do we set it when we start game?
 
-Had to remove direction setting in restore events. Trying to set direction
-of an inactive event and then waiting on movement causes the game to crash.
+Escape on ladder should reset sprites
 
 
 Why do world map teleports reset battle music?
@@ -56,7 +53,7 @@ Balance Prot Good / Evil
 
 How does Timon regulate harsh desert climate? Elevation?
 
-Fix Sorc book tutorial BG
+Remove old tutorial panoramas
 
 
 Prot from Good / Prot from Evil??
@@ -71,13 +68,8 @@ World map scene too dark
 Rename resistance
 Wierd.png makes things too dark.
 Balance rune blade to be less powerful.
-Light flicker when first see Timon map after class select
 
-Skills menu descriptions
-Noise is broken
 Noise needs a sound effect
-Wait for all move in normal events causes freeze after cms
-face left in warehouse teleport is delayed. Adding wait for all causes crash after access cms. How to fix?
 
 Figure out class name for King Faisal.
 
@@ -85,7 +77,6 @@ Rename elements
 
 Reform party on the world map. Don't require finding npcs in towns.
 
-Switch to STD enter / exit dungeon
 
 Better attack anim for spear Ayen
 Fighter has no skills for Knight Swords
@@ -107,25 +98,17 @@ Refactor drinking and smoking
 
 Remove Rogue, Rebalance Thief, Treasure Hunter, Ninja
 
-No traps/walk icons in cms maps
-
-
 Ensure 1HS, hit rate, etc... are accurate
 Heavy weapons lowering dex? - guard at base talks about this
 
 We need to talk to the commander. Add period and step back
 
+Show Celine in warehouse conversation.
+
 Save points should let you save directly
 Call erase event on all map setters
 Why do we need reset switch common event?
 
-Consider one event per map to set map settings. 
-- Outside or no
- - Aether storm image or no
-- Number of events
-- dungeon setup
-- BattleEnd BGM
-- Detect traps / walk / etc..
 
 
 Your Lieutenant
@@ -156,9 +139,6 @@ Faisal King 2nd class?
 - Add Leadership skillset
 - One level 35 skill
 
-
-What is XP drained once? Switch?
-
 Liquid Sword?
 
 Paladin
@@ -173,11 +153,6 @@ Refresh on event
  - After skills learned
  - After menu access
 
-Consider Steal for Herp
-
-Backstab +5?
-Balance backstabs
-
 Free skill slots
   48, 49
 
@@ -186,15 +161,6 @@ Show some icon to indicate [Shift] for help
 Fix Requires sword for sword skills.
 - Skill descriptions
 - Use physical element
-
-Mystic skill for mages
-
-Elizabeth Backstab x5 not working
-- Rogues should start with backstab level 1 always
-
-Remove Gale - Ayen, Celine, Olvan, switches and battle events
-
-Elizabeth - only get Sorcerer 2nd class when learns first spell at level 10.
 
 Animal Strike animation for Ayen
 Undead Strike animation for Ayen and Daniel
@@ -213,24 +179,12 @@ Make first aid kits rare
 
 Only Thief and Ninja, no more Rogue / Treasure Hunter
 
-Level up stats needs rebalancing. Scales way too high from level 45-50. S shaped curve?
-
 Add icon to tell play they can use [Shift] to see help.
 
 Priest AP skill for more secret spells?
 Hidden priest spells learnable from scrolls?
 
-Refactor Class Selection
-- Show skills available for level 1 character with help messages.
-
-Make Dual Wield a flavor skill
-
 Fighter skills decrease blunt defense
-
-Fix Righteous Hammer
-- Not implemented for Ayen
-- Remove for Daniel (From battles)
-- Verify working for Marx
 
 Refactor GoodBerry spell - Maybe learnable from scroll?
 
@@ -243,25 +197,14 @@ Saving from menu.. After reloading menu cleanup events don't occur.
 
 Memory up + 1 broke
 
-Redo memorization levels (6 levels + 3 skill)
-Redo spell levels
-
-Cast find traps when already detecting traps
 
 What happens to memorization when we down-level from XP drain?
-
-Rename Priest back to Cleric..
-
-Verify regrowth and regeneration icons
 
 Remove Curse is useless, dispell magic does it
 
 Rename ProtGood/ProtEvil/Silence N' Radius -> Mass XXX
 
 True Seeing and True Sight - same icon / spell
-
-Do we need copies of spells for mage/cleric/druid?
- - messed up sort order if reused
 
 Make some spells outdoor only, particularly druid.
 - Call Lightning - Done
@@ -327,29 +270,6 @@ freeze timer during CMS
 
 Finished at 32
 
-Sneak
-- Add hide status
-- Change weapons to backstab x N
-- Hide can be dispelled by illusion removers
-- Hide can be removed when attacked
-- Each turn
--  If hide removed, restore weapons
-
-
-New Sneak formula:
-
-First time:
-CharAGI / (2.0 * MaxEnemyAGI) * 100 -> %success : 
-2nd time:
-CharAGI / (5.0 * MaxEnemyAGI) * 100 -> %success
-3rd time:
-CharAGI / (10.0 * MaxEnemyAGI) * 100 -> %success
-Nth time:
-CharAGI / (N*5.0 * MaxEnemyAGI) * 100 -> %success
-
-Accessory -> Doubles % chance
-
-
 
 Level 10 / infinity magic
 - Need to display level on mage book
@@ -367,8 +287,8 @@ BATTLE COPY CHECKLIST:
 - Which enemies
 - AP award
 - Stolen items
-- 
-
+- Steal mods
+- XP Loss numbers
 
 
 CHANGE MAGE SPELL CHECKLIST:
@@ -377,11 +297,6 @@ CHANGE MAGE SPELL CHECKLIST:
 - Edit SpellOpsMage (Id, Description)
 - Edit LearnFromScrolls (Ayen, Celine, Yurak)
 - Edit SetSpellConditions (Ayen, Celine, Yurak)
-
-
-Debug menu use \n[\v]
-
-Yurak Dark Magic
 
 Separate steal anims for Ayen, Elizabeth, Yurak
 
@@ -429,8 +344,6 @@ test LearnSpells
 
 Should not get LearnSpells after recover XP loss
 
-XP loss should go in AfterPossibleLevelUp
-
 Axes double crit rate
 
 
@@ -470,9 +383,11 @@ area change anim
 
 Walk Silently increase first strike chance too
 
-Memory Up, EP Up, EP Regen require higher levels for hybrids
-
-Reset map icons on exit menu
-
 
 SHD Chaos Bite -> maybe battle event
+
+
+
+Adjust Wraith XP loss amounts - should be more than 100
+
+Improve dead sprite for all chars. Not just a rotation.
