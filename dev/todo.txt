@@ -414,3 +414,5 @@ Void element - default more damage to all?
 Finish racial stat bonuses
 
 DRU needs one more than just talk to animals
+
+Spirit Blast animation
