@@ -419,6 +419,7 @@ Spirit Blast animation
 
 Whats the deal with Monk EP?
 
+Abel use battle local vars
 
 
 ATK -> Attack Power
