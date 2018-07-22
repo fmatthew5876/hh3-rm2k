@@ -419,6 +419,9 @@ Spirit Blast animation
 
 Whats the deal with Monk EP?
 
-Skills delete up to 960
 
-Ayen Bard Steal broke
+
+ATK -> Attack Power
+AC -> Armor Class
+ETH -> Ether Response
+AGI -> Agility
