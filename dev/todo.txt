@@ -391,3 +391,7 @@ SHD Chaos Bite -> maybe battle event
 Adjust Wraith XP loss amounts - should be more than 100
 
 Improve dead sprite for all chars. Not just a rotation.
+
+figure out deafness / silence
+
+Review all states and spells that cause them
