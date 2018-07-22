@@ -416,3 +416,9 @@ Finish racial stat bonuses
 DRU needs one more than just talk to animals
 
 Spirit Blast animation
+
+Whats the deal with Monk EP?
+
+Skills delete up to 960
+
+Ayen Bard Steal broke
