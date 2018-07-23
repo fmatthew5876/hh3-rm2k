@@ -423,3 +423,12 @@ ATK -> Attack Power
 AC -> Armor Class
 ETH -> Ether Response
 AGI -> Agility
+
+NPC who explains regen
+
+supply us with
+
+shelf of drinks in inn
+shelf of smokes in inn too?
+
+Secret church in slums
