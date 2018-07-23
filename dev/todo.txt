@@ -411,15 +411,11 @@ Implement HP/EP Regen
 
 Void element - default more damage to all?
 
-Finish racial stat bonuses
-
 DRU needs one more than just talk to animals
 
 Spirit Blast animation
 
 Whats the deal with Monk EP?
-
-Abel use battle local vars
 
 
 ATK -> Attack Power
