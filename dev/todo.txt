@@ -407,8 +407,6 @@ NIN requires less than all other rogues
 
 Fleet needs more 1300
 
-Implement HP/EP Regen
-
 Void element - default more damage to all?
 
 DRU needs one more than just talk to animals
@@ -417,6 +415,9 @@ Spirit Blast animation
 
 Whats the deal with Monk EP?
 
+Set Kahran HP/EP Regen on start
+
+Healing potion rebalance
 
 ATK -> Attack Power
 AC -> Armor Class
