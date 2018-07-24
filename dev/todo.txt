@@ -94,9 +94,10 @@ Redo Bard songs
 
 Readjust Off/Def stance
 
-Refactor drinking and smoking
-
 Remove Rogue, Rebalance Thief, Treasure Hunter, Ninja
+
+Re-evaluate elements
+Re-evaluate states
 
 Ensure 1HS, hit rate, etc... are accurate
 Heavy weapons lowering dex? - guard at base talks about this
@@ -426,9 +427,12 @@ AGI -> Agility
 
 NPC who explains regen
 
-supply us with
 
 shelf of drinks in inn
 shelf of smokes in inn too?
+Should have bottles and cigarettes on counter
 
 Secret church in slums
+
+
+drink/smoke on ladder.
