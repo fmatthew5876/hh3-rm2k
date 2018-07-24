@@ -70,6 +70,7 @@ Wierd.png makes things too dark.
 Balance rune blade to be less powerful.
 
 Noise needs a sound effect
+Sound effects for bard songs
 
 Figure out class name for King Faisal.
 
@@ -430,9 +431,29 @@ NPC who explains regen
 
 shelf of drinks in inn
 shelf of smokes in inn too?
+
+Timon map tint on autorun, not teleports
+- show screen
+
+Skyflow B1, mission 2 complete switch for event?
+
+Skyflow harder enemies deeper in
+
+Skyflow products catalog
+
+Try cutscenes without Ayen leader
+
+You're brav
+ofanything
 Should have bottles and cigarettes on counter
 
 Secret church in slums
 
 
 drink/smoke on ladder.
+
+after mission 2, use change graphic, not switches
+
+rename Rafad, Zacbarian
+
+Maps, try waiting for key press
