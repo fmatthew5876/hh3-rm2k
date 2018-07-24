@@ -457,3 +457,17 @@ after mission 2, use change graphic, not switches
 rename Rafad, Zacbarian
 
 Maps, try waiting for key press
+
+choice now do you?
+wait for move
+
+2nd floor inn Dirks
+
+too many potions of healing in boxes - sewers/junkyard
+
+SOTN - Crystal Teardrops - upgrade to mp3
+
+show party in weapon event
+
+
+weapon battle needs test different leader
