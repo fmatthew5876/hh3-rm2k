@@ -455,6 +455,11 @@ drink/smoke on ladder.
 after mission 2, use change graphic, not switches
 
 rename Rafad, Zacbarian
+- Assassin event
+- Gatsy party guard
+- Meeting
+- Meeting guard outside
+
 
 Maps, try waiting for key press
 
@@ -486,6 +491,8 @@ Knock doors in Timon (player won't have required level for this)
 Extra equip in Timon
 - Pike - Office
 - Forged Steel Mace - Bosun Factory B2
+- Weapons for sale in Eastland Ghetto
+- Weapons for sale in north (Ceramic Breastplate?)
 
 Mage Spells:
 - Color Spray - Bosun Factory outside
@@ -504,3 +511,55 @@ guard face down after
 kahran EP regen broke
 Check enemy drops too for equipment
 Ghoul Touch spell won from gremlin?
+
+inside more houses in north sector
+
+Why speak to the guard without disguise?
+
+Drinking/Smoking in disguise
+Ayen disguise elf ears
+
+Overhaul npc dialogue in upper class district
+- more educated debates
+
+
+
+flashy lights in ball room, more decorations
+
+Is this really who we should be fighting?
+
+Light pictures at night
+
+Close doors and no npcs at night
+
+
+Ayen sleeping on stool?
+
+Dreyfus title
+
+NPC talk about generals
+NPC talk about govt structure
+
+Keep NIGHT switch on after meeting?
+
+Minister Said graphic
+
+Office at night	
+
+Wounded soldiers at office outside
+
+
+
+Jadin - no name in battle
+
+
+
+Creepy whisper sound effect in office text
+
+Kahran sad looks bad
+
+
+Redo mind talk
+
+People talk different if Bosun leads
+
