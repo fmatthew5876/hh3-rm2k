@@ -467,7 +467,40 @@ too many potions of healing in boxes - sewers/junkyard
 
 SOTN - Crystal Teardrops - upgrade to mp3
 
+Bosun talk about Quiet Storm
+
 show party in weapon event
 
+Susie needs a sprite
+
+Marx has reservations about Bosun help
 
 weapon battle needs test different leader
+
+Bosun factory rooftop
+
+Knock doors in Timon (player won't have required level for this)
+- Ivor Ghetto
+- Bosun Factory
+
+Extra equip in Timon
+- Pike - Office
+- Forged Steel Mace - Bosun Factory B2
+
+Mage Spells:
+- Color Spray - Bosun Factory outside
+
+Lower enc rate factory outside
+- F1
+too dark
+
+outside try enc rate 50
+
+hide screen save room
+
+Dre and Herp need their own sprites
+
+guard face down after
+kahran EP regen broke
+Check enemy drops too for equipment
+Ghoul Touch spell won from gremlin?
