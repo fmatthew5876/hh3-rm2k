@@ -622,4 +622,4 @@ RECHARGE HT/LOH switch?
 
 People talk different if Bosun leads
 
-add backstab resistance
+Consider 1 steal event per enemy, instead of 3 copies - more scalable if more thieves later
