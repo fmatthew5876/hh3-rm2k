@@ -614,8 +614,6 @@ Celine no add spells on char. Add them on event.
 
 Elizabeth add some AP
 
-Fasted enemy
-
 Sleep lasts forever
 
 Refactor Abel battle to use battle enemy switches
