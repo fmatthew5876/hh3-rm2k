@@ -594,5 +594,33 @@ Close eyes sprite
 
 Cutscene with Jade/Atum after sleep inn?
 
+
+Test:
+Ayen Steal
+Elizabeth Steal
+Bosun Steal
+Ayen Backstab/Sneak
+Elizabeth Backstab/Sneak
+Ayen HT
+Yurak HT
+
+SHD/SAM get level 5 wiz
+
+BattleSwitches for scripted attacks
+
+var 973
+
+Celine no add spells on char. Add them on event.
+
+Elizabeth add some AP
+
+Fasted enemy
+
+Sleep lasts forever
+
+Refactor Abel battle to use battle enemy switches
+
+RECHARGE HT/LOH switch?
+
 People talk different if Bosun leads
 
