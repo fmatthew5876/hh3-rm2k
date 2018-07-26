@@ -544,7 +544,23 @@ Keep NIGHT switch on after meeting?
 
 Minister Said graphic
 
+Wizard only cast grease when has allies
+
+Other women in Dreyfus room
+free other women Dreyfus prison
+
+Marx put a blanket on Lenna
+
+Redraw hell room sigil
+
+
+airforce rooftop -> guards shoot player. Dodge target minigame
+
+
 Office at night	
+	
+
+2 more soldiers with Jade
 
 Wounded soldiers at office outside
 
@@ -556,10 +572,14 @@ Jadin - no name in battle
 
 Creepy whisper sound effect in office text
 
+
+map fix near boxes
+
+
 Kahran sad looks bad
 
 
-Redo mind talk
+Redo mind talk after office
 
 People talk different if Bosun leads
 
