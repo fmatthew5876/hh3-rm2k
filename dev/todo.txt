@@ -622,3 +622,4 @@ RECHARGE HT/LOH switch?
 
 People talk different if Bosun leads
 
+Turn off BS if user cannot move
