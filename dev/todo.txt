@@ -581,5 +581,18 @@ Kahran sad looks bad
 
 Redo mind talk after office
 
+Ninja throw skill
+
+World Map use custom encounter system
+
+Cat purr sound when talk to animals
+- Auria
+- Somewhere in Timon
+
+Close eyes sprite
+- Marx in bed at Auria Inn
+
+Cutscene with Jade/Atum after sleep inn?
+
 People talk different if Bosun leads
 
