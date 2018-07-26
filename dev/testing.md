@@ -25,7 +25,6 @@ the state of some hidden variables in game.
 * After every battle should see "Battle Win" or "Battle Loss" animation
     * "Battle Win" if you won the battle
     * "Battle Loss" if you died (scripted no game over), or ran away
-        * Note: This does not occur if you run away on first turn
     * Should always work for random encounters
     * Check that it happens always immediately after boss battles
 
