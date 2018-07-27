@@ -624,3 +624,5 @@ People talk different if Bosun leads
 
 Battle event targetting can't determine enemies that run away
 - IMPOSSIBLE TO FIX THIS
+
+Bats drop too many goodberry
