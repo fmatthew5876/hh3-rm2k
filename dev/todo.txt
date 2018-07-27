@@ -622,4 +622,5 @@ RECHARGE HT/LOH switch?
 
 People talk different if Bosun leads
 
-Consider 1 steal event per enemy, instead of 3 copies - more scalable if more thieves later
+Battle event targetting can't determine enemies that run away
+- IMPOSSIBLE TO FIX THIS
