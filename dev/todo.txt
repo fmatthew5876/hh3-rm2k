@@ -625,4 +625,8 @@ People talk different if Bosun leads
 Battle event targetting can't determine enemies that run away
 - IMPOSSIBLE TO FIX THIS
 
-Bats drop too many goodberry
+Dead chars should not get AP
+
+Dreyfus battle
+- effects don't hit Lust before transform
+- test that effects don't hit Dreyfus after transform
