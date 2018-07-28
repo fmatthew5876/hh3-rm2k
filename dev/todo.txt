@@ -630,3 +630,112 @@ Dead chars should not get AP
 Dreyfus battle
 - effects don't hit Lust before transform
 - test that effects don't hit Dreyfus after transform
+
+Test all weapons with all chars -> animations
+
+Rebalance char weapons
+- Kaelnayyan Bloddy Sword
+- Dyrkk Double Edged Halberd
+- Dre Halberd
+- Herp Glocks
+
+Fleet, prevent removing Chain Gun with script
+
+Treasure Hunter can use large guns
+- Upgrade class select
+
+
+Fix Phant Blade, Hammer, Black Blade, Frenzy, Tenser for all battles...
+
+CharWeaps -> ItemWeaps before shop - include chars like Dre/Herp/Dyrkk/Kaelnayyan
+- Verify shop says item equipped
+- NPC chars should start with base weapon and events transfer them like other chars
+  - Verifies stats match
+
+Mage scroll descriptions should match spells
+
+BS should be 100% accurate if enemy cannot move
+
+
+world map intro, colors and wierd are not smooth
+
+
+Wakazaishi - Wakizaishi in class select
+ - Ninja description
+
+
+timon sector -> district
+
+something hidden -> make him jealous or angry about secrets
+
+all kinds of machinery - agent near exit
+exit. No admit - be more nice?
+is immortal
+
+Include Lenna is some mission briefings. Flesh her out more as a character.
+
+Celine giggle sprite. Hand over mouth.
+- Haha don;t be too hard on him commander.
+
+
+Show pictures / scenes while Lenna talks
+
+strictly illegal
+
+Lenna - My Pleasure Commander (nod to the commander)
+
+
+Verify timeline
+- Alicia says 15 years, what year in intro?
+
+No trains due today.. (Say something else. There are always trains)
+
+east sector -> government district
+
+readings are very high
+
+Check for switch T26
+
+2nd floor enc rate too much
+
+disable sneak/backstab when gun equipped or unarmed
+
+do we put hit rate in weapon desc?
+- agent in HQ talks about it
+
+Are knives slashing or piercing
+
+471-495 Knife DRU
+496-535 Sword DRU
+536-560 Mace DRU
+561-565 Wand DRU
+566-590 Staff DRU
+591-605 Axe 
+606-620 Spear
+621-635 Halberd
+636-650 Ninja
+651-670 Katana
+671-690 Gun DRU
+
+1021 - Celine Knives
+1045 - Celine Wands/Staff
+1075 - Celine Special Maces
+1085 - Fleet Guns
+1105 - Marx Mace/Wand/Staff
+1160 - Elizabeth Knife
+1185 - Elizabeth Ninja Sw
+1200 - Daniel All
+1420 - Faisal Sword
+1460 - Leo Sword
+1500 - Yurak All
+1720 - Bosun Knife/Sword/Mace
+1810 - Bosun Axe
+1825 - Bosun Gun
+1845 - Crystal Knife
+1870 - Crystal Special swords
+1885 - Crystal Mace/Wand/Staff
+1940 - Crystal Gun
+1985 - Olvan Knife
+Call premenu before chars leave party
+
+Consider no spray for shutgun. Already hits all!
