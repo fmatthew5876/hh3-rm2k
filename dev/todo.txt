@@ -739,3 +739,11 @@ Are knives slashing or piercing
 Call premenu before chars leave party
 
 Consider no spray for shutgun. Already hits all!
+
+Imperial Hound needs animal states / elements
+
+More enemies with slash, pierce, and missile attack
+
+shields should be very good
+
+test disease idea
