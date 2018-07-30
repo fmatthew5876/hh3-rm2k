@@ -705,38 +705,53 @@ do we put hit rate in weapon desc?
 
 Are knives slashing or piercing
 
-471-495 Knife DRU
-496-535 Sword DRU
-536-560 Mace DRU
-561-565 Wand DRU
-566-590 Staff DRU
-591-605 Axe 
+471-495 Knife WIL
+496-535 Sword 
+536-560 Mace
+561-565 Wand
+566-590 Staff
+591-605 Axe
 606-620 Spear
 621-635 Halberd
 636-650 Ninja
 651-670 Katana
-671-690 Gun DRU
+671-690 Gun WIL
 
 1021 - Celine Knives
 1045 - Celine Wands/Staff
 1075 - Celine Special Maces
 1085 - Fleet Guns
-1105 - Marx Mace/Wand/Staff
-1160 - Elizabeth Knife
-1185 - Elizabeth Ninja Sw
-1200 - Daniel All
-1420 - Faisal Sword
-1460 - Leo Sword
-1500 - Yurak All
-1720 - Bosun Knife/Sword/Mace
-1810 - Bosun Axe
-1825 - Bosun Gun
-1845 - Crystal Knife
-1870 - Crystal Special swords
-1885 - Crystal Mace/Wand/Staff
-1940 - Crystal Gun
+1105 - Fleet Guns (Eagle Eye)
+1125 - Marx Mace/Wand/Staff
+1180 - Elizabeth Knife
+1205 - Elizabeth Ninja Sw
+1220 - Daniel All
+1440 - Faisal Sword
+1480 - Leo Sword
+1520 - Yurak All
+1740 - Bosun Knife/Sword/Mace
+1830 - Bosun Axe
+1845 - Bosun Gun
+1865 - Crystal Knife
+1890 - Crystal Special swords
+1905 - Crystal Mace/Wand/Staff
+1960 - Crystal Gun
 1985 - Olvan Knife
+2005 - Olvan Mace/Wand/Staff/Axe
+2075 - Wilhelm Knife
+
+2201 - Kharan Kataclysm
+2203 - Alethron Rune Blade
+2205 - Kaelnayyan Bloody Sword
+2207 - Dyrkk Double Edge Halberd
+2209 - Dre Halberd
+2210 - Herp Glock Main
+2211 - Herp Glock Off
 Call premenu before chars leave party
+
+Free skills 75, 7, 8, 9
+
+Samurai elemental attacks should require katana
 
 Consider no spray for shutgun. Already hits all!
 
@@ -748,8 +763,11 @@ shields should be very good
 
 test disease idea
 
-Guard in HQ, guns more accurate
+debug mode after possible lvl didn't remove wiz stuff
 
+weapon skill anims broke
+weapon skills cost EP
+Spray messed up
 
 Lenna -> Alicia
 
@@ -760,30 +778,18 @@ Drow resist charm
 underwater areas - with water breathing spell
 - add one to bosun factory
 
-cat in slums - should purr when talk to animals
-
-restore regen agent in HQ
-regen flash too slow
-
-office event - sprites to crouch
-
-longer fade out
-
-Jadin should howl when speaking in battle
 
 limited visibility maps
 - torch item for bigger light
 - mage light spell
 
-timon tour tint - intro tint
 intro tints and sky on world map
 
-ladder up in sewers
-
-ATUM talk
-
-Music blip after conveyer
 
 Predestination sounds awful
 
-slow on floor 76?
+What happens if elizabeth only offhand
+
+Daniel Mace animation
+
+retest Fleet, including Eagle Eye skill
