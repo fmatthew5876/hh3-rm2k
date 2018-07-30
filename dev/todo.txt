@@ -757,7 +757,22 @@ Elizabeth should ask about Alicia
 
 Drow resist charm
 
-Magic elements default to "B"
-
 underwater areas - with water breathing spell
 - add one to bosun factory
+
+cat in slums - should purr when talk to animals
+
+restore regen agent in HQ
+regen flash too slow
+
+office event - sprites to crouch
+
+longer fade out
+
+Jadin should howl when speaking in battle
+
+limited visibility maps
+- torch item for bigger light
+- mage light spell
+
+timon tour tint - intro tint
