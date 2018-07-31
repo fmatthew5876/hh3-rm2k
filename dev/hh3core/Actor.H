@@ -1,0 +1,48 @@
+#pragma once
+
+//Num usable actors
+constexpr int kNumActors = 40;
+
+enum Actor {
+    eACTNone = 0,
+    eACTAyenFGT = 1,
+    eACTAyenPAL = 2,
+    eACTAyenSHD = 3,
+    eACTAyenSAM = 4,
+    eACTAyenRNG = 5,
+    eACTAyenROG = 6,
+    eACTAyenNIN = 7,
+    eACTAyenTHF = 8,
+    eACTAyenTRH = 9,
+    eACTAyenCLR = 10,
+    eACTAyenDRU = 11,
+    eACTAyenMAG = 12,
+    eACTAyenSOR = 13,
+    eACTAyenMNK = 14,
+    eACTAyenBRD = 15,
+    eACTAyenEXT1 = 16,
+    eACTAyenEXT2 = 17,
+    eACTAyenEXT3 = 18,
+    eACTAyenEXT4 = 19,
+    eACTSirran = 20,
+    eACTKahran = 21,
+    eACTCeline = 22,
+    eACTFleet = 23,
+    eACTMarx = 24,
+    eACTElizabeth = 25,
+    eACTDaniel = 26,
+    eACTFaisal = 27,
+    eACTLeo = 28,
+    eACTYurak = 29,
+    eACTBosun = 30,
+    eACTCrystal = 31,
+    eACTOlvan = 32,
+    eACTDre = 33,
+    eACTHerp = 34,
+    eACTAlethorn = 35,
+    eACTHelecopter = 36,
+    eACTKaelnayyan = 37,
+    eACTWilhelm = 38,
+    eACTMyyah = 39,
+    eACTDyrkk = 40
+};

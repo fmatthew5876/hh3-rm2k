@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.7)
+project(hh3core VERSION 1.0 LANGUAGES CXX)
+
+
+add_library(hh3core STATIC
+	Log.C
+	Cmd.C
+	)
+
+# C++14 is required
+target_compile_features(hh3core PUBLIC cxx_std_14)
+
+target_link_libraries(hh3core liblcf::liblcf)
