@@ -2,6 +2,9 @@
 #include <utility>
 #include <ostream>
 #include <data.h>
+#include <rpg_map.h>
+#include <rpg_event.h>
+#include <rpg_eventpage.h>
 
 enum LogLevel {
     eLogDebug,
@@ -231,3 +234,12 @@ inline std::ostream& operator<<(std::ostream& os, const RPG::Switch& t) {
 inline std::ostream& operator<<(std::ostream& os, const RPG::Variable& t) {
     return detail::printRpg(os, t);
 }
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::Event& t) {
+    return detail::printRpg(os, t);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::MapInfo& t) {
+    return detail::printRpg(os, t);
+}
+

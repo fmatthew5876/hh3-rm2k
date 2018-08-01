@@ -15,7 +15,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
     logInf("Loading RPG_RT database `", infile, "'...");
 
-    std::string encoding = "ascii";
+    std::string encoding = "";
 
     auto rc = LDB_Reader::Load(infile, encoding);
     if(!rc) {
