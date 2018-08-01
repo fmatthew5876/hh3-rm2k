@@ -1,7 +1,8 @@
+#pragma once
 #include <rpg_eventcommand.h>
 #include <ostream>
 
-inline const char* codeToStr(RPG::EventCommand::Code::Index code) {
+constexpr const char* codeToStr(RPG::EventCommand::Code::Index code) {
     switch(code) {
         case RPG::EventCommand::Code::END:
             return "END";

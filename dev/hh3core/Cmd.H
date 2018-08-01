@@ -206,6 +206,8 @@ RPG::EventCommand StateInflicted(int actor_id, int state_id, bool has_else);
 } //namespace Actor
 } //ConditionalBranch
 
+RPG::EventCommand PlayBGM(std::string bgm, int fadein_ms, int volume, int tempo, int balance);
+
 RPG::EventCommand Comment(std::string msg);
 
 RPG::EventCommand Comment_2(std::string msg);

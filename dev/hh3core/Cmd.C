@@ -279,6 +279,14 @@ RPG::EventCommand ConditionalBranch::Actor::StateInflicted(int actor_id, int sta
     return makeConditionalBranchActor(actor_id, 6, state_id, has_else);
 }
 
+RPG::EventCommand PlayBGM(std::string bgm, int fadein_ms, int volume, int tempo, int balance) {
+    RPG::EventCommand cmd;
+    cmd.code = RPG::EventCommand::Code::PlayBGM;
+    cmd.parameters = { fadein_ms, volume, tempo, balance };
+    cmd.string = std::move(bgm);
+    return cmd;
+}
+
 RPG::EventCommand Comment(std::string msg) {
     RPG::EventCommand cmd;
     cmd.code = RPG::EventCommand::Code::Comment;

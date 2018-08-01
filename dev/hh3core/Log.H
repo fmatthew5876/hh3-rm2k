@@ -1,10 +1,12 @@
 #pragma once
 #include <utility>
 #include <ostream>
+#include <sstream>
 #include <data.h>
 #include <rpg_map.h>
 #include <rpg_event.h>
 #include <rpg_eventpage.h>
+#include "Code.H"
 
 enum LogLevel {
     eLogDebug,
@@ -164,6 +166,13 @@ inline void logErrEnd(Args&&... args) {
     logLvlEnd(eLogErr, std::forward<Args>(args)...);
 }
 
+template <typename... Args>
+inline std::string logStr(Args&&... args) {
+    std::ostringstream ss;
+    detail::baselog(ss, std::forward<Args>(args)...);
+    return ss.str();
+}
+
 namespace RPG {
 class Actor;
 class Skill;
@@ -241,5 +250,10 @@ inline std::ostream& operator<<(std::ostream& os, const RPG::Event& t) {
 
 inline std::ostream& operator<<(std::ostream& os, const RPG::MapInfo& t) {
     return detail::printRpg(os, t);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::EventCommand& t) {
+    os << '`' << codeToStr(RPG::EventCommand::Code::Index(t.code)) << "'(" << t.code << ')';
+    return os;
 }
 

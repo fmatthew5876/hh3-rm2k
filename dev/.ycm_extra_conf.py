@@ -1,5 +1,5 @@
 flags = [
-        '-std=c+=14',
+        '-std=c+=17',
         '-Wall',
         '-I/home/matt/usr/include/liblcf',
         '-I/home/matt/hh3-rm2k/dev/hh3core'
