@@ -34,9 +34,13 @@ inline LogLevel getLogLevel() {
     return detail::kLogLevel;
 }
 
+inline bool isLogLevelEnabled(LogLevel ll) {
+    return (ll >= getLogLevel());
+}
+
 template <typename... Args>
 inline void logLvlStart(LogLevel ll, Args&&... args) {
-    if(ll >= getLogLevel()) {
+    if (isLogLevelEnabled(ll)) {
         const char* prefix = "";
         switch(ll) {
             case eLogDebug:

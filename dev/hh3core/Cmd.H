@@ -1,5 +1,6 @@
 #pragma once
 #include <rpg_eventcommand.h>
+#include "Log.H"
 
 enum EventSpecial {
     eEventPlayer = 10001,
@@ -207,8 +208,12 @@ RPG::EventCommand StateInflicted(int actor_id, int state_id, bool has_else);
 
 RPG::EventCommand Comment(std::string msg);
 
+RPG::EventCommand Comment_2(std::string msg);
+
 RPG::EventCommand ElseBranch();
 
 RPG::EventCommand EndBranch();
+
+void logCmd(int idx, const RPG::EventCommand& cmd, LogLevel ll = eLogInfo);
 
 } //namespace cmd

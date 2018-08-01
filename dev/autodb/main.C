@@ -8,38 +8,47 @@
 
 void usage() {
     std::cerr << "autodb - Enhances rpg_rt database with scripted elements" << std::endl;
-    std::cerr << "Usage: autodb [-d] [FILE]" << std::endl;
+    std::cerr << "Usage: autodb [-d] [INFILE] [OUTFILE]" << std::endl;
 }
 
-void doMain(const std::string& infile) {
+void doMain(const std::string& infile, const std::string& outfile) {
 
     logInf("Loading RPG_RT database `", infile, "'...");
 
-    auto rc = LDB_Reader::Load(infile, "ascii");
+    std::string encoding = "ascii";
+
+    auto rc = LDB_Reader::Load(infile, encoding);
     if(!rc) {
         throw Exception("Failed to load LDB database from file `" + infile  + "'");
     }
 
     doWeaponCopies();
+
+    rc = LDB_Reader::Save(outfile, encoding);
+    if(!rc) {
+        throw Exception("Failed to save LDB database from file `" + outfile  + "'");
+    }
+
 }
 
 int main(int argc, char** argv) {
-    if (argc <= 1) {
+    if (argc <= 2) {
         usage();
         return 1;
     }
 
-    if (argc > 2) {
+    if (argc > 3) {
         std::string args = argv[1];
         if (args == "-d") {
             setLogLevel(eLogDebug);
         }
     }
 
-    std::string infile = argv[argc-1];
+    std::string infile = argv[argc-2];
+    std::string outfile = argv[argc-1];
 
     try {
-        doMain(infile);
+        doMain(infile, outfile);
     } catch (Exception& e) {
         logErr("Caught Exception: ", e.what());
         return 1;

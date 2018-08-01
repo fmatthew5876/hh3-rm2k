@@ -5,6 +5,7 @@ project(hh3core VERSION 1.0 LANGUAGES CXX)
 add_library(hh3core STATIC
 	Log.C
 	Cmd.C
+	CmdBuffer.C
 	)
 
 # C++14 is required

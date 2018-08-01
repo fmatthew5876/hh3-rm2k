@@ -1,4 +1,7 @@
 #include "Cmd.H"
+#include "Log.H"
+#include "Code.H"
+#include "Exception.H"
 
 namespace Cmd {
 
@@ -280,7 +283,13 @@ RPG::EventCommand Comment(std::string msg) {
     RPG::EventCommand cmd;
     cmd.code = RPG::EventCommand::Code::Comment;
     cmd.string = std::move(msg);
+    return cmd;
+}
 
+RPG::EventCommand Comment_2(std::string msg) {
+    RPG::EventCommand cmd;
+    cmd.code = RPG::EventCommand::Code::Comment_2;
+    cmd.string = std::move(msg);
     return cmd;
 }
 
@@ -296,6 +305,25 @@ RPG::EventCommand EndBranch() {
     cmd.code = RPG::EventCommand::Code::EndBranch;
     return cmd;
 }
+
+void logCmd(int idx, const RPG::EventCommand& cmd, LogLevel ll) {
+    logLvlStart(ll);
+    for(int i = 0; i < cmd.indent; ++i) {
+        logLvlRaw(ll, ' ');
+    }
+    logLvlRaw(ll, "Cmd (", idx, ") : code=", Code(cmd.code), " indent=", cmd.indent, " str=\"", cmd.string, "\" params=");
+    char sep = '[';
+    if(cmd.parameters.empty()) {
+        logLvlRaw(ll, sep);
+    } else {
+        for (auto& p: cmd.parameters) {
+            logLvlRaw(ll, sep, p);
+            sep = ' ';
+        }
+    }
+    logLvlEnd(ll, ']');
+}
+
 
 
 } //namespace Cmd
