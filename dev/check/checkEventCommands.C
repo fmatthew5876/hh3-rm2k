@@ -5,6 +5,22 @@
 
 namespace {
 
+void checkLegacyTalkToAnimals(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+    //Old versions of the game used sped up WAV music.
+    if (cmd.code == RPG::EventCommand::Code::ConditionalBranch) {
+       if (cmd.parameters[0] == 5) {
+           //Conditional on Actor
+           if (cmd.parameters[2] == 4) {
+               //Conditional on has skill
+               if (cmd.parameters[3] == 43) {
+                   //TalkToAnimals skill
+                   err.push_back(Error(ctx, "Cmd: ", cmd, " checks for TalkToAnimals "));
+               }
+           }
+       }
+    }
+}
+
 void checkBGMLegacyWavTempo(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
     //Old versions of the game used sped up WAV music.
     int tempo = 100;
@@ -56,6 +72,7 @@ void checkEventCommands(ErrorSet& err, const ErrorContext& ctx, const std::vecto
     for (auto& cmd: cmds) {
         checkBGMLegacyWavTempo(err, ctx, cmd);
         checkLegacyNames(err, ctx, cmd);
+        checkLegacyTalkToAnimals(err, ctx, cmd);
     }
 
 }

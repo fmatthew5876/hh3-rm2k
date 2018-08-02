@@ -872,3 +872,9 @@ Party members in cities
 - Add switches if in lineup.
 - Member event only active when switch is on
 - Use common event to show the text (based on story progress)
+
+Add lots of cats to Shahazrad
+- cat resting sprite during day.
+- moving at night
+
+goodberry spell in North -> big area to the right?
