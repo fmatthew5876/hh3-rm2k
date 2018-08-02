@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 
 void checkMapRoot(ErrorSet& err, const RPG::MapInfo& map_info) {
     logInf("Checking MapRoot: ", map_info, " type=", map_info.type, " ... ");
@@ -17,11 +18,19 @@ void checkAreaMap(ErrorSet& err, const RPG::MapInfo& map_info) {
 
 void checkTreeMap(ErrorSet& err, const std::string& gamedir) {
     auto& maps = Data::treemap.maps;
+    auto& tree_order= Data::treemap.tree_order;
 
     logInf("Checking TreeMap ...");
 
-    for (auto& map_info: maps) {
+    std::cout << "MAPS: " << Data::treemap.maps.size() << " TREE: " << Data::treemap.tree_order.size() << std::endl;
 
+    for (auto& map_id: tree_order) {
+        auto iter = std::lower_bound(maps.begin(), maps.end(), map_id,
+                [](const auto& map_info, int map_id) { return map_info.ID < map_id; });
+        if (iter == maps.end() || iter->ID != map_id) {
+            die("Invalid MapID (", map_id, ")");
+        }
+        auto& map_info = *iter;
 
         switch(map_info.type) {
             case 0:

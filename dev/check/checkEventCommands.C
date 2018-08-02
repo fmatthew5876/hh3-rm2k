@@ -3,17 +3,18 @@
 
 namespace {
 
-void checkBGMTempo50(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+void checkBGMLegacyWavTempo(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+    int tempo = 100;
     if (cmd.code == RPG::EventCommand::Code::PlayBGM) {
-        auto tempo = cmd.parameters[2];
-        if (tempo == 50) {
-            err.push_back(Error(ctx, "Cmd: ", cmd, " plays music at a tempo of 50!"));
-        }
+        tempo = cmd.parameters[2];
     }
     if (cmd.code == RPG::EventCommand::Code::ChangeSystemBGM) {
-        auto tempo = cmd.parameters[3];
-        if (tempo == 50) {
-            err.push_back(Error(ctx, "Cmd: ", cmd, " plays music at a tempo of 50!"));
+        tempo = cmd.parameters[3];
+    }
+    if (tempo != 100) {
+        //Valid tempo changes for SFX
+        if (cmd.string.substr(0, 2) != "SE") {
+            err.push_back(Error(ctx, "Cmd: ", cmd, " plays ", cmd.string, " at a tempo of 50!"));
         }
     }
 }
@@ -30,7 +31,7 @@ void checkEventCommands(ErrorSet& err, const ErrorContext& ctx, const std::vecto
     checkLoneTeleport(err, ctx, cmds);
 
     for (auto& cmd: cmds) {
-        checkBGMTempo50(err, ctx, cmd);
+        checkBGMLegacyWavTempo(err, ctx, cmd);
     }
 
 }

@@ -817,3 +817,36 @@ check for lone teleports
 
 Generate encounters event for areas in world map?
 - or at least check boundaries
+
+Play Namistair for sin bosses?
+
+All teleports to/from specific maps should have onAreaChange call.
+- World 1
+- World 2
+- World 2.2
+- World 3
+- Timon
+
+If any teleport from A to B has onAreaChange, then any others from A to B or B to A must also have it!
+
+Search text for old names:
+- Rolf
+- Zacbarian
+- Said
+
+Do change system SE in battles?
+
+Check battles contain only machines or non-machines, never both. Also cave monster SE.
+
+Nothing should manipulate certain switches directly
+- MENU ENABLED
+- ENEMIES OFF
+- CUTSCENE ON
+
+Add a tool to query who touches given switch/variable
+
+Merge all into a single tool with sub commands?
+
+Check tempo in map info
+
+Check that we can escape ON_MAPDUNGIN
