@@ -1,9 +1,12 @@
 #include "check.H"
 #include "Error.H"
+#define _GNU_SOURCE_
+#include <cstring>
 
 namespace {
 
 void checkBGMLegacyWavTempo(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+    //Old versions of the game used sped up WAV music.
     int tempo = 100;
     if (cmd.code == RPG::EventCommand::Code::PlayBGM) {
         tempo = cmd.parameters[2];
@@ -16,6 +19,26 @@ void checkBGMLegacyWavTempo(ErrorSet& err, const ErrorContext& ctx, const RPG::E
         if (cmd.string.substr(0, 2) != "SE") {
             err.push_back(Error(ctx, "Cmd: ", cmd, " plays ", cmd.string, " at a tempo of 50!"));
         }
+    }
+}
+
+void checkLegacyNames(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+    constexpr const char* legacy_names[] = { "Rolf", "Rufus", "Zacbarian" };
+
+    //When actors renamed, check the game for old names still used.
+    switch (cmd.code) {
+        case RPG::EventCommand::Code::ShowMessage:
+        case RPG::EventCommand::Code::ShowMessage_2:
+        case RPG::EventCommand::Code::ShowChoiceOption:
+            for (auto& legacy_name: legacy_names) {
+                auto* p = strcasestr(cmd.string.c_str(), legacy_name);
+                if (p != nullptr) {
+                    err.push_back(Error(ctx, "Cmd: ", cmd, " has LEGACY_NAME ", legacy_name, " TEXT=`", cmd.string, "'"));
+                }
+            }
+            break;
+        default:
+            break;
     }
 }
 
@@ -32,6 +55,7 @@ void checkEventCommands(ErrorSet& err, const ErrorContext& ctx, const std::vecto
 
     for (auto& cmd: cmds) {
         checkBGMLegacyWavTempo(err, ctx, cmd);
+        checkLegacyNames(err, ctx, cmd);
     }
 
 }

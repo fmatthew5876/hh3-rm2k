@@ -9,9 +9,9 @@ class MapContext {
         explicit MapContext(const RPG::MapInfo& mi)
             : _map_info(&mi) {}
         MapContext(const RPG::MapInfo& mi, const RPG::Event& e)
-            : _map_info(&mi), _event_id(e.ID), _event_name(e.name) {}
+            : _map_info(&mi), _event_id(e.ID), _event_name(e.name), _event_x(e.x), _event_y(e.y) {}
         MapContext(const RPG::MapInfo& mi, const RPG::Event& e, const RPG::EventPage& ep)
-            : _map_info(&mi), _event_id(e.ID), _event_name(e.name), _event_page_id(ep.ID) {}
+            : _map_info(&mi), _event_id(e.ID), _event_name(e.name), _event_x(e.x), _event_y(e.y),_event_page_id(ep.ID) {}
 
         friend std::ostream& operator<<(std::ostream& os, const MapContext& ctx);
 
@@ -20,6 +20,8 @@ class MapContext {
         //Make copies because map goes out of scope during error processing.
         int _event_id = 0;
         std::string _event_name = "";
+        int _event_x = 0;
+        int _event_y = 0;
         int _event_page_id = 0;
 };
 

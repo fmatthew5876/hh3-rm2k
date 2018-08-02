@@ -4,7 +4,7 @@
 std::ostream& operator<<(std::ostream& os, const MapContext& ctx) {
     os << "Map: " << *ctx._map_info;
     if (ctx._event_id != 0) {
-        os << " Event: `" << ctx._event_name << "' (" << ctx._event_id << ")";
+        os << " Event: `" << ctx._event_name << "' (" << ctx._event_id << ") coords=(" << ctx._event_x << ", " << ctx._event_y << ")";
 
         if (ctx._event_page_id != 0) {
             os << " Page: (" << ctx._event_page_id << ")";

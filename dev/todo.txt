@@ -850,3 +850,25 @@ Merge all into a single tool with sub commands?
 Check tempo in map info
 
 Check that we can escape ON_MAPDUNGIN
+
+Said is son of Rafad leader? Mentioned in Glade/Wrath battle
+Duke -> Emir?
+
+Rename said to something else
+
+Brow line on old faisal sprite. Good look for sad.
+
+Faisal is king, not minister..
+
+Chester, access to forest after cutscene
+
+search for checks for TalkToAnimals skill, fix legacy ToA
+
+Check if menu enabled in party change and die
+
+Fix single teleport check - same map no need hide screen
+
+Party members in cities
+- Add switches if in lineup.
+- Member event only active when switch is on
+- Use common event to show the text (based on story progress)
