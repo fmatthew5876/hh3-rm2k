@@ -64,7 +64,7 @@ void dumpMapEvent(const std::string& ldb_path, int map_id, int event_id, int pag
 
     auto& cmds = page.event_commands;
 
-    logInf("Map ", map_info, " Event ", event, " page", page_id, " num_cmds=", cmds.size());
+    logInf("Map ", map_info, " Event ", event, " coords=(", event.x, ", ", event.y, ") page=", page_id, " num_cmds=", cmds.size());
     int idx = 0;
     for(auto& cmd: cmds) {
         Cmd::logCmd(idx, cmd);

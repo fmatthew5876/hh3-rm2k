@@ -13,7 +13,7 @@ void usage() {
     std::cerr << "cedump - Dump event code" << std::endl;
     std::cerr << "Usage: evdump [-d] <LDBFILE> CE <N> - Dump Common event N code" << std::endl;
     std::cerr << "Usage: evdump [-d] <LDBFILE> BAT <T> <P> - Dump Troop T Battle Event Page P code" << std::endl;
-    std::cerr << "Usage: evdump [-d] <LDBFILE> MAP <M> <E> <P> - Dump Map M Event E Page P code" << std::endl;
+    std::cerr << "Usage: evdump [-d] <LDBFILE> MAP <M> <E> <P> - Dump Map M Event E Page P code (include map coords)" << std::endl;
 }
 
 void doMain(const std::string& infile, int event_id) {
