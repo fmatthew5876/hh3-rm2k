@@ -5,6 +5,30 @@
 
 namespace {
 
+void checkLegacySwitches(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
+    constexpr int switches[] = {
+        591, /* NUMBER OF EVENTS */
+        29, /* MENU!!! */
+        30, /* MENU ENABLED */
+        31, /* CUTSCENE ON */
+        31, /* CUTSCENE ON */
+        33, /* DEBUG CHECKS */
+        80, /* ENEMIES OFF */
+    };
+    if (cmd.code == RPG::EventCommand::Code::ControlSwitches) {
+        if (cmd.parameters[0] == 0) {
+            //Single switch
+            for (auto s: switches) {
+                if (cmd.parameters[1] == s) {
+                    auto& sw = Data::switches[s-1];
+
+                    err.push_back(Error(ctx, "Cmd: ", cmd, " sets switch ", sw));
+                }
+            }
+        }
+    }
+}
+
 void checkLegacyTalkToAnimals(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
     //Old versions of the game used sped up WAV music.
     if (cmd.code == RPG::EventCommand::Code::ConditionalBranch) {
@@ -73,6 +97,7 @@ void checkEventCommands(ErrorSet& err, const ErrorContext& ctx, const std::vecto
         checkBGMLegacyWavTempo(err, ctx, cmd);
         checkLegacyNames(err, ctx, cmd);
         checkLegacyTalkToAnimals(err, ctx, cmd);
+        checkLegacySwitches(err, ctx, cmd);
     }
 
 }

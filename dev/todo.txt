@@ -802,18 +802,11 @@ ManualSave common event -> remove weapons first, save, add them back
 
 Checks:
 Verify 1H in desc matches real item
-Check for 50 tempo
-Check for switch 591:NUMBER OF EVENTS
 
-Check if eagle eye was manually enabled. Fix up weapon
+Check for switch 591:NUMBER OF EVENTS
 
 Investigate random corruption with autodb.
 
-
-672 - Glock
-673 - Chain Gun
-
-check for lone teleports
 
 Generate encounters event for areas in world map?
 - or at least check boundaries
@@ -862,8 +855,6 @@ Faisal is king, not minister..
 
 Chester, access to forest after cutscene
 
-search for checks for TalkToAnimals skill, fix legacy ToA
-
 Check if menu enabled in party change and die
 
 Fix single teleport check - same map no need hide screen
@@ -878,3 +869,30 @@ Add lots of cats to Shahazrad
 - moving at night
 
 goodberry spell in North -> big area to the right?
+
+Search text:
+Minister -> King (Faisal)
+Executive -> Senator (Dreyfus)
+Duke -> Emir (Said/Zacbarian)
+
+Gate of Zecht, add natural sides which fade into mountains
+- army encampments north of gate
+- can enter one secretly and get loot
+
+premenu before rearrange party
+
+Yurak gets weapon switch during cutscene.. This is bad
+
+hh3tool - find call sites for common event
+
+check for manual change party commands and kill them
+
+check for event calls when inputs were not set!
+
+planes - plains
+
+Commander..
+
+I did all that I could
+
+stair floor commander room
