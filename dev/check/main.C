@@ -7,6 +7,7 @@
 #include "Log.H"
 #include "Exception.H"
 #include "check.H"
+#include "Load.H"
 
 void usage() {
     std::cerr << "check - Perform sanity checks on entire game" << std::endl;
@@ -15,27 +16,10 @@ void usage() {
 
 void doMain(const std::string& gamedir) {
 
-    std::string fname_ini = gamedir + "/RPG_RT.ini";
-    std::string fname_ldb = gamedir + "/RPG_RT.ldb";
-    std::string fname_lmt = gamedir + "/RPG_RT.lmt";
+    LoadArgs args;
+    args.game_dir = gamedir;
 
-    logInf("Loading encoding from ini file `", fname_ini, "'...");
-
-	auto encoding = ReaderUtil::GetEncoding(fname_ini);
-
-    logInf("Loading RPG_RT database `", fname_ldb, "'...");
-
-    auto rc = LDB_Reader::Load(fname_ldb, encoding);
-    if(!rc) {
-        throw Exception("Failed to load LDB database from file `" + fname_ldb  + "'");
-    }
-
-    logInf("Loading LMT tree `", fname_lmt, "'...");
-
-    rc = LMT_Reader::Load(fname_lmt, encoding);
-    if(!rc) {
-        throw Exception("Failed to load LMT tree from file `" + fname_lmt  + "'");
-    }
+    loadRPG(args);
 
     ErrorSet err;
 

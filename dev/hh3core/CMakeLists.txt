@@ -8,6 +8,7 @@ add_library(hh3core STATIC
 	CmdBuffer.C
 	MapCache.C
 	Visit.C
+	Load.C
 	)
 
 # C++14 is required

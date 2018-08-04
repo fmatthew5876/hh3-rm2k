@@ -241,7 +241,7 @@ void visitRPG(V&& v) {
                     v.onMapRoot(map_info);
                     break;
                 case 1: {
-                    auto& map = MapCache::load(map_info);
+                    auto& map = MapCache::loadMap(map_info);
                     v.onMap(map_info, map);
                     v.onMapEvents(map_info, map, map.events);
                     for (auto& event: map.events) {
