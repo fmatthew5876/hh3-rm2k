@@ -967,7 +967,6 @@ should increase mag influence on elemental spells. - Rebalance
 
 Need something to debug how many parallel events are running
 
-wounded units should not get AP
 
 verify long descriptions of spells match short ones
 - EP cost
