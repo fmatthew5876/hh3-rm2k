@@ -965,4 +965,4 @@ sleep fails too much on party
 
 Need something to debug how many parallel events are running
 
-Sometimes loading the game causes erased autorun events to retrigger on load
+Sometimes loading the game causes erased autorun events to retrigger on load - maybe its only when changed map?
