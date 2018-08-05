@@ -87,14 +87,23 @@ struct SearchTextVisitor : public VisitorBase {
     }
 
     void onAnimations(const std::vector<RPG::Animation>& anims) {}
-    void onAnimation(const RPG::Animation& anim) {}
+    void onAnimation(const RPG::Animation& anim) {
+        CHECKTXT(anim,name);
+        CHECKTXT(anim,animation_name);
+    }
 
     void onChipsets(const std::vector<RPG::Chipset>& chipsets) {}
-    void onChipset(const RPG::Chipset& chipset) {}
+    void onChipset(const RPG::Chipset& chipset) {
+        CHECKTXT(chipset,name);
+        CHECKTXT(chipset,chipset_name);
+    }
 
     void onBattleCommands(const RPG::BattleCommands& batcmds) {}
     void onBattleCommandsCmds(const RPG::BattleCommands& batcmds, const std::vector<RPG::BattleCommand>& cmds) {}
-    void onBattleCommand(const RPG::BattleCommands& batcmds, const RPG::BattleCommand& batcmd) {}
+    void onBattleCommand(const RPG::BattleCommands& batcmds, const RPG::BattleCommand& batcmd) {
+        CHECKTXT(batcmd,name);
+        CHECKTXT(chipset,chipset_name);
+    }
 
     void onClasses(const std::vector<RPG::Class>& classes) {}
     void onClass(const RPG::Class& cls) {}
@@ -107,10 +116,14 @@ struct SearchTextVisitor : public VisitorBase {
     void onSystem(const RPG::System& sys) {}
 
     void onSwitches(const std::vector<RPG::Switch>& sws) {}
-    void onSwitch(const RPG::Switch& sw) {}
+    void onSwitch(const RPG::Switch& sw) {
+        CHECKTXT(sw,name);
+    }
 
     void onVariables(const std::vector<RPG::Variable>& vars) {}
-    void onVariable(const RPG::Variable& var) {}
+    void onVariable(const RPG::Variable& var) {
+        CHECKTXT(var,name);
+    }
 
     void onTreeMap(const RPG::TreeMap& tm) {}
 
@@ -133,7 +146,10 @@ struct SearchTextVisitor : public VisitorBase {
         void onAreaMap(const RPG::MapInfo& map_info) {}
 
         void onEventCommands(const std::vector<RPG::EventCommand>& cmds) {}
-        void onEventCommand(const RPG::EventCommand& cmds) {}
+        void onEventCommand(const RPG::EventCommand& cmd) {
+            CHECKTXT(cmd,string);
+        }
+    }
     private:
 };
 

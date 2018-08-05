@@ -963,6 +963,23 @@ Check for teleport without 81:TELEPORT
 sleep fails too much on party
 
 
+should increase mag influence on elemental spells. - Rebalance
+
 Need something to debug how many parallel events are running
 
+wounded units should not get AP
+
+verify long descriptions of spells match short ones
+- EP cost
+
 Sometimes loading the game causes erased autorun events to retrigger on load - maybe its only when changed map?
+
+
+4F and 6F tougher monsters
+
+COnsider: run encounters all the time.
+- Set encounter rate in MAP SETUP
+- Have separate autorun encounter event which triggers the battle
+  - Also a common event version, which resets it on maps with no enemies
+
+More time before last jade talk
