@@ -925,6 +925,39 @@ Ayen Sirran - stab or use gun
 
 The great triumverat - Faisals word
 
-Celine fell loss
-BVosun feeling dread
-Jade twice
+
+
+HH3 Chapter needs a new recording
+Maybe inn too?
+
+
+Skyflow building (no petiod)
+
+Search text Alicia
+
+autodb - set scroll descriptions to spell descriptions
+
+check bards can't use any 2H weapons
+
+Query locations of spells and weapons
+
+tunnels, some hint about secret area
+
+check for unused but named switches / vars
+
+
+search all events turn off knock switch
+
+Timon 40 years old? Alicia
+
+search for teleports with no hide
+
+Timon Tour during Martial law?
+
+
+rename Skyflow
+
+Check for set escape without 147:ESCAPED
+Check for teleport without 81:TELEPORT
+
+sleep fails too much on party

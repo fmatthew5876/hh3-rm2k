@@ -13,4 +13,5 @@ add_subdirectory("autodb")
 add_subdirectory("evdump")
 add_subdirectory("check")
 add_subdirectory("maptree")
+add_subdirectory("hh3tool")
 

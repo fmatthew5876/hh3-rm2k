@@ -1,8 +1,9 @@
 flags = [
-        '-std=c+=17',
+        '-std=c++17',
         '-Wall',
         '-I/home/matt/usr/include/liblcf',
-        '-I/home/matt/hh3-rm2k/dev/hh3core'
+        '-I/home/matt/hh3-rm2k/dev/ext/GSL/include',
+        '-I/home/matt/hh3-rm2k/dev/hh3core',
         ]
 
 def FlagsForFile( file_name, **kwargs ):

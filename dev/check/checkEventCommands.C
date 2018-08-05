@@ -63,7 +63,7 @@ void checkBGMLegacyWavTempo(ErrorSet& err, const ErrorContext& ctx, const RPG::E
 }
 
 void checkLegacyNames(ErrorSet& err, const ErrorContext& ctx, const RPG::EventCommand& cmd) {
-    constexpr const char* legacy_names[] = { "Rolf", "Rufus", "Zacbarian" };
+    constexpr const char* legacy_names[] = { "Rolf", "Rufus", "Zacbarian", "Lenna", "Kharan" };
 
     //When actors renamed, check the game for old names still used.
     switch (cmd.code) {

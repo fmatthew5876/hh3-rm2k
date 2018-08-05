@@ -15,3 +15,4 @@ add_library(hh3core STATIC
 target_compile_features(hh3core PUBLIC cxx_std_14)
 
 target_link_libraries(hh3core liblcf::liblcf)
+target_include_directories(hh3core PUBLIC "${CMAKE_SOURCE_DIR}/ext/GSL/include/")

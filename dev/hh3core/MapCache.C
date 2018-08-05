@@ -6,14 +6,17 @@
 #include <sstream>
 #include <iomanip>
 #include <lmu_reader.h>
+#include <mutex>
 
 namespace {
 std::string gMapDir;
 std::string gEncoding;
 std::unordered_map<int,std::unique_ptr<RPG::Map>> gMapCache;
+std::mutex gMutex;
 }
 
 void MapCache::setMapDir(std::string d) {
+    std::lock_guard<std::mutex> lock(gMutex);
     if (!gMapCache.empty()) {
         die("MapCache: Cannot change map dir after loading maps!");
     }
@@ -21,6 +24,7 @@ void MapCache::setMapDir(std::string d) {
 }
 
 void MapCache::setEncoding(std::string e) {
+    std::lock_guard<std::mutex> lock(gMutex);
     if (!gMapCache.empty()) {
         die("MapCache: Cannot change map dir after loading maps!");
     }
@@ -29,6 +33,8 @@ void MapCache::setEncoding(std::string e) {
 
 
 RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
+    std::lock_guard<std::mutex> lock(gMutex);
+
     if (map_info.type != 1) {
         die("Tried to load map data for map ", map_info, " with type=", map_info.type);
     }
@@ -54,6 +60,8 @@ RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
 }
 
 void MapCache::saveMap(const RPG::MapInfo& map_info, const RPG::Map& map) {
+    std::lock_guard<std::mutex> lock(gMutex);
+
     if (map_info.type != 1) {
         die("Tried to save map data for map ", map_info, " with type=", map_info.type);
     }
@@ -78,5 +86,7 @@ void MapCache::saveMap(const RPG::MapInfo& map_info, const RPG::Map& map) {
 }
 
 void MapCache::clear() {
+    std::lock_guard<std::mutex> lock(gMutex);
+
     gMapCache.clear();
 }

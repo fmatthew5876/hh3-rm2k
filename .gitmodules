@@ -1,0 +1,6 @@
+[submodule "dev/ext/GSL"]
+	path = dev/ext/GSL
+	url = https://github.com/fmatthew5876/GSL.git
+[submodule "dev/ext/liblcf"]
+	path = dev/ext/liblcf
+	url = https://github.com/fmatthew5876/liblcf.git
