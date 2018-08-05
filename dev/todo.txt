@@ -961,3 +961,8 @@ Check for set escape without 147:ESCAPED
 Check for teleport without 81:TELEPORT
 
 sleep fails too much on party
+
+
+Need something to debug how many parallel events are running
+
+Sometimes loading the game causes erased autorun events to retrigger on load
