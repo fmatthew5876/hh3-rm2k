@@ -802,6 +802,8 @@ ManualSave common event -> remove weapons first, save, add them back
 
 Checks:
 Verify 1H in desc matches real item
+- Also check damage type and accuracy
+- Also weapon type based on position
 
 Check for switch 591:NUMBER OF EVENTS
 
@@ -879,27 +881,11 @@ Gate of Zecht, add natural sides which fade into mountains
 - army encampments north of gate
 - can enter one secretly and get loot
 
-premenu before rearrange party
-
-Yurak gets weapon switch during cutscene.. This is bad
-
 hh3tool - find call sites for common event
 
 check for manual change party commands and kill them
 
 check for event calls when inputs were not set!
-
-planes - plains
-
-Commander..
-
-I did all that I could
-
-stair floor commander room
-
-jade fade out music. Needs exact timing
-
-Yurak destroy wipe
 
 You have been chosen
 - whispers and cutscenes for Fautheit's transformation
@@ -927,11 +913,10 @@ The great triumverat - Faisals word
 
 
 
-HH3 Chapter needs a new recording
-Maybe inn too?
+HH3 Chapter.wav needs a new recording
+Maybe inn too? Gameover?
 
 
-Skyflow building (no petiod)
 
 Search text Alicia
 
@@ -960,8 +945,6 @@ rename Skyflow
 Check for set escape without 147:ESCAPED
 Check for teleport without 81:TELEPORT
 
-sleep fails too much on party
-
 
 should increase mag influence on elemental spells. - Rebalance
 
@@ -982,3 +965,5 @@ COnsider: run encounters all the time.
   - Also a common event version, which resets it on maps with no enemies
 
 More time before last jade talk
+
+Add a magic store sign - Use it in Dirks
