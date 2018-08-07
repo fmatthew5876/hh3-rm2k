@@ -968,6 +968,9 @@ More time before last jade talk
 
 Add a magic store sign - Use it in Dirks
 
+For map and all child maps, report all items given
+
+DEX / Dexterity -> AGI / Agility text search
 
 
 Old Man - stop talking new guy, respond to Celine and others
@@ -987,3 +990,11 @@ Dirks alley box
 
 Eastland toolshop needs sign
 
+Kahran should draw weapon before fight
+
+bridge out of order and fixed!
+
+
+Need animated wall torches
+
+Greater Restoration should cost based on level
