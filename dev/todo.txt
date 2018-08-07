@@ -703,7 +703,6 @@ disable sneak/backstab when gun equipped or unarmed
 do we put hit rate in weapon desc?
 - agent in HQ talks about it
 
-Are knives slashing or piercing
 
 471-495 Knife WIL
 496-535 Sword 
@@ -788,9 +787,8 @@ intro tints and sky on world map
 
 Predestination sounds awful
 
-What happens if elizabeth only offhand
 
-Daniel Mace animation
+Daniel Mace, Staff, Gun animation
 
 retest Fleet, including Eagle Eye skill
 
@@ -957,8 +955,6 @@ verify long descriptions of spells match short ones
 Sometimes loading the game causes erased autorun events to retrigger on load - maybe its only when changed map?
 
 
-4F and 6F tougher monsters
-
 COnsider: run encounters all the time.
 - Set encounter rate in MAP SETUP
 - Have separate autorun encounter event which triggers the battle
@@ -972,8 +968,6 @@ For map and all child maps, report all items given
 
 DEX / Dexterity -> AGI / Agility text search
 
-
-Old Man - stop talking new guy, respond to Celine and others
 
 
 Remove bag of coke after mission?
@@ -995,7 +989,8 @@ Need animated wall torches
 
 Greater Restoration should cost based on level
 
-HighClass -> Upper Class
+Should we provide Knock spell before leaving Timon?
 
-Pub sign for dirks
-Hotel Sign
+I've seen it I tell you!
+
+Blur spell in caves?
