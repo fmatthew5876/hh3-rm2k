@@ -980,7 +980,6 @@ Remove bag of coke after mission?
 
 Rebalance Thug?
 
-Rebalance weapons/armor shop
 
 Riot between Shazradians and Dirks?
 
@@ -988,13 +987,15 @@ Riot between Shazradians and Dirks?
 Dirks alley box
 
 
-Eastland toolshop needs sign
-
 Kahran should draw weapon before fight
 
-bridge out of order and fixed!
 
 
 Need animated wall torches
 
 Greater Restoration should cost based on level
+
+HighClass -> Upper Class
+
+Pub sign for dirks
+Hotel Sign
