@@ -991,6 +991,65 @@ Greater Restoration should cost based on level
 
 Should we provide Knock spell before leaving Timon?
 
-I've seen it I tell you!
 
 Blur spell in caves?
+
+Removed Blur
+
+Wall against noise - prevent Wail of Banshee
+
+Implement Darkness spell
+
+Shatter for bard
+
+Consider weapon switch for barehand - to do blunt damage
+
+autodb - automate scrolls, conditions, set, clear, and learn CE's
+
+Cave Bat Sonar too weak
+
+Gremlin casts sleep too much
+
+attack ing flying enemies, fleet lower half cut off
+- consider max height for enemies
+
+Monster in box - wrong bg
+
+Mission 3 enemies need retuning
+
+
+revisit the mine and make sure things work
+
+Why is switch 272:Spoke toFleetMission turned off?
+
+slums cat, resting during day. Up at night
+
+Too many potions of healing
+You're no dumbshit - delay first
+
+Turn right on receive bag
+
+Let's fight.
+
+Wait for them to finish approach
+
+I presume..
+aint' grass
+
+is  east
+BodyGuards too hard
+
+Show wounded people outside office
+
+
+check that office to outside transition works?
+
+MapLightLevel on lights out
+
+Ayen hasn't come back yet -> turn right
+
+Susie's charm -> NO encounters
+
+
+down door bedroom
+621 -> 2209
