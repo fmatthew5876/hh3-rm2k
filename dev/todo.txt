@@ -1053,3 +1053,5 @@ Susie's charm -> NO encounters
 
 down door bedroom
 621 -> 2209
+
+Herp and Dre battle anim sprites
