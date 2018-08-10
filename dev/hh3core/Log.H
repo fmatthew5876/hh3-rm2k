@@ -208,6 +208,10 @@ inline std::ostream& operator<<(std::ostream& os, const RPG::Item& t) {
     return detail::printRpg(os, t);
 }
 
+inline std::ostream& operator<<(std::ostream& os, const RPG::Enemy& t) {
+    return detail::printRpg(os, t);
+}
+
 inline std::ostream& operator<<(std::ostream& os, const RPG::Troop& t) {
     return detail::printRpg(os, t);
 }
@@ -249,6 +253,18 @@ inline std::ostream& operator<<(std::ostream& os, const RPG::Event& t) {
 }
 
 inline std::ostream& operator<<(std::ostream& os, const RPG::MapInfo& t) {
+    return detail::printRpg(os, t);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::BattleCommand& t) {
+    return detail::printRpg(os, t);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::Class& t) {
+    return detail::printRpg(os, t);
+}
+
+inline std::ostream& operator<<(std::ostream& os, const RPG::BattlerAnimation& t) {
     return detail::printRpg(os, t);
 }
 

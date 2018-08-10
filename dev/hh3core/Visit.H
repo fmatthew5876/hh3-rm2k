@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "Exception.H"
 #include "MapCache.H"
+#include "Location.H"
 
 template <typename F>
 void visitTreeMap(F&& f) {
@@ -117,141 +118,191 @@ class VisitorBase {
 
         void onEventCommands(const std::vector<RPG::EventCommand>& cmds) const {}
         void onEventCommand(const RPG::EventCommand& cmds) const {}
+
+        Location& loc() { return _loc; }
+        const Location& loc() const { return _loc; }
     private:
+        Location _loc;
 };
 
 //Visit the entire game.
 template <typename V>
 void visitRPG(V&& v) {
+    v.loc() = Location(LocPath(&Data::data));
     v.onDatabase(Data::data);
 
+    v.loc() = {};
     v.onActors(Data::actors);
     for (auto& actor: Data::actors) {
+        v.loc() = Location(LocPath(&actor));
         v.onActor(actor);
     }
 
+    v.loc() = {};
     v.onSkills(Data::skills);
     for (auto& skill: Data::skills) {
+        v.loc() = Location(LocPath(&skill));
         v.onSkill(skill);
     }
 
+    v.loc() = {};
     v.onItems(Data::items);
     for (auto& item: Data::items) {
+        v.loc() = Location(LocPath(&item));
         v.onItem(item);
     }
 
+    v.loc() = {};
     v.onCommonEvents(Data::commonevents);
     for (auto& ce: Data::commonevents) {
+        v.loc() = Location(LocPath(&ce));
         v.onCommonEvent(ce);
         v.onCommonEventCmds(ce, ce.event_commands);
         v.onEventCommands(ce.event_commands);
         for (auto& cmd: ce.event_commands) {
+            v.loc() = Location(LocPath(&ce, &cmd));
             v.onCommonEventCmd(ce, cmd);
             v.onEventCommand(cmd);
         }
     }
 
+    v.loc() = {};
     v.onEnemies(Data::enemies);
     for (auto& e: Data::enemies) {
+        v.loc() = Location(LocPath(&e));
         v.onEnemy(e);
         v.onEnemyActions(e, e.actions);
         for (auto& a: e.actions) {
+            v.loc() = Location(LocPath(&e, &a));
             v.onEnemyAction(e, a);
         }
     }
 
+    v.loc() = {};
     v.onTroops(Data::troops);
     for (auto& t: Data::troops) {
+        v.loc() = Location(LocPath(&t));
         v.onTroop(t);
         v.onTroopMembers(t, t.members);
         for (auto& m: t.members) {
+            v.loc() = Location(LocPath(&t, &m));
             v.onTroopMember(t, m);
         }
         v.onTroopPages(t, t.pages);
         for (auto& p: t.pages) {
+            v.loc() = Location(LocPath(&t, &p));
             v.onTroopPage(t, p);
             v.onTroopPageCmds(t, p, p.event_commands);
             v.onEventCommands(p.event_commands);
             for (auto& cmd: p.event_commands) {
+                v.loc() = Location(LocPath(&t, &p, &cmd));
                 v.onTroopPageCmd(t, p, cmd);
                 v.onEventCommand(cmd);
             }
         }
     }
 
+    v.loc() = {};
     v.onTerrains(Data::terrains);
     for (auto& t: Data::terrains) {
+        v.loc() = Location(LocPath(&t));
         v.onTerrain(t);
     }
 
+    v.loc() = {};
     v.onAttributes(Data::attributes);
     for (auto& a: Data::attributes) {
+        v.loc() = Location(LocPath(&a));
         v.onAttribute(a);
     }
 
+    v.loc() = {};
     v.onStates(Data::states);
     for (auto& s: Data::states) {
+        v.loc() = Location(LocPath(&s));
         v.onState(s);
     }
 
+    v.loc() = {};
     v.onAnimations(Data::animations);
     for (auto& a: Data::animations) {
+        v.loc() = Location(LocPath(&a));
         v.onAnimation(a);
     }
 
+    v.loc() = {};
     v.onChipsets(Data::chipsets);
     for (auto& c: Data::chipsets) {
+        v.loc() = Location(LocPath(&c));
         v.onChipset(c);
     }
 
+    v.loc() = Location(LocPath(&Data::battlecommands));
     v.onBattleCommands(Data::battlecommands);
     v.onBattleCommandsCmds(Data::battlecommands, Data::battlecommands.commands);
     for (auto& c: Data::battlecommands.commands) {
+        v.loc() = Location(LocPath(&Data::battlecommands, &c));
         v.onBattleCommand(Data::battlecommands, c);
     }
 
+    v.loc() = {};
     v.onClasses(Data::classes);
     for (auto& c: Data::classes) {
+        v.loc() = Location(LocPath(&c));
         v.onClass(c);
     }
 
+    v.loc() = {};
     v.onBattlerAnimations(Data::battleranimations);
     for (auto& ba: Data::battleranimations) {
+        v.loc() = { LocPath(&ba) };
         v.onBattlerAnimation(ba);
     }
 
+    v.loc() = { LocPath(&Data::terms) };
     v.onTerms(Data::terms);
 
+    v.loc() = { LocPath(&Data::system) };
     v.onSystem(Data::system);
 
+    v.loc() = {};
     v.onSwitches(Data::switches);
     for (auto& sw: Data::switches) {
+        v.loc() = { LocPath(&sw) };
         v.onSwitch(sw);
     }
 
+    v.loc() = {};
     v.onVariables(Data::variables);
     for (auto& var: Data::variables) {
+        v.loc() = { LocPath(&var) };
         v.onVariable(var);
     }
 
+    v.loc() = { LocPath(&Data::treemap) };
     v.onTreeMap(Data::treemap);
     visitTreeMap([&](RPG::MapInfo& map_info) {
+            v.loc() = { LocPath(&map_info) };
             switch(map_info.type) {
                 case 0:
                     v.onMapRoot(map_info);
                     break;
                 case 1: {
                     auto& map = MapCache::loadMap(map_info);
+                    v.loc() = { LocPath(&map_info, &map) };
                     v.onMap(map_info, map);
                     v.onMapEvents(map_info, map, map.events);
                     for (auto& event: map.events) {
+                        v.loc() = { LocPath(&map_info, &map, &event) };
                         v.onMapEvent(map_info, map, event);
                         v.onMapEventPages(map_info, map, event, event.pages);
                         for (auto& page: event.pages) {
+                            v.loc() = { LocPath(&map_info, &map, &event, &page) };
                             v.onMapEventPage(map_info, map, event, page);
                             v.onMapEventPageCmds(map_info, map, event, page, page.event_commands);
                             v.onEventCommands(page.event_commands);
                             for (auto& cmd: page.event_commands) {
+                                v.loc() = { LocPath(&map_info, &map, &event, &page, &cmd) };
                                 v.onMapEventPageCmd(map_info, map, event, page, cmd);
                                 v.onEventCommand(cmd);
                             }
@@ -264,7 +315,7 @@ void visitRPG(V&& v) {
                     break;
             }
         });
+    v.loc() = {};
 }
 
 extern template void visitRPG<VisitorBase&>(VisitorBase& v);
-extern template void visitRPG<const VisitorBase&>(const VisitorBase& v);

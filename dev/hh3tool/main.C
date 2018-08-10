@@ -9,16 +9,14 @@
 #include "Args.H"
 #include "Load.H"
 
-void dispatch(const Args& args) {
-}
-
 int main(int argc, char** argv) {
 
     Args args;
     try {
-        args = Args::load(CmdLineArgs(argv+1, argc-1));
+        auto cmdline = CmdLineArgs(argv, argc).subspan(1);
+        args = Args::load(cmdline);
     } catch (Exception& e) {
-        logErr("Caught Exception: ", e.what());
+        logErr("Caught Exception: ", e.what(), "\n");
         Args::usage();
         return 2;
     }
@@ -27,7 +25,7 @@ int main(int argc, char** argv) {
         setLogLevel(args.log_level);
         loadRPG(args.load_args);
 
-        dispatch(args);
+        Args::dispatchTool(args);
     } catch (Exception& e) {
         logErr("Caught Exception: ", e.what());
         return 1;

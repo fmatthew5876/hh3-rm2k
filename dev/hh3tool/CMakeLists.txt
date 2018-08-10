@@ -3,7 +3,8 @@ project(hh3tool VERSION 1.0 LANGUAGES CXX)
 
 
 add_executable(hh3tool
-	SearchTextArgs.C
+	GrepArgs.C
+	Grep.C
 	Args.C
 	main.C
 	)

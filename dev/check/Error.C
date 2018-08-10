@@ -31,19 +31,7 @@ std::ostream& operator<<(std::ostream& os, const ErrorContext& ctx) {
 
     os << "ERROR: ";
 
-    //Fixme: Better way to do this
-    try {
-        auto& map_ctx = std::get<MapContext>(var);
-        os << map_ctx;
-    } catch (...) { }
-    try {
-        auto& ce_ctx = std::get<CommonEventContext>(var);
-        os << ce_ctx;
-    } catch (...) { }
-    try {
-        auto& t_ctx = std::get<TroopContext>(var);
-        os << t_ctx;
-    } catch (...) { }
+    std::visit([&](const auto& ctx) { os << ctx; }, var);
 
     return os;
 }

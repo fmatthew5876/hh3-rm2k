@@ -8,11 +8,12 @@ add_library(hh3core STATIC
 	CmdBuffer.C
 	MapCache.C
 	Visit.C
+	Location.C
 	Load.C
 	)
 
 # C++14 is required
-target_compile_features(hh3core PUBLIC cxx_std_14)
+target_compile_features(hh3core PUBLIC cxx_std_17)
 
 target_link_libraries(hh3core liblcf::liblcf)
 target_include_directories(hh3core PUBLIC "${CMAKE_SOURCE_DIR}/ext/GSL/include/")
