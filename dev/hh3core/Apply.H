@@ -41,8 +41,10 @@ void applyNameId(const char* objname, const std::vector<T>& objs, const std::str
                 if (last_id == 0 || last_id >= objs.size()) {
                     die("Invalid id (", last_id, ") for ", objname);
                 }
-                auto inc = last_id >= first_id ? 1 : -1;
-                for (auto id = first_id; id != last_id; id += inc) {
+                if (last_id < first_id ) {
+                    die("Invalid: last_id (", last_id, ") < first id (", first_id, ") ", objname);
+                }
+                for (auto id = first_id; id <= last_id; ++id) {
                     f(objs[id-1]);
                     ++num_found;
                 }
