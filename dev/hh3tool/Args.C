@@ -8,6 +8,7 @@ void Args::usage() {
     std::cerr << "Usage: hh3tool [-d] <GAMEDIR> <TOOL> [TOOLOPTS]\n" << std::endl;
 
     GrepArgs::usage();
+    TreeMapArgs::usage();
 }
 
 Args Args::load(CmdLineArgs& argv) {
@@ -38,6 +39,8 @@ Args Args::load(CmdLineArgs& argv) {
 
     if (!strcmp(tool_name, GrepArgs::name)) {
         args.tool_args = GrepArgs::load(argv);
+    } else if (!strcmp(tool_name, TreeMapArgs::name)) {
+        args.tool_args = TreeMapArgs::load(argv);
     } else {
         die("Unknown toolname: `", tool_name, "'");
     }

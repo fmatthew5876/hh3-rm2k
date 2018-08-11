@@ -5,6 +5,8 @@ project(hh3tool VERSION 1.0 LANGUAGES CXX)
 add_executable(hh3tool
 	GrepArgs.C
 	Grep.C
+	TreeMapArgs.C
+	TreeMap.C
 	Args.C
 	main.C
 	)

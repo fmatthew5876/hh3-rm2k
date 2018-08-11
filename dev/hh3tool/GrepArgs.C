@@ -29,5 +29,6 @@ GrepArgs GrepArgs::load(CmdLineArgs& argv) {
 
 void GrepArgs::usage() {
     std::cerr << "grep [OPTS] - Search the game for text\n";
-    std::cerr << "  -i : Make the search case sensitive" << std::endl;
+    std::cerr << "  -i : Make the search case sensitive\n";
+    std::cerr << std::endl;
 }
