@@ -10,6 +10,7 @@ void Args::usage() {
     GrepArgs::usage();
     TreeMapArgs::usage();
     EvDumpArgs::usage();
+    FindItemArgs::usage();
 }
 
 Args Args::load(CmdLineArgs& argv) {
@@ -44,6 +45,8 @@ Args Args::load(CmdLineArgs& argv) {
         args.tool_args = TreeMapArgs::load(argv);
     } else if (!strcmp(tool_name, EvDumpArgs::name)) {
         args.tool_args = EvDumpArgs::load(argv);
+    } else if (!strcmp(tool_name, FindItemArgs::name)) {
+        args.tool_args = FindItemArgs::load(argv);
     } else {
         die("Unknown toolname: `", tool_name, "'");
     }

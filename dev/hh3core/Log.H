@@ -67,17 +67,17 @@ inline void logLvlStart(LogLevel ll, Args&&... args) {
 
 template <typename... Args>
 inline void logLvlRaw(LogLevel ll, Args&&... args) {
-    if(ll >= getLogLevel()) {
+    if (isLogLevelEnabled(ll)) {
         detail::baselog(*detail::kLogStream, std::forward<Args>(args)...);
     }
 }
 
 template <typename... Args>
 inline void logLvlEnd(LogLevel ll, Args&&... args) {
-    if(ll >= getLogLevel()) {
+    if (isLogLevelEnabled(ll)) {
         detail::baselog(*detail::kLogStream, std::forward<Args>(args)...);
+        *detail::kLogStream << std::endl;
     }
-    *detail::kLogStream << std::endl;
 }
 
 template <typename... Args>

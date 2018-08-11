@@ -97,6 +97,7 @@ class VisitorBase {
         void onVariable(const RPG::Variable& var) const {}
 
         void onTreeMap(const RPG::TreeMap& tm) const {}
+        void onMapInfo(const RPG::MapInfo& map_info) const {}
 
         void onMapRoot(const RPG::MapInfo& map_info) const {}
 
@@ -283,6 +284,7 @@ void visitRPG(V&& v) {
     v.onTreeMap(Data::treemap);
     visitTreeMap([&](RPG::MapInfo& map_info) {
             v.loc() = { LocPath(&map_info) };
+            v.onMapInfo(map_info);
             switch(map_info.type) {
                 case 0:
                     v.onMapRoot(map_info);

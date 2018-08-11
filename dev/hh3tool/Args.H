@@ -4,11 +4,12 @@
 #include "GrepArgs.H"
 #include "TreeMapArgs.H"
 #include "EvDumpArgs.H"
+#include "FindItemArgs.H"
 #include "Log.H"
 #include "Load.H"
 #include "CmdLineArgs.H"
 
-using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs>;
+using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs,FindItemArgs>;
 
 struct Args {
     static void usage();

@@ -117,10 +117,14 @@ struct GrepVisitor : public VisitorBase {
     }
 
     void onClasses(const std::vector<RPG::Class>& classes) {}
-    void onClass(const RPG::Class& cls) {}
+    void onClass(const RPG::Class& cls) {
+        CHECKTXT(cls,name);
+    }
 
     void onBattlerAnimations(const std::vector<RPG::BattlerAnimation>& batanims) {}
-    void onBattlerAnimation(const RPG::BattlerAnimation& batanim) {}
+    void onBattlerAnimation(const RPG::BattlerAnimation& batanim) {
+        CHECKTXT(batanim,name);
+    }
 
     void onTerms(const RPG::Terms& terms) {}
 
@@ -137,14 +141,25 @@ struct GrepVisitor : public VisitorBase {
     }
 
     void onTreeMap(const RPG::TreeMap& tm) {}
+    void onMapInfo(const RPG::MapInfo& map_info) {
+        CHECKTXT(map_info,name);
+        CHECKTXT(map_info,background_name);
+    }
 
-    void onMapRoot(const RPG::MapInfo& map_info) {}
+    void onMapRoot(const RPG::MapInfo& map_info) { }
 
-    void onMap(const RPG::MapInfo& map_info, const RPG::Map& map) {}
+    void onMap(const RPG::MapInfo& map_info, const RPG::Map& map) {
+        CHECKTXT(map,parallax_name);
+    }
+
     void onMapEvents(const RPG::MapInfo& map_info, const RPG::Map& map, const std::vector<RPG::Event>& events) {}
-    void onMapEvent(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event) {}
+    void onMapEvent(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event) {
+        CHECKTXT(event,name);
+    }
     void onMapEventPages(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const std::vector<RPG::EventPage>& pages) {}
-    void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) {}
+    void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) {
+        CHECKTXT(page,character_name);
+    }
     void onMapEventPageCmds(const RPG::MapInfo& map_info, const RPG::Map& map,
             const RPG::Event& event, const RPG::EventPage& page,
             const std::vector<RPG::EventCommand>& cmds) {}
