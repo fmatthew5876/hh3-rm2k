@@ -6,30 +6,64 @@
 #include <rpg_map.h>
 #include "Exception.H"
 
+inline bool isId(const std::string& nameid) {
+    for (auto c: nameid) {
+        if (!std::isdigit(c) && (c != '-') && (c != ',')) {
+            return false;
+        }
+    }
+    return true;
+}
+
 template <typename T, typename F>
 void applyNameId(const char* objname, const std::vector<T>& objs, const std::string& nameid, F&& f) {
-    bool is_number = true;
-    for (auto c: nameid) {
-        if (!std::isdigit(c)) {
-            is_number = false;
-            break;
-        }
-    }
-
-    if (is_number) {
-        auto id = std::atoi(nameid.c_str());
-        if (id == 0 || id >= objs.size()) {
-            die("Invalid id (", id, ") for ", objname);
-        }
-        f(objs[id-1]);
-        return;
-    }
-
     int num_found = 0;
-    for (auto& obj: objs) {
-        if (obj.name == nameid) {
-            f(obj);
-            ++num_found;
+
+    if (isId(nameid)) {
+        auto st = 0;
+        auto ed = 0;
+        while (ed != std::string::npos) {
+            ed = nameid.find_first_of(',', st);
+            auto sz = ed - st;
+
+            auto rpos = nameid.find_first_of('-', st);
+
+            if (rpos != std::string::npos && rpos < ed) {
+                auto first_id_str = nameid.substr(st, rpos-st);
+                auto last_id_str = nameid.substr(rpos+1, ed - (rpos+1));
+
+                auto first_id = std::atoi(first_id_str.c_str());
+                auto last_id = std::atoi(last_id_str.c_str());
+
+                if (first_id == 0 || first_id >= objs.size()) {
+                    die("Invalid id (", first_id, ") for ", objname);
+                }
+                if (last_id == 0 || last_id >= objs.size()) {
+                    die("Invalid id (", last_id, ") for ", objname);
+                }
+                auto inc = last_id >= first_id ? 1 : -1;
+                for (auto id = first_id; id != last_id; id += inc) {
+                    f(objs[id-1]);
+                    ++num_found;
+                }
+            } else {
+                auto id_str = nameid.substr(st, sz);
+
+                auto id = std::atoi(id_str.c_str());
+                if (id == 0 || id >= objs.size()) {
+                    die("Invalid id (", id, ") for ", objname);
+                }
+                f(objs[id-1]);
+                ++num_found;
+            }
+            st = ed + 1;
+        }
+    } else {
+        for (auto& obj: objs) {
+            if (obj.name == nameid) {
+                f(obj);
+                ++num_found;
+            }
         }
     }
 
