@@ -1063,8 +1063,40 @@ Bard song to reduce all enemy ep
 
 lower right house open?
 
-3 gremlins bad positioning
 
-enc rate too high in mud room
+Bard song no effect
 
-bubbles animation underwater
+Retest level 2 spells
+
+Scene with Olvan before assassination mission 4
+
+Can walk through white benches
+
+s[2] on inn messages?
+
+Accessory costs
+
+Need resist rings for elec, acid, poison, plasma
+
+Don't sell high level healing items
+
+Celine dress sprite animationsz
+
+this isn't so bad -> wasn't such a bad idea
+You're gonna -> Celine say this
+
+Dancer is on touch
+
+Bartender should talk
+
+Celine should know about AEther Storm
+
+Ayen costume needs other sprites. Rethink Headwear
+
+Search text for Dexterity and DEXxx
+
+engineering this
+
+This idea sounds promiss
+
+taken care off
