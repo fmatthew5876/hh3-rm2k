@@ -3,11 +3,12 @@
 
 #include "GrepArgs.H"
 #include "TreeMapArgs.H"
+#include "EvDumpArgs.H"
 #include "Log.H"
 #include "Load.H"
 #include "CmdLineArgs.H"
 
-using ToolArgs = std::variant<GrepArgs,TreeMapArgs>;
+using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs>;
 
 struct Args {
     static void usage();

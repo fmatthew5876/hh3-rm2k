@@ -3,6 +3,7 @@
 #include <string>
 #include <cctype>
 #include <data.h>
+#include <rpg_map.h>
 #include "Exception.H"
 
 template <typename T, typename F>
@@ -152,4 +153,9 @@ void applyMaps(const std::string& nameid, F&& f) {
         die("Could not find Map with name=`", nameid, "'");
     }
 
+}
+
+template <typename F>
+void applyMapEvents(const RPG::Map& map, const std::string& nameid, F&& f) {
+    applyNameId("Event", map.events, nameid, std::forward<F>(f));
 }

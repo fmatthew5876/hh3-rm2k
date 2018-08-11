@@ -10,7 +10,6 @@ find_program(LCF2XML, "lcf2xml")
 #Specific tools
 add_subdirectory("hh3core")
 add_subdirectory("autodb")
-add_subdirectory("evdump")
 add_subdirectory("check")
 add_subdirectory("hh3tool")
 

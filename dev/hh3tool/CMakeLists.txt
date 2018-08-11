@@ -7,6 +7,8 @@ add_executable(hh3tool
 	Grep.C
 	TreeMapArgs.C
 	TreeMap.C
+	EvDumpArgs.C
+	EvDump.C
 	Args.C
 	main.C
 	)
