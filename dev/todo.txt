@@ -1,52 +1,37 @@
 Major Refactors:
 Knock doors
-Mp3 music speed
-Map transition call events
-autorun and erase event for num events setter. Only needed for != 0
-Rename Rufus to Faisal
+MAP SETUP on every map. No MORE 519:NUMBER OF EVENTS
 Encounters:
 - Remove wait
 - Remove save fight steps switch
 - Remove first strike roll
 - Don't use else branches
 - Use parent map battle bg
-Fix level 3 mage spells offset by 1 (treasure chests)
 Verify Character vars are accurate
 Verify char locks
 test Clairvoyance (switch 113) on every map with a hidden room
 ADD:Linup event moved
-PARTYTalktoAnimals
 Implement onAreaChange
+
+Add check for talk to animals skill - replace all with PARTYTalk
 
 Revisit disclaimer at beginning of game
 Fix battle music mp3
 Fix Yxxta mp3
 fix repeat loop on music when Kahran dies. Small blip at the end
 
-Refactor Regen
-- Balance amount
-- Balance regen skills
-- Balance regen items
 
 Kahran lower level spells
 Kahran not all sword skills. Remove some.
 Heavenly Shock explanation in skills menu
-Fix Kahran dead sprite
 
-No reset battle BGM on enter/exit
-Part 1 display is too slow
-Confirm Save fight steps is working
-Ivor Ghetto - extra house add enemies
+
 
 Cast dimension door on a save point?
-Celine computer event should be disabled after finish mission.
-Second computer Celine again
+- Test it on the same map
 
 
-Escape on ladder should reset sprites
 
-
-Why do world map teleports reset battle music?
 
 Balance Prot Good / Evil
 
@@ -60,34 +45,21 @@ Prot from Good / Prot from Evil??
 Add more npcs to opening with dialog.
 Improve Kharan Abel dialogue
 Opening should have futuristic interior
-History Great War / Great Catastrophy which reshaped the world.
-Better intro Celine / Ayen
+
 
 World map scene too dark
 
 Rename resistance
-Wierd.png makes things too dark.
-Balance rune blade to be less powerful.
 
 Noise needs a sound effect
 Sound effects for bard songs
 
-Figure out class name for King Faisal.
-
-Rename elements
 
 Reform party on the world map. Don't require finding npcs in towns.
 
 
 Better attack anim for spear Ayen
-Fighter has no skills for Knight Swords
 
-Both club and mace available in beginning of game
-
-Wakazaishi, same skill as sword
-
-Offensive and Defensive Stance?
-No Control Undead
 
 Consider magic missle that goes up with level
 
@@ -95,36 +67,15 @@ Redo Bard songs
 
 Readjust Off/Def stance
 
-Remove Rogue, Rebalance Thief, Treasure Hunter, Ninja
-
 Re-evaluate elements
 Re-evaluate states
 
 Ensure 1HS, hit rate, etc... are accurate
 Heavy weapons lowering dex? - guard at base talks about this
 
-We need to talk to the commander. Add period and step back
-
-Show Celine in warehouse conversation.
-
 Save points should let you save directly
-Call erase event on all map setters
-Why do we need reset switch common event?
 
 
-
-Your Lieutenant
-Should say something after you knew..
-We have to stay on par -> no face
-luxory
-He is very good -> propaganda
-
-carefree life of luxury?? -> Fleet briefing
-Eastland being the major one -> Fleet briefing
-some stuff in -> supplies
-2 spells in box
-
-is some supplies
 
 Assassin mission
 -Olvan gives device to cloak ether signal
@@ -147,16 +98,8 @@ Paladin
 - Damage undead attack for free
 - Resist XP drain
 
-Add party skills concept.
- - Talk to animals - if one has it, party has it. Use single switch to control
-Refresh on event
- - After level up
- - After party change
- - After skills learned
- - After menu access
+Undead/Animal/etc.. strike could be automatic. With scripted extra weapon copies
 
-Free skill slots
-  48, 49
 
 Show some icon to indicate [Shift] for help
 
@@ -172,21 +115,12 @@ Balance Holy Strike vs Undead Strike
 Implement Resist XP Drain Skill
 
 
-Fighter skills use physical elements and don't add remove them in CMS code. (Except Spray for anims)
-
-Paladin Raise Dead - add to scrolls for memorization, don't add all the time.
-SHD - Energy Drain - add to spellbook for memo
-
 Make first aid kits rare
-
-Only Thief and Ninja, no more Rogue / Treasure Hunter
 
 Add icon to tell play they can use [Shift] to see help.
 
 Priest AP skill for more secret spells?
-Hidden priest spells learnable from scrolls?
 
-Fighter skills decrease blunt defense
 
 Refactor GoodBerry spell - Maybe learnable from scroll?
 
@@ -196,8 +130,6 @@ More cause wounds spells for lower levels
 
 Saving from menu.. After reloading menu cleanup events don't occur.
 - does this break scroll learning?
-
-Memory up + 1 broke
 
 
 What happens to memorization when we down-level from XP drain?
@@ -213,15 +145,9 @@ Make some spells outdoor only, particularly druid.
 - Natures Beauty
 
 
-When reloading from saved game all events seem to restart.
-- Menu cleanup?
-- Weapons
-- Spell conditions
-
 Reconsider location of goodberry spell. Should be in Sanctus Silva after
 Ivory mission finished in north area. Well hidden.
 
-Make mage scrolls more expensive and rare
 
 Maybe remove Olvan Phantom Blade
 
@@ -231,9 +157,6 @@ Curious switches
 1743 ON THE SHIP!!
 638 TXXXXX8
 857-860 Txxxx3-5
-
-Fix level 3 spells, start Clairvoyance at 1, not 0.
-- Fix drops / treasure
 
 Sidequest stories
 - 2nd world, sad stories of struggle in dieing world
@@ -263,15 +186,7 @@ Scrolls - skills - CMS help - spell names don't always match
 
 Level 10 spells for Sorcerer Ayen?
 
-Let hybrids use katana
-
-1H Swords for Druid
-
-
-freeze timer during CMS
-
-Finished at 32
-
+Let hybrids use katana?
 
 Level 10 / infinity magic
 - Need to display level on mage book
@@ -282,8 +197,6 @@ New LoH animation with hands spread out glowing blue
 - Daniel
 
 Move title1 - title2 in colluseum
-
-Implement HP/EP Regen
 
 BATTLE COPY CHECKLIST:
 - Which enemies
@@ -318,15 +231,13 @@ Backstab description
 Ayen / Elizabeth Backstab anims
 
 
-IvorGhetto, not all spells for sale
-
 Celine Bladeblade switch name
 
 
 Fix Celine Blade Blade anim
 
 
-Backstab with a gun?
+Backstab with a gun? No
 
 Verify weapon animations for all playable chars.
 - Including NPC chars
@@ -334,15 +245,11 @@ Verify weapon animations for all playable chars.
 
 Improved Crit rate for fighter
 
-disable skills menu for NPCs
-
 
 retest fleet spray animations
 
 
 Daniel mace and staff?
-
-test LearnSpells
 
 Should not get LearnSpells after recover XP loss
 
@@ -350,8 +257,6 @@ Axes double crit rate
 
 
 cms skills menu, up to move to last, down to first
-
-running away on first turn does not trigger battle cleanup
 
 Druid transform into animal
 
@@ -371,11 +276,6 @@ Anim for rest recover
 
 Debug icon for visibility level
 
-No Katana for sale in Timon, must find one
-
-Screen showed after Abel
-
-
 Consider replacing headset with a tutorial system.
 
 Seppuku requires katana?
@@ -383,7 +283,7 @@ Seppuku requires katana?
 area change anim
 
 
-Walk Silently increase first strike chance too
+Walk Silently increase first strike chance too?
 
 
 SHD Chaos Bite -> maybe battle event
@@ -392,7 +292,6 @@ SHD Chaos Bite -> maybe battle event
 
 Adjust Wraith XP loss amounts - should be more than 100
 
-Improve dead sprite for all chars. Not just a rotation.
 
 figure out deafness / silence
 
@@ -402,12 +301,9 @@ Review all states and spells that cause them
 SAM only Seppuku and Ansatsu
 SAM elemental attacks?
 
-
 SAM needs more
 
 NIN requires less than all other rogues
-
-Fleet needs more 1300
 
 Void element - default more damage to all?
 
@@ -417,66 +313,31 @@ Spirit Blast animation
 
 Whats the deal with Monk EP?
 
-Set Kahran HP/EP Regen on start
 
 Healing potion rebalance
 
-ATK -> Attack Power
-AC -> Armor Class
-ETH -> Ether Response
-AGI -> Agility
 
-NPC who explains regen
-
-
-shelf of drinks in inn
-shelf of smokes in inn too?
-
-Timon map tint on autorun, not teleports
-- show screen
-
-Skyflow B1, mission 2 complete switch for event?
-
-Skyflow harder enemies deeper in
 
 Skyflow products catalog
 
-Try cutscenes without Ayen leader
 
-You're brav
-ofanything
 Should have bottles and cigarettes on counter
 
-Secret church in slums
 
-
-drink/smoke on ladder.
+drink/smoke on ladder?
 
 after mission 2, use change graphic, not switches
 
-rename Rafad, Zacbarian
-- Assassin event
-- Gatsy party guard
-- Meeting
-- Meeting guard outside
+Rename Rafad?
 
+Rename Schiff to Fes?
 
-Maps, try waiting for key press
-
-choice now do you?
-wait for move
-
-2nd floor inn Dirks
-
-too many potions of healing in boxes - sewers/junkyard
 
 SOTN - Crystal Teardrops - upgrade to mp3
 
 Bosun talk about Quiet Storm
 
 show party in weapon event
-
-Susie needs a sprite
 
 Marx has reservations about Bosun help
 
@@ -488,50 +349,18 @@ Knock doors in Timon (player won't have required level for this)
 - Ivor Ghetto
 - Bosun Factory
 
-Extra equip in Timon
-- Pike - Office
-- Forged Steel Mace - Bosun Factory B2
-- Weapons for sale in Eastland Ghetto
-- Weapons for sale in north (Ceramic Breastplate?)
-
-Mage Spells:
-- Color Spray - Bosun Factory outside
-
-Lower enc rate factory outside
-- F1
-too dark
-
-outside try enc rate 50
 
 hide screen save room
 
-Dre and Herp need their own sprites
-
-guard face down after
-kahran EP regen broke
-Check enemy drops too for equipment
-Ghoul Touch spell won from gremlin?
-
 inside more houses in north sector
 
-Why speak to the guard without disguise?
-
-Drinking/Smoking in disguise
 Ayen disguise elf ears
 
 Overhaul npc dialogue in upper class district
 - more educated debates
 
 
-
 flashy lights in ball room, more decorations
-
-Is this really who we should be fighting?
-
-Light pictures at night
-
-Close doors and no npcs at night
-
 
 Ayen sleeping on stool?
 
@@ -542,9 +371,8 @@ NPC talk about govt structure
 
 Keep NIGHT switch on after meeting?
 
-Minister Said graphic
+Minister Said sprite
 
-Wizard only cast grease when has allies
 
 Other women in Dreyfus room
 free other women Dreyfus prison
@@ -565,11 +393,6 @@ Office at night
 Wounded soldiers at office outside
 
 
-
-Jadin - no name in battle
-
-
-
 Creepy whisper sound effect in office text
 
 
@@ -585,9 +408,6 @@ Ninja throw skill
 
 World Map use custom encounter system
 
-Cat purr sound when talk to animals
-- Auria
-- Somewhere in Timon
 
 Close eyes sprite
 - Marx in bed at Auria Inn
@@ -610,7 +430,6 @@ BattleSwitches for scripted attacks
 
 var 973
 
-Celine no add spells on char. Add them on event.
 
 Elizabeth add some AP
 
@@ -618,28 +437,11 @@ Sleep lasts forever
 
 Refactor Abel battle to use battle enemy switches
 
-RECHARGE HT/LOH switch?
-
-People talk different if Bosun leads
-
-Battle event targetting can't determine enemies that run away
-- IMPOSSIBLE TO FIX THIS
-
-Dead chars should not get AP
 
 Dreyfus battle
 - effects don't hit Lust before transform
 - test that effects don't hit Dreyfus after transform
 
-Test all weapons with all chars -> animations
-
-Rebalance char weapons
-- Kaelnayyan Bloddy Sword
-- Dyrkk Double Edged Halberd
-- Dre Halberd
-- Herp Glocks
-
-Fleet, prevent removing Chain Gun with script
 
 Treasure Hunter can use large guns
 - Upgrade class select
@@ -647,30 +449,17 @@ Treasure Hunter can use large guns
 
 Fix Phant Blade, Hammer, Black Blade, Frenzy, Tenser for all battles...
 
-CharWeaps -> ItemWeaps before shop - include chars like Dre/Herp/Dyrkk/Kaelnayyan
-- Verify shop says item equipped
-- NPC chars should start with base weapon and events transfer them like other chars
-  - Verifies stats match
+
+Check that all open shops that sell weapons have PREMENU before and PREGAME after
 
 Mage scroll descriptions should match spells
 
 BS should be 100% accurate if enemy cannot move
 
 
-world map intro, colors and wierd are not smooth
+Recheck weapon names in class select
 
 
-Wakazaishi - Wakizaishi in class select
- - Ninja description
-
-
-timon sector -> district
-
-something hidden -> make him jealous or angry about secrets
-
-all kinds of machinery - agent near exit
-exit. No admit - be more nice?
-is immortal
 
 Include Lenna is some mission briefings. Flesh her out more as a character.
 
@@ -680,28 +469,20 @@ Celine giggle sprite. Hand over mouth.
 
 Show pictures / scenes while Lenna talks
 
-strictly illegal
 
 Lenna - My Pleasure Commander (nod to the commander)
 
 
-Verify timeline
-- Alicia says 15 years, what year in intro?
 
 No trains due today.. (Say something else. There are always trains)
 
-east sector -> government district
 
 readings are very high
 
-Check for switch T26
-
-2nd floor enc rate too much
 
 disable sneak/backstab when gun equipped or unarmed
 
-do we put hit rate in weapon desc?
-- agent in HQ talks about it
+verify agents talk about weapons. Describe the code.
 
 
 471-495 Knife WIL
@@ -752,7 +533,6 @@ Free skills 75, 7, 8, 9
 
 Samurai elemental attacks should require katana
 
-Consider no spray for shutgun. Already hits all!
 
 Imperial Hound needs animal states / elements
 
@@ -768,14 +548,12 @@ weapon skill anims broke
 weapon skills cost EP
 Spray messed up
 
-Lenna -> Alicia
 
 Elizabeth should ask about Alicia
 
 Drow resist charm
 
 underwater areas - with water breathing spell
-- add one to bosun factory
 
 
 limited visibility maps
@@ -794,9 +572,9 @@ retest Fleet, including Eagle Eye skill
 
 left handed guns
 
-damage sustaned
 
 ManualSave common event -> remove weapons first, save, add them back
+- check we never save outside of this event
 
 Checks:
 Verify 1H in desc matches real item
@@ -806,6 +584,7 @@ Verify 1H in desc matches real item
 Check for switch 591:NUMBER OF EVENTS
 
 Investigate random corruption with autodb.
+- Maybe WSL is to blame?
 
 
 Generate encounters event for areas in world map?
@@ -838,7 +617,6 @@ Nothing should manipulate certain switches directly
 
 Add a tool to query who touches given switch/variable
 
-Merge all into a single tool with sub commands?
 
 Check tempo in map info
 
@@ -848,10 +626,6 @@ Said is son of Rafad leader? Mentioned in Glade/Wrath battle
 Duke -> Emir?
 
 Rename said to something else
-
-Brow line on old faisal sprite. Good look for sad.
-
-Faisal is king, not minister..
 
 Chester, access to forest after cutscene
 
@@ -875,22 +649,17 @@ Minister -> King (Faisal)
 Executive -> Senator (Dreyfus)
 Duke -> Emir (Said/Zacbarian)
 
-Gate of Zecht, add natural sides which fade into mountains
-- army encampments north of gate
-- can enter one secretly and get loot
-
 hh3tool - find call sites for common event
 
 check for manual change party commands and kill them
+- teleports to map XXX
 
 check for event calls when inputs were not set!
 
 You have been chosen
 - whispers and cutscenes for Fautheit's transformation
 
-Jadin and Lucifer talk about how he failed to kill Ayen and the next plan'
-- Maybe Lucifer and Abel?
-- Special cutscene setting with both interlocutors hidden
+Add loot to secret camp (Kandirk)
 
 Royal guards aim graphic
 - Royal guards different weapons?
@@ -898,10 +667,6 @@ Royal guards aim graphic
 Yurak should have swank apartment
 Super enemies the result of light / dark and sins.
 
-Make ground light sprite for doors outside
--Controlled by Night Switch
-
-roof door face down
 
 enemies backstab - Jade summons rogue demons
 
@@ -916,13 +681,10 @@ Maybe inn too? Gameover?
 
 
 
-Search text Alicia
-
 autodb - set scroll descriptions to spell descriptions
 
 check bards can't use any 2H weapons
 
-Query locations of spells and weapons
 
 tunnels, some hint about secret area
 
@@ -934,9 +696,6 @@ search all events turn off knock switch
 Timon 40 years old? Alicia
 
 search for teleports with no hide
-
-Timon Tour during Martial law?
-
 
 rename Skyflow
 
@@ -960,19 +719,12 @@ COnsider: run encounters all the time.
 - Have separate autorun encounter event which triggers the battle
   - Also a common event version, which resets it on maps with no enemies
 
-More time before last jade talk
-
-Add a magic store sign - Use it in Dirks
 
 For map and all child maps, report all items given
-
-DEX / Dexterity -> AGI / Agility text search
-
 
 
 Remove bag of coke after mission?
 
-Rebalance Thug?
 
 
 Riot between Shazradians and Dirks?
@@ -992,10 +744,6 @@ Greater Restoration should cost based on level
 Should we provide Knock spell before leaving Timon?
 
 
-Blur spell in caves?
-
-Removed Blur
-
 Wall against noise - prevent Wail of Banshee
 
 Implement Darkness spell
@@ -1006,14 +754,9 @@ Consider weapon switch for barehand - to do blunt damage
 
 autodb - automate scrolls, conditions, set, clear, and learn CE's
 
-Cave Bat Sonar too weak
-
-Gremlin casts sleep too much
 
 attack ing flying enemies, fleet lower half cut off
 - consider max height for enemies
-
-Monster in box - wrong bg
 
 Mission 3 enemies need retuning
 
@@ -1022,41 +765,23 @@ revisit the mine and make sure things work
 
 Why is switch 272:Spoke toFleetMission turned off?
 
-slums cat, resting during day. Up at night
 
 Too many potions of healing
-You're no dumbshit - delay first
 
-Turn right on receive bag
-
-Let's fight.
 
 Wait for them to finish approach
 
-I presume..
-aint' grass
-
-is  east
 BodyGuards too hard
 
 Show wounded people outside office
 
+Find all cats and use new cat sprites
 
-check that office to outside transition works?
-
-MapLightLevel on lights out
-
-Ayen hasn't come back yet -> turn right
 
 Susie's charm -> NO encounters
 
-Dre herp sprites don' bob heads walking from behind
 
-
-there's a group of
-
-Herp no backstab
-Herp steal?
+Herp steal? + Quick FIngers
 
 Bard song to make all enemies fall asleep
 Bard song to reduce all enemy ep
@@ -1070,9 +795,7 @@ Retest level 2 spells
 
 Scene with Olvan before assassination mission 4
 
-Can walk through white benches
 
-s[2] on inn messages?
 
 Accessory costs
 
@@ -1080,23 +803,5 @@ Need resist rings for elec, acid, poison, plasma
 
 Don't sell high level healing items
 
-Celine dress sprite animationsz
-
-this isn't so bad -> wasn't such a bad idea
-You're gonna -> Celine say this
-
-Dancer is on touch
-
-Bartender should talk
 
 Celine should know about AEther Storm
-
-Ayen costume needs other sprites. Rethink Headwear
-
-Search text for Dexterity and DEXxx
-
-engineering this
-
-This idea sounds promiss
-
-taken care off
