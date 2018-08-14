@@ -25,12 +25,11 @@ Kahran lower level spells
 Kahran not all sword skills. Remove some.
 Heavenly Shock explanation in skills menu
 
+back stories for 4 generals
 
 
 Cast dimension door on a save point?
 - Test it on the same map
-
-
 
 
 Balance Prot Good / Evil
@@ -805,3 +804,66 @@ Don't sell high level healing items
 
 
 Celine should know about AEther Storm
+
+behind the wooden roof ivor ghetto
+
+amoung the gods
+
+Quiet Storm - use same map add rain
+
+Talk about quiet storm in Eastland pub TV
+-add more tvs with news to Timon pubs and houses
+
+Message box down
+
+Chivalry - consider mp3
+
+COnsider anti-curse element for Ayen on all weapons - dealing more damage to sin enemies
+
+Olvan give anti-curse items
+
+
+Lust absorb dark
+
+Negative states maybe not working
+- Seems broken on drain
+
+ENable debug mode in battles
+
+Fix NIGHT in Eastland Ghetto and Ivor Ghetto for escape
+
+More First-Aid kits?
+
+Theres a wait for all movement when exit menu. Causes big delays in Dreyfus Manor map
+
+Retest - walk/detect walk speeed situation
+
+Check that all maps with an escape point disable underwater in their MAP SETUP
+
+Check that all maps have 1 MAP SETUP event which is autorun and ends with Erase Event and has a call to ONMAP SOMETHING
+
+Consider custom escape system
+- Check for an remove all escape events
+
+Do we really need to save at inns?
+- Another easy source of equip change bugs
+
+More reactions to leader
+
+Need nighttime windows
+
+Switch to touch events for cutscenes instead of autorun
+
+Check: All battles height is not above where gun animations cut off.
+- All ground enemies same Y
+- All Flying enemies can change
+
+Sewer door afer mission is broke
+
+Create a graph mapping all teleports from maps.
+- Check area boundaries
+- Check area switches not manipulated by more than one map within an area
+
+Walking push anim, push the block in under city caves
+
+Add Atum to Dreyfus Manor
