@@ -866,4 +866,12 @@ Create a graph mapping all teleports from maps.
 
 Walking push anim, push the block in under city caves
 
-Add Atum to Dreyfus Manor
+Arad do directional teleport
+
+parachute out of the city
+
+air force after us
+
+Try to enter towns from ship and see if we can break the game
+
+Why travel to summers when eastland is enemy -> resort town is neutral for tourism $$
