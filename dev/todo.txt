@@ -878,3 +878,7 @@ Cat sprite for Thenesian
 pause after step down
 
 reset damage SFX on battle cleanup
+
+Ugrum assassination mission
+
+1f -> 2f stairs
