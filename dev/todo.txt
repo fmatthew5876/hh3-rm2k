@@ -870,6 +870,27 @@ Arad do directional teleport
 
 damage from cart hit
 
+use a room var in forest
+
+Switch use checks:
+- Event page conditions
+- Troop Page conditions
+- Enemy actions
+- Common Event Conditions
+
+Fix Nazareth treasure room
+Fix Mt Bolar puzzle
+
+Change BG
+
+Fix Ladder swamp
+Exit fort
+
+Search for incorrectly used room switches
+- should be on touch and above
+
+top area down
+
 Try to enter towns from ship and see if we can break the game
 
 Why travel to summers when eastland is enemy -> resort town is neutral for tourism $$
