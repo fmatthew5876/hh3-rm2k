@@ -868,6 +868,8 @@ Walking push anim, push the block in under city caves
 
 Arad do directional teleport
 
+damage from cart hit
+
 Try to enter towns from ship and see if we can break the game
 
 Why travel to summers when eastland is enemy -> resort town is neutral for tourism $$
@@ -881,4 +883,8 @@ reset damage SFX on battle cleanup
 
 Ugrum assassination mission
 
-1f -> 2f stairs
+More in Zecht ruin
+
+fade from stairs after zecht
+
+walk under stairs
