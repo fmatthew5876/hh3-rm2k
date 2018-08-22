@@ -909,3 +909,11 @@ More in Zecht ruin
 fade from stairs after zecht
 
 walk under stairs
+
+When Dungeon has multiple exits, only set escape point when entering from outside
+
+Check that no encounter events touch first strike mod - check for wait too and change bgm
+
+battle cleanup on glade
+
+Check we can't escape on cutscene area
