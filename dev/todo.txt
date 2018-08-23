@@ -898,15 +898,14 @@ Why travel to summers when eastland is enemy -> resort town is neutral for touri
 
 Cat sprite for Thenesian 
 
-pause after step down
+RM2k BUG: Repeat movement, wait for all, and then immediately get into variable -> wrong values
 
-reset damage SFX on battle cleanup
+
+Sleeping Bosun on the Pequod should say something funny.
 
 Ugrum assassination mission
 
 More in Zecht ruin
-
-fade from stairs after zecht
 
 walk under stairs
 
@@ -917,3 +916,9 @@ Check that no encounter events touch first strike mod - check for wait too and c
 battle cleanup on glade
 
 Check we can't escape on cutscene area
+
+about that? about it..
+
+What do you know
+
+of of the next
