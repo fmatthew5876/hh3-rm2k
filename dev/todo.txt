@@ -917,8 +917,27 @@ battle cleanup on glade
 
 Check we can't escape on cutscene area
 
-about that? about it..
+silence breaks detect traps
 
-What do you know
 
-of of the next
+
+Review monk upgrades - Venalis Mtns
+
+
+Kitchen guard patrol
+
+Clairvoyance should reveal stone tower treasure
+
+Dwarf ruins beds are too big
+
+
+Disable controls during cutscene
+
+Kaelnayyan needs unique sprite
+Dyrkk needs unique sprite
+
+Two moons in grass bg
+
+Ninja game, when attacking enemy sight can pass through and not get seen
+
+Turn off menu during stealth game - drinking or other animated stuff can break guards catch
