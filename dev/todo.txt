@@ -938,6 +938,33 @@ Dyrkk needs unique sprite
 
 Two moons in grass bg
 
-Ninja game, when attacking enemy sight can pass through and not get seen
+Test Shuriken and throwing weapons
 
-Turn off menu during stealth game - drinking or other animated stuff can break guards catch
+Nineveh storage room? Inside gate from moat
+2nd floor rogue house?
+
+Bellum has no inn
+
+Search for inn processing with no resting cleanup
+
+map screwup on mouintain
+
+New sprite for Lenin
+New sprites for queens
+
+Druid guild quests
+
+Basement in the church for cleric guild
+
+Ignis, Aqua, Anemos, Terra
+
+Mandali has a delay on start
+
+Jager in the town square
+
+Knocks in mage guild
+colluseam - outside rogues
+
+levl backstabs
+
+the pope
