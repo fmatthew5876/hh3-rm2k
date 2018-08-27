@@ -968,3 +968,22 @@ colluseam - outside rogues
 levl backstabs
 
 the pope
+
+Check for bad switches in legacy code:
+-ENEMIES
+-DEBUG CHECKS
+-DETECT/WALK - teleports which explicitly turn off traps and change move speed
+
+Escape on ice steps - animation on?
+
+Add shops to Ice castle outside - maybe tourists too
+
+Ice castle open doors - sprite on outside but not inside
+
+MAPPrevMap checks must go after set map event - check this
+
+Ice stepping - first step should animate, remaining steps no
+
+can walk through counter in ice castle
+
+Is Knock door a good idea - forced to choose Celine - Ice Caslte
