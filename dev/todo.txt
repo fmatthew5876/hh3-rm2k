@@ -973,6 +973,7 @@ Check for bad switches in legacy code:
 -ENEMIES
 -DEBUG CHECKS
 -DETECT/WALK - teleports which explicitly turn off traps and change move speed
+-Firststrike Roll
 
 Escape on ice steps - animation on?
 
@@ -987,3 +988,52 @@ Ice stepping - first step should animate, remaining steps no
 can walk through counter in ice castle
 
 Is Knock door a good idea - forced to choose Celine - Ice Caslte
+
+disable escape when in Boat
+
+Faisal should say something when fighting sandworm
+
+Clairvoyance should cost a lot
+
+More sand waterfalls
+More sideview areas
+
+ElderSandworm needs a huge graphic - try contra bosses
+
+World 2 - finish underhalls into sandworm - into story or optional area?
+
+Can use terrain ids for puzzles involving environment - water
+- Refactor barrel puzzle to do this as Proof of Concept
+
+
+Need to fix house counters for merchants
+
+
+upper right should have hidden room
+
+Magical coupling concept
+- 2 boxes that open at the same time.
+- For spells?
+- Other puzzles?
+- Mage/cleric spell to detect coupling?
+
+Sandworm wizard spells
+- Burning sand?
+
+Check You Found: not matching item, gelda
+
+
+Standard Full Recovery Sparkle - But not LoH/HT
+
+Check for inns
+- If not free, must be conditional
+- must call RESTING Cleanup inside yes block
+
+LOTS of merchants in Desert of Moving Sands
+- Lots of junk, but search for rare weapons
+- Need graphics for sit down merchants
+
+Magic spell effects by terrain
+
+Sand attack spells, only in desert
+- Burning Sand - level 1 spell, 1 EP, decent attack
