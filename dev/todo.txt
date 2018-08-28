@@ -1022,7 +1022,8 @@ Sandworm wizard spells
 
 Check You Found: not matching item, gelda
 
-
+Handle escape in change map.
+- CHeck underwater is more graceful
 Standard Full Recovery Sparkle - But not LoH/HT
 
 Check for inns
@@ -1037,3 +1038,5 @@ Magic spell effects by terrain
 
 Sand attack spells, only in desert
 - Burning Sand - level 1 spell, 1 EP, decent attack
+
+Battle cleanup
