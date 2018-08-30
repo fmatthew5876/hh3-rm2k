@@ -1039,4 +1039,28 @@ Magic spell effects by terrain
 Sand attack spells, only in desert
 - Burning Sand - level 1 spell, 1 EP, decent attack
 
-Battle cleanup
+Japanese monsters in ancient cave
+
+Use shift to shift party by 1.
+- Leader attacks with weapon
+
+Ancient Cave - Moving Blocks Hidden stairs puzzle should be required, not a bonus.
+
+An item to cast Knock
+
+A ring that makes you water proof
+- meter runs out, all other members drown
+
+Underwater nature area in Sanctus Silva
+
+Small key doors and boxes should have same icon. To differentiate between other things
+
+animate the door in Fautheit event when ayen lights a torch inside
+Fautheit should be fat
+
+Fautheit turns of menu
+
+Check Sin battles for proper switch usage and appearance
+
+Fix after close door yyrak
+Dont say the gift
