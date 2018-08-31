@@ -1058,9 +1058,18 @@ Small key doors and boxes should have same icon. To differentiate between other 
 animate the door in Fautheit event when ayen lights a torch inside
 Fautheit should be fat
 
-Fautheit turns of menu
-
 Check Sin battles for proper switch usage and appearance
 
-Fix after close door yyrak
-Dont say the gift
+Learn bard song by playing piano inside house in Sanctus Silva
+
+
+Bridge again at Sanctus? Try to be more original..
+
+Yurak should speak better about wrong way in Sanctus entrace. Should change after boss.
+
+
+Fix North to right teleports
+Middle North from right lowest is bad
+
+Northern most and left maybe good for goodbery
+
