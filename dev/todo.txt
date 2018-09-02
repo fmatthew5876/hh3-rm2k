@@ -1121,3 +1121,37 @@ More churches in later towns
 Search for Picture ID 1 being set, probably legacy code
 
 Bosun real conspirators
+
+Shahazrad midi has wierd delay
+'
+Olvan is tripple classes - detect traps
+
+Some aggressive african tribe in eastland desert
+- random encounters
+- maybe meet them in one mission at their camp
+
+Intrigue between church and Commander Fleet on getting Ayen to genrals meeting
+-Item reverses ether alignment
+
+Ayen needs to tell Faisal about Timon's plan
+
+rearrange group - drop from lineup if in party
+
+Guard vision enable icon when debug is on
+
+Rafad - when you walk back to stealth area show soliders fighting
+
+guest room
+
+Chester sell Necromancy spells
+
+Make sure escape doesn't break rafad
+
+Saw a triton in the forest. - sea enemies terrains broke?
+
+Need party member switches for in lineup - To implement party member change mechanics
+Need party member switches for backed up - For cutscenes where Ayen temporarily disbands party to talk.
+
+Find all teleports to 326 - old party change calls
+
+Consider allow driving sand cruiser on world map and button to submerge.
