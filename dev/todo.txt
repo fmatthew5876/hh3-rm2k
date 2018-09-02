@@ -1060,12 +1060,28 @@ Fautheit should be fat
 
 Check Sin battles for proper switch usage and appearance
 
+Redo Atum / Jadin talk in Timon Camp
+
+Review AEther after AETHER STORM OFF (disembarked Pequod)
+
+Time of Day Variable - gets superceeded by night
+For different morning - day - evening - night tints
+0 - Disabled
+1 - 1 AM
+12 - Noon
+24 - 12PM
+
 Learn bard song by playing piano inside house in Sanctus Silva
 
 
 Bridge again at Sanctus? Try to be more original..
 
-Yurak should speak better about wrong way in Sanctus entrace. Should change after boss.
+Need to get into Ayen's family life. Small playable section speak to people.
+- Ayen's house
+
+Make the Kaiser have an heir.
+Heir is killed in war with Timon. Heir is playable (as actor 35?)
+
 
 
 Fix North to right teleports
@@ -1073,3 +1089,35 @@ Middle North from right lowest is bad
 
 Northern most and left maybe good for goodbery
 
+Some NPC should talk about party roll
+
+Ivory, Norwich, and Shipley take you to your boat when you exit docks
+
+
+What is switch 944:Summon Chars
+
+Make a puzzle with a lot of easy open doors
+
+Woman: who cares who the kaiser is - shipley pub
+
+Refactor MAPCustomTint - should go away on change map
+
+Scenes on the boat from Ivory Castle
+
+Weapon skill level - number of hits
+- Monk has lots of hits
+
+Guards in basement dungeon to Wilhelm
+
+Donalbain no dissapear
+
+Jade almost discover Pandora, and then 1 year passes?
+
+Rename the monster, Miryai? Mentioned by Yurak after Donalbain
+Sirran G-Project
+
+More churches in later towns
+
+Search for Picture ID 1 being set, probably legacy code
+
+Bosun real conspirators
