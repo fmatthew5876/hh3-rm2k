@@ -1176,3 +1176,5 @@ Flying X/Y can maybe go away after refactoring party members
 
 Convert Nazareth puzzle to modern map vars
 Convert Apollinia pictures into modern map vars
+
+Search room vars for misuse
