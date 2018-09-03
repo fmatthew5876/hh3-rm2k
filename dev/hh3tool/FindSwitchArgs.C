@@ -17,6 +17,6 @@ FindSwitchArgs FindSwitchArgs::load(CmdLineArgs& argv) {
 }
 
 void FindSwitchArgs::usage() {
-    std::cerr << "findsw [OPTS] <NAMEID> - Search for all events which add/remove the given sw\n";
+    std::cerr << "findsw [OPTS] <NAMEID> - Search for all events who touch given switch\n";
     std::cerr << std::endl;
 }

@@ -35,10 +35,10 @@ void applyNameId(const char* objname, const std::vector<T>& objs, const std::str
                 auto first_id = std::atoi(first_id_str.c_str());
                 auto last_id = std::atoi(last_id_str.c_str());
 
-                if (first_id == 0 || first_id >= objs.size()) {
+                if (first_id == 0 || first_id > objs.size()) {
                     die("Invalid id (", first_id, ") for ", objname);
                 }
-                if (last_id == 0 || last_id >= objs.size()) {
+                if (last_id == 0 || last_id > objs.size()) {
                     die("Invalid id (", last_id, ") for ", objname);
                 }
                 if (last_id < first_id ) {
@@ -52,7 +52,7 @@ void applyNameId(const char* objname, const std::vector<T>& objs, const std::str
                 auto id_str = nameid.substr(st, sz);
 
                 auto id = std::atoi(id_str.c_str());
-                if (id == 0 || id >= objs.size()) {
+                if (id == 0 || id > objs.size()) {
                     die("Invalid id (", id, ") for ", objname);
                 }
                 f(objs[id-1]);

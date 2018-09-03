@@ -42,6 +42,13 @@ struct FindItemVisitor : public VisitorBase {
         }
     }
 
+    void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) const {
+        auto& c = page.condition;
+        if (c.flags.item && c.item_id == item->ID) {
+            found(" condition item");
+        }
+    }
+
     void onEventCommand(const RPG::EventCommand& cmd) {
         if (cmd.code == RPG::EventCommand::Code::ControlVars) {
             if (cmd.parameters[4] == 4 && cmd.parameters[5] == item->ID) {

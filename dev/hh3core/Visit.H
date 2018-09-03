@@ -6,6 +6,13 @@
 #include "MapCache.H"
 #include "Location.H"
 
+
+class VisitStopException : public Exception {
+    public:
+        VisitStopException() : Exception("Visit Interrupted") {}
+};
+
+
 template <typename F>
 void visitTreeMap(F&& f) {
 
@@ -122,167 +129,229 @@ class VisitorBase {
 
         Location& loc() { return _loc; }
         const Location& loc() const { return _loc; }
+
+        void stopThisBranch() { throw VisitStopException(); }
     private:
         Location _loc;
+    public:
+        bool do_database = true;
+        bool do_actors = true;
+        bool do_skills = true;
+        bool do_items = true;
+        bool do_commonevents = true;
+        bool do_enemies = true;
+        bool do_troops = true;
+        bool do_terrains = true;
+        bool do_attributes = true;
+        bool do_states = true;
+        bool do_animations = true;
+        bool do_chipsets = true;
+        bool do_battlecmds = true;
+        bool do_classes = true;
+        bool do_battleranims = true;
+        bool do_terms = true;
+        bool do_system = true;
+        bool do_switches = true;
+        bool do_variables = true;
+        bool do_maps = true;
 };
 
 //Visit the entire game.
 template <typename V>
 void visitRPG(V&& v) {
-    v.loc() = Location(LocPath(&Data::data));
-    v.onDatabase(Data::data);
-
-    v.loc() = {};
-    v.onActors(Data::actors);
-    for (auto& actor: Data::actors) {
-        v.loc() = Location(LocPath(&actor));
-        v.onActor(actor);
+    if (v.do_database) {
+        v.loc() = Location(LocPath(&Data::data));
+        v.onDatabase(Data::data);
     }
 
-    v.loc() = {};
-    v.onSkills(Data::skills);
-    for (auto& skill: Data::skills) {
-        v.loc() = Location(LocPath(&skill));
-        v.onSkill(skill);
-    }
-
-    v.loc() = {};
-    v.onItems(Data::items);
-    for (auto& item: Data::items) {
-        v.loc() = Location(LocPath(&item));
-        v.onItem(item);
-    }
-
-    v.loc() = {};
-    v.onCommonEvents(Data::commonevents);
-    for (auto& ce: Data::commonevents) {
-        v.loc() = Location(LocPath(&ce));
-        v.onCommonEvent(ce);
-        v.onCommonEventCmds(ce, ce.event_commands);
-        v.onEventCommands(ce.event_commands);
-        for (auto& cmd: ce.event_commands) {
-            v.loc() = Location(LocPath(&ce, &cmd));
-            v.onCommonEventCmd(ce, cmd);
-            v.onEventCommand(cmd);
+    if (v.do_actors) {
+        v.loc() = {};
+        v.onActors(Data::actors);
+        for (auto& actor: Data::actors) {
+            v.loc() = Location(LocPath(&actor));
+            v.onActor(actor);
         }
     }
 
-    v.loc() = {};
-    v.onEnemies(Data::enemies);
-    for (auto& e: Data::enemies) {
-        v.loc() = Location(LocPath(&e));
-        v.onEnemy(e);
-        v.onEnemyActions(e, e.actions);
-        for (auto& a: e.actions) {
-            v.loc() = Location(LocPath(&e, &a));
-            v.onEnemyAction(e, a);
+    if (v.do_skills) {
+        v.loc() = {};
+        v.onSkills(Data::skills);
+        for (auto& skill: Data::skills) {
+            v.loc() = Location(LocPath(&skill));
+            v.onSkill(skill);
         }
     }
 
-    v.loc() = {};
-    v.onTroops(Data::troops);
-    for (auto& t: Data::troops) {
-        v.loc() = Location(LocPath(&t));
-        v.onTroop(t);
-        v.onTroopMembers(t, t.members);
-        for (auto& m: t.members) {
-            v.loc() = Location(LocPath(&t, &m));
-            v.onTroopMember(t, m);
+    if (v.do_items) {
+        v.loc() = {};
+        v.onItems(Data::items);
+        for (auto& item: Data::items) {
+            v.loc() = Location(LocPath(&item));
+            v.onItem(item);
         }
-        v.onTroopPages(t, t.pages);
-        for (auto& p: t.pages) {
-            v.loc() = Location(LocPath(&t, &p));
-            v.onTroopPage(t, p);
-            v.onTroopPageCmds(t, p, p.event_commands);
-            v.onEventCommands(p.event_commands);
-            for (auto& cmd: p.event_commands) {
-                v.loc() = Location(LocPath(&t, &p, &cmd));
-                v.onTroopPageCmd(t, p, cmd);
+    }
+
+    if (v.do_commonevents) {
+        v.loc() = {};
+        v.onCommonEvents(Data::commonevents);
+        for (auto& ce: Data::commonevents) {
+            v.loc() = Location(LocPath(&ce));
+            v.onCommonEvent(ce);
+            v.onCommonEventCmds(ce, ce.event_commands);
+            v.onEventCommands(ce.event_commands);
+            for (auto& cmd: ce.event_commands) {
+                v.loc() = Location(LocPath(&ce, &cmd));
+                v.onCommonEventCmd(ce, cmd);
                 v.onEventCommand(cmd);
             }
         }
     }
 
-    v.loc() = {};
-    v.onTerrains(Data::terrains);
-    for (auto& t: Data::terrains) {
-        v.loc() = Location(LocPath(&t));
-        v.onTerrain(t);
+    if (v.do_enemies) {
+        v.loc() = {};
+        v.onEnemies(Data::enemies);
+        for (auto& e: Data::enemies) {
+            v.loc() = Location(LocPath(&e));
+            v.onEnemy(e);
+            v.onEnemyActions(e, e.actions);
+            for (auto& a: e.actions) {
+                v.loc() = Location(LocPath(&e, &a));
+                v.onEnemyAction(e, a);
+            }
+        }
     }
 
-    v.loc() = {};
-    v.onAttributes(Data::attributes);
-    for (auto& a: Data::attributes) {
-        v.loc() = Location(LocPath(&a));
-        v.onAttribute(a);
+    if (v.do_troops) {
+        v.loc() = {};
+        v.onTroops(Data::troops);
+        for (auto& t: Data::troops) {
+            v.loc() = Location(LocPath(&t));
+            v.onTroop(t);
+            v.onTroopMembers(t, t.members);
+            for (auto& m: t.members) {
+                v.loc() = Location(LocPath(&t, &m));
+                v.onTroopMember(t, m);
+            }
+            v.onTroopPages(t, t.pages);
+            for (auto& p: t.pages) {
+                v.loc() = Location(LocPath(&t, &p));
+                v.onTroopPage(t, p);
+                v.onTroopPageCmds(t, p, p.event_commands);
+                v.onEventCommands(p.event_commands);
+                for (auto& cmd: p.event_commands) {
+                    v.loc() = Location(LocPath(&t, &p, &cmd));
+                    v.onTroopPageCmd(t, p, cmd);
+                    v.onEventCommand(cmd);
+                }
+            }
+        }
     }
 
-    v.loc() = {};
-    v.onStates(Data::states);
-    for (auto& s: Data::states) {
-        v.loc() = Location(LocPath(&s));
-        v.onState(s);
+    if (v.do_terrains) {
+        v.loc() = {};
+        v.onTerrains(Data::terrains);
+        for (auto& t: Data::terrains) {
+            v.loc() = Location(LocPath(&t));
+            v.onTerrain(t);
+        }
     }
 
-    v.loc() = {};
-    v.onAnimations(Data::animations);
-    for (auto& a: Data::animations) {
-        v.loc() = Location(LocPath(&a));
-        v.onAnimation(a);
+    if (v.do_attributes) {
+        v.loc() = {};
+        v.onAttributes(Data::attributes);
+        for (auto& a: Data::attributes) {
+            v.loc() = Location(LocPath(&a));
+            v.onAttribute(a);
+        }
     }
 
-    v.loc() = {};
-    v.onChipsets(Data::chipsets);
-    for (auto& c: Data::chipsets) {
-        v.loc() = Location(LocPath(&c));
-        v.onChipset(c);
+    if (v.do_states) {
+        v.loc() = {};
+        v.onStates(Data::states);
+        for (auto& s: Data::states) {
+            v.loc() = Location(LocPath(&s));
+            v.onState(s);
+        }
     }
 
-    v.loc() = Location(LocPath(&Data::battlecommands));
-    v.onBattleCommands(Data::battlecommands);
-    v.onBattleCommandsCmds(Data::battlecommands, Data::battlecommands.commands);
-    for (auto& c: Data::battlecommands.commands) {
-        v.loc() = Location(LocPath(&Data::battlecommands, &c));
-        v.onBattleCommand(Data::battlecommands, c);
+    if (v.do_animations) {
+        v.loc() = {};
+        v.onAnimations(Data::animations);
+        for (auto& a: Data::animations) {
+            v.loc() = Location(LocPath(&a));
+            v.onAnimation(a);
+        }
     }
 
-    v.loc() = {};
-    v.onClasses(Data::classes);
-    for (auto& c: Data::classes) {
-        v.loc() = Location(LocPath(&c));
-        v.onClass(c);
+    if (v.do_chipsets) {
+        v.loc() = {};
+        v.onChipsets(Data::chipsets);
+        for (auto& c: Data::chipsets) {
+            v.loc() = Location(LocPath(&c));
+            v.onChipset(c);
+        }
     }
 
-    v.loc() = {};
-    v.onBattlerAnimations(Data::battleranimations);
-    for (auto& ba: Data::battleranimations) {
-        v.loc() = { LocPath(&ba) };
-        v.onBattlerAnimation(ba);
+    if (v.do_battlecmds) {
+        v.loc() = Location(LocPath(&Data::battlecommands));
+        v.onBattleCommands(Data::battlecommands);
+        v.onBattleCommandsCmds(Data::battlecommands, Data::battlecommands.commands);
+        for (auto& c: Data::battlecommands.commands) {
+            v.loc() = Location(LocPath(&Data::battlecommands, &c));
+            v.onBattleCommand(Data::battlecommands, c);
+        }
     }
 
-    v.loc() = { LocPath(&Data::terms) };
-    v.onTerms(Data::terms);
-
-    v.loc() = { LocPath(&Data::system) };
-    v.onSystem(Data::system);
-
-    v.loc() = {};
-    v.onSwitches(Data::switches);
-    for (auto& sw: Data::switches) {
-        v.loc() = { LocPath(&sw) };
-        v.onSwitch(sw);
+    if (v.do_classes) {
+        v.loc() = {};
+        v.onClasses(Data::classes);
+        for (auto& c: Data::classes) {
+            v.loc() = Location(LocPath(&c));
+            v.onClass(c);
+        }
     }
 
-    v.loc() = {};
-    v.onVariables(Data::variables);
-    for (auto& var: Data::variables) {
-        v.loc() = { LocPath(&var) };
-        v.onVariable(var);
+    if (v.do_battleranims) {
+        v.loc() = {};
+        v.onBattlerAnimations(Data::battleranimations);
+        for (auto& ba: Data::battleranimations) {
+            v.loc() = { LocPath(&ba) };
+            v.onBattlerAnimation(ba);
+        }
     }
 
-    v.loc() = { LocPath(&Data::treemap) };
-    v.onTreeMap(Data::treemap);
-    visitTreeMap([&](RPG::MapInfo& map_info) {
+    if (v.do_terms) {
+        v.loc() = { LocPath(&Data::terms) };
+        v.onTerms(Data::terms);
+    }
+
+    if (v.do_system) {
+        v.loc() = { LocPath(&Data::system) };
+        v.onSystem(Data::system);
+    }
+
+    if (v.do_switches) {
+        v.loc() = {};
+        v.onSwitches(Data::switches);
+        for (auto& sw: Data::switches) {
+            v.loc() = { LocPath(&sw) };
+            v.onSwitch(sw);
+        }
+    }
+
+    if (v.do_variables) {
+        v.loc() = {};
+        v.onVariables(Data::variables);
+        for (auto& var: Data::variables) {
+            v.loc() = { LocPath(&var) };
+            v.onVariable(var);
+        }
+    }
+
+    if (v.do_maps) {
+        v.loc() = { LocPath(&Data::treemap) };
+        v.onTreeMap(Data::treemap);
+        visitTreeMap([&](RPG::MapInfo& map_info) {
             v.loc() = { LocPath(&map_info) };
             v.onMapInfo(map_info);
             switch(map_info.type) {
@@ -317,6 +386,7 @@ void visitRPG(V&& v) {
                     break;
             }
         });
+    }
     v.loc() = {};
 }
 

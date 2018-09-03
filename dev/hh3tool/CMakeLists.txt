@@ -13,6 +13,8 @@ add_executable(hh3tool
 	FindItem.C
 	FindSwitchArgs.C
 	FindSwitch.C
+	FindVarArgs.C
+	FindVar.C
 	Args.C
 	main.C
 	)

@@ -1167,3 +1167,12 @@ Limit switch search to specific treemap - for area/map checks
 Abel and sins use Battle switches at 1701+
 
 Can make copies of all accessories for tenser/frenzy
+
+Retired Var 8: Battle Password - a few minigames still use it
+
+Check for switches and variables change in both normal context and parallel context
+
+Flying X/Y can maybe go away after refactoring party members
+
+Convert Nazareth puzzle to modern map vars
+Convert Apollinia pictures into modern map vars

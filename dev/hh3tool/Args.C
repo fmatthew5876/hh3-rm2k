@@ -15,7 +15,26 @@ template <typename T, typename... Args> struct doUsage<std::variant<T, Args...>>
 template <> struct doUsage<std::variant<>> {
     static void usage() {}
 };
+
+
+template <typename T> struct doDispatch { };
+template <typename T, typename... Args> struct doDispatch<std::variant<T, Args...>> {
+    static ToolArgs dispatch(const char* tool_name, CmdLineArgs& argv) {
+        if (!strcmp(tool_name, T::name)) {
+            return T::load(argv);
+        }
+        return doDispatch<std::variant<Args...>>::dispatch(tool_name, argv);
+    }
+};
+template <> struct doDispatch<std::variant<>> {
+    static ToolArgs dispatch(const char* tool_name, CmdLineArgs& argv) {
+        die("Unknown toolname: `", tool_name, "'");
+        return {};
+    }
+};
 }
+
+
 
 
 
@@ -52,6 +71,9 @@ Args Args::load(CmdLineArgs& argv) {
     const char* tool_name = argv[0];
     argv = argv.subspan(1);
 
+    args.tool_args = doDispatch<ToolArgs>::dispatch(tool_name, argv);
+
+#if 0
     if (!strcmp(tool_name, GrepArgs::name)) {
         args.tool_args = GrepArgs::load(argv);
     } else if (!strcmp(tool_name, TreeMapArgs::name)) {
@@ -65,6 +87,7 @@ Args Args::load(CmdLineArgs& argv) {
     } else {
         die("Unknown toolname: `", tool_name, "'");
     }
+#endif
 
     return args;
 }
