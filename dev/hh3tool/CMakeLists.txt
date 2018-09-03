@@ -11,6 +11,8 @@ add_executable(hh3tool
 	EvDump.C
 	FindItemArgs.C
 	FindItem.C
+	FindSwitchArgs.C
+	FindSwitch.C
 	Args.C
 	main.C
 	)

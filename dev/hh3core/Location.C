@@ -113,7 +113,11 @@ void locPrint(std::ostream& os, const RPG::EventPage& obj) {
 }
 
 void locPrint(std::ostream& os, const RPG::EventCommand& obj) {
-    os << "Cmd: " << obj << ' ';
+    os << "Cmd: " << obj << " params=[";
+    for (auto& p: obj.parameters) {
+        os << p << ' ';
+    }
+    os << "]";
 }
 
 template <typename... Args>

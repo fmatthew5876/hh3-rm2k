@@ -3,14 +3,27 @@
 #include <iostream>
 #include <cstring>
 
+namespace {
+
+template <typename T> struct doUsage { };
+template <typename T, typename... Args> struct doUsage<std::variant<T, Args...>> {
+    static void usage() {
+        T::usage();
+        doUsage<std::variant<Args...>>::usage();
+    }
+};
+template <> struct doUsage<std::variant<>> {
+    static void usage() {}
+};
+}
+
+
+
 void Args::usage() {
     std::cerr << "hh3tool - Various dev tools for the game" << std::endl;
     std::cerr << "Usage: hh3tool [-d] <GAMEDIR> <TOOL> [TOOLOPTS]\n" << std::endl;
 
-    GrepArgs::usage();
-    TreeMapArgs::usage();
-    EvDumpArgs::usage();
-    FindItemArgs::usage();
+    doUsage<ToolArgs>::usage();
 }
 
 Args Args::load(CmdLineArgs& argv) {
@@ -47,6 +60,8 @@ Args Args::load(CmdLineArgs& argv) {
         args.tool_args = EvDumpArgs::load(argv);
     } else if (!strcmp(tool_name, FindItemArgs::name)) {
         args.tool_args = FindItemArgs::load(argv);
+    } else if (!strcmp(tool_name, FindSwitchArgs::name)) {
+        args.tool_args = FindSwitchArgs::load(argv);
     } else {
         die("Unknown toolname: `", tool_name, "'");
     }

@@ -1155,3 +1155,13 @@ Need party member switches for backed up - For cutscenes where Ayen temporarily 
 Find all teleports to 326 - old party change calls
 
 Consider allow driving sand cruiser on world map and button to submerge.
+
+Find calls to Roll Party
+
+Move copter fight to map switches - retire switches 72-76
+
+Bad switch 1730
+
+Limit switch search to specific treemap - for area/map checks
+
+Abel and sins use Battle switches at 1701+
