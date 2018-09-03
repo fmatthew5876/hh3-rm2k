@@ -1165,3 +1165,5 @@ Bad switch 1730
 Limit switch search to specific treemap - for area/map checks
 
 Abel and sins use Battle switches at 1701+
+
+Can make copies of all accessories for tenser/frenzy
