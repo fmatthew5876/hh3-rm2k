@@ -1,23 +1,16 @@
 Major Refactors:
-Knock doors
-MAP SETUP on every map. No MORE 519:NUMBER OF EVENTS
 Encounters:
-- Remove wait
-- Remove save fight steps switch
-- Remove first strike roll
 - Don't use else branches
 - Use parent map battle bg
 Verify Character vars are accurate
 Verify char locks
 test Clairvoyance (switch 113) on every map with a hidden room
-ADD:Linup event moved
-Implement onAreaChange
 
-Add check for talk to animals skill - replace all with PARTYTalk
+
 
 Revisit disclaimer at beginning of game
 Fix battle music mp3
-Fix Yxxta mp3
+
 fix repeat loop on music when Kahran dies. Small blip at the end
 
 
@@ -279,8 +272,6 @@ Consider replacing headset with a tutorial system.
 
 Seppuku requires katana?
 
-area change anim
-
 
 Walk Silently increase first strike chance too?
 
@@ -328,8 +319,6 @@ drink/smoke on ladder?
 after mission 2, use change graphic, not switches
 
 Rename Rafad?
-
-Rename Schiff to Fes?
 
 
 SOTN - Crystal Teardrops - upgrade to mp3
@@ -427,7 +416,6 @@ SHD/SAM get level 5 wiz
 
 BattleSwitches for scripted attacks
 
-var 973
 
 
 Elizabeth add some AP
@@ -580,8 +568,6 @@ Verify 1H in desc matches real item
 - Also check damage type and accuracy
 - Also weapon type based on position
 
-Check for switch 591:NUMBER OF EVENTS
-
 Investigate random corruption with autodb.
 - Maybe WSL is to blame?
 
@@ -608,13 +594,6 @@ Search text for old names:
 Do change system SE in battles?
 
 Check battles contain only machines or non-machines, never both. Also cave monster SE.
-
-Nothing should manipulate certain switches directly
-- MENU ENABLED
-- ENEMIES OFF
-- CUTSCENE ON
-
-Add a tool to query who touches given switch/variable
 
 
 Check tempo in map info
@@ -648,10 +627,6 @@ Minister -> King (Faisal)
 Executive -> Senator (Dreyfus)
 Duke -> Emir (Said/Zacbarian)
 
-hh3tool - find call sites for common event
-
-check for manual change party commands and kill them
-- teleports to map XXX
 
 check for event calls when inputs were not set!
 
@@ -744,6 +719,7 @@ Should we provide Knock spell before leaving Timon?
 
 
 Wall against noise - prevent Wail of Banshee
+- Can be implemented by making wail just deal lots of sonic damage
 
 Implement Darkness spell
 
@@ -758,11 +734,6 @@ attack ing flying enemies, fleet lower half cut off
 - consider max height for enemies
 
 Mission 3 enemies need retuning
-
-
-revisit the mine and make sure things work
-
-Why is switch 272:Spoke toFleetMission turned off?
 
 
 Too many potions of healing
@@ -805,16 +776,13 @@ Don't sell high level healing items
 
 Celine should know about AEther Storm
 
-behind the wooden roof ivor ghetto
 
-amoung the gods
 
 Quiet Storm - use same map add rain
 
 Talk about quiet storm in Eastland pub TV
 -add more tvs with news to Timon pubs and houses
 
-Message box down
 
 Chivalry - consider mp3
 
@@ -850,15 +818,12 @@ Do we really need to save at inns?
 
 More reactions to leader
 
-Need nighttime windows
-
 Switch to touch events for cutscenes instead of autorun
 
 Check: All battles height is not above where gun animations cut off.
 - All ground enemies same Y
 - All Flying enemies can change
 
-Sewer door afer mission is broke
 
 Create a graph mapping all teleports from maps.
 - Check area boundaries
@@ -866,11 +831,6 @@ Create a graph mapping all teleports from maps.
 
 Walking push anim, push the block in under city caves
 
-Arad do directional teleport
-
-damage from cart hit
-
-use a room var in forest
 
 Switch use checks:
 - Event page conditions
@@ -889,8 +849,6 @@ Exit fort
 Search for incorrectly used room switches
 - should be on touch and above
 
-top area down
-
 Try to enter towns from ship and see if we can break the game
 
 Why travel to summers when eastland is enemy -> resort town is neutral for tourism $$
@@ -903,15 +861,11 @@ RM2k BUG: Repeat movement, wait for all, and then immediately get into variable 
 
 Sleeping Bosun on the Pequod should say something funny.
 
-Ugrum assassination mission
+Ugrum assassination mission -Fes
 
 More in Zecht ruin
 
-walk under stairs
-
 When Dungeon has multiple exits, only set escape point when entering from outside
-
-Check that no encounter events touch first strike mod - check for wait too and change bgm
 
 battle cleanup on glade
 
@@ -931,8 +885,6 @@ Clairvoyance should reveal stone tower treasure
 Dwarf ruins beds are too big
 
 
-Disable controls during cutscene
-
 Kaelnayyan needs unique sprite
 Dyrkk needs unique sprite
 
@@ -947,7 +899,6 @@ Bellum has no inn
 
 Search for inn processing with no resting cleanup
 
-map screwup on mouintain
 
 New sprite for Lenin
 New sprites for queens
@@ -960,22 +911,6 @@ Ignis, Aqua, Anemos, Terra
 
 Mandali has a delay on start
 
-Jager in the town square
-
-Knocks in mage guild
-colluseam - outside rogues
-
-levl backstabs
-
-the pope
-
-Check for bad switches in legacy code:
--ENEMIES
--DEBUG CHECKS
--DETECT/WALK - teleports which explicitly turn off traps and change move speed
--Firststrike Roll
-
-Escape on ice steps - animation on?
 
 Add shops to Ice castle outside - maybe tourists too
 
@@ -989,7 +924,9 @@ can walk through counter in ice castle
 
 Is Knock door a good idea - forced to choose Celine - Ice Caslte
 
-disable escape when in Boat
+Should find Dwarven Jager in Dwarf caves during drow scenes
+
+Sand Worms - check disable escape when in Boat
 
 Faisal should say something when fighting sandworm
 
@@ -1002,14 +939,8 @@ ElderSandworm needs a huge graphic - try contra bosses
 
 World 2 - finish underhalls into sandworm - into story or optional area?
 
-Can use terrain ids for puzzles involving environment - water
-- Refactor barrel puzzle to do this as Proof of Concept
 
-
-Need to fix house counters for merchants
-
-
-upper right should have hidden room
+Sand Worm Cave - Dead end upper right should have hidden room
 
 Magical coupling concept
 - 2 boxes that open at the same time.
@@ -1041,8 +972,7 @@ Sand attack spells, only in desert
 
 Japanese monsters in ancient cave
 
-Use shift to shift party by 1.
-- Leader attacks with weapon
+Leader attacks with weapon on map - interact with dungeons
 
 Ancient Cave - Moving Blocks Hidden stairs puzzle should be required, not a bonus.
 
@@ -1084,8 +1014,6 @@ Heir is killed in war with Timon. Heir is playable (as actor 35?)
 
 
 
-Fix North to right teleports
-Middle North from right lowest is bad
 
 Northern most and left maybe good for goodbery
 
@@ -1094,11 +1022,8 @@ Some NPC should talk about party roll
 Ivory, Norwich, and Shipley take you to your boat when you exit docks
 
 
-What is switch 944:Summon Chars
-
 Make a puzzle with a lot of easy open doors
 
-Woman: who cares who the kaiser is - shipley pub
 
 Refactor MAPCustomTint - should go away on change map
 
@@ -1120,8 +1045,6 @@ More churches in later towns
 
 Search for Picture ID 1 being set, probably legacy code
 
-Bosun real conspirators
-
 Shahazrad midi has wierd delay
 '
 Olvan is tripple classes - detect traps
@@ -1141,26 +1064,18 @@ Guard vision enable icon when debug is on
 
 Rafad - when you walk back to stealth area show soliders fighting
 
-guest room
-
 Chester sell Necromancy spells
 
 Make sure escape doesn't break rafad
 
-Saw a triton in the forest. - sea enemies terrains broke?
 
-Need party member switches for in lineup - To implement party member change mechanics
 Need party member switches for backed up - For cutscenes where Ayen temporarily disbands party to talk.
 
-Find all teleports to 326 - old party change calls
 
 Consider allow driving sand cruiser on world map and button to submerge.
 
-Find calls to Roll Party
 
 Move copter fight to map switches - retire switches 72-76
-
-Bad switch 1730
 
 Limit switch search to specific treemap - for area/map checks
 
@@ -1172,9 +1087,28 @@ Retired Var 8: Battle Password - a few minigames still use it
 
 Check for switches and variables change in both normal context and parallel context
 
-Flying X/Y can maybe go away after refactoring party members
+Flying X/Y can go away when its removed from minigames
 
 Convert Nazareth puzzle to modern map vars
 Convert Apollinia pictures into modern map vars
 
+to check:
+Search for calls to partymember
+Search for direct calls to party change
+search for lineup switch usage
+
+What is switch 1029: T267
+
+Search for shops that sell weapons and don't do menu/game swap
+
+review all calls to drop party / add party - ensure locking and lineup is correct
+
 Search room vars for misuse
+
+Check escape / teleport with nos witch
+
+Search for all show pictures which could be a sky event
+
+CHeck escapes not contingent on changing area
+
+SYSTEM/MENU CALLER should not use menu locals in parallel code

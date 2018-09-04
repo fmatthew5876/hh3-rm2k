@@ -7,11 +7,12 @@
 #include "FindItemArgs.H"
 #include "FindSwitchArgs.H"
 #include "FindVarArgs.H"
+#include "FindCallArgs.H"
 #include "Log.H"
 #include "Load.H"
 #include "CmdLineArgs.H"
 
-using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs,FindItemArgs,FindSwitchArgs,FindVarArgs>;
+using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs,FindItemArgs,FindSwitchArgs,FindVarArgs,FindCallArgs>;
 
 struct Args {
     static void usage();
