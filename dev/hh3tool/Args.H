@@ -1,6 +1,7 @@
 #pragma once
 #include <variant>
 
+#include "CheckArgs.H"
 #include "GrepArgs.H"
 #include "TreeMapArgs.H"
 #include "EvDumpArgs.H"
@@ -12,7 +13,7 @@
 #include "Load.H"
 #include "CmdLineArgs.H"
 
-using ToolArgs = std::variant<GrepArgs,TreeMapArgs,EvDumpArgs,FindItemArgs,FindSwitchArgs,FindVarArgs,FindCallArgs>;
+using ToolArgs = std::variant<CheckArgs,GrepArgs,TreeMapArgs,EvDumpArgs,FindItemArgs,FindSwitchArgs,FindVarArgs,FindCallArgs>;
 
 struct Args {
     static void usage();

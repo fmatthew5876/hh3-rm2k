@@ -17,6 +17,8 @@ add_executable(hh3tool
 	FindVar.C
 	FindCallArgs.C
 	FindCall.C
+	CheckArgs.C
+	Check.C
 	Args.C
 	main.C
 	)

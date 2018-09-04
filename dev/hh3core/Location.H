@@ -3,6 +3,25 @@
 #include <tuple>
 #include <variant>
 
+namespace detail {
+
+template <typename T>
+static constexpr bool isInList() {
+    return false;
+}
+
+template <typename T, typename T1, typename... Args>
+static constexpr bool isInList() {
+    if (std::is_same<T,T1>()) {
+        return true;
+    }
+    return isInList<T,Args...>();
+}
+} //namespace detail
+
+static_assert(detail::isInList<int,int,float>(), "Pass");
+static_assert(!detail::isInList<int,double,float>(), "Pass");
+
 template <typename... Args>
 class LocPath {
     public:
@@ -11,11 +30,20 @@ class LocPath {
         template <typename... Argss>
         friend std::ostream& operator<<(std::ostream& os, const LocPath<Argss...>& loc);
 
+        template <typename T>
+            const T* getPtr() const {
+                if constexpr (detail::isInList<T,Args...>()) {
+                    return std::get<const T*>(_locs);
+                }
+                return nullptr;
+            }
+
     private:
         std::tuple<const Args*...> _locs;
     private:
         template <size_t I> void doPrint(std::ostream& os) const;
 };
+
 
 using LocationVariant = std::variant<
     LocPath<>,
@@ -54,12 +82,22 @@ using LocationVariant = std::variant<
 
 class Location : public LocationVariant {
     public:
-        Location() : var(LocPath<>()) {}
         using LocationVariant::LocationVariant;
 
+        template <typename T> const T* getPtr() const {
+            const LocationVariant& var = *this;
+            return std::visit([](auto&& arg) {
+                    return arg.template getPtr<T>();
+                    }, var);
+        }
+
         friend std::ostream& operator<<(std::ostream& os, const Location& loc);
-    private:
-        LocationVariant var;
 };
+
+template <typename T>
+inline const T* getPtr(const Location& l) {
+    return l.template getPtr<T>();
+}
+
 
 
