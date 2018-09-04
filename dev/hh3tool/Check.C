@@ -26,6 +26,44 @@ struct CheckVisitor : public VisitorBase {
     void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) const {
     }
 
+    void onEventCommands(const std::vector<RPG::EventCommand>& cmds) const {
+
+        auto* map_info = getPtr<RPG::MapInfo>(this->loc());
+        auto map_id = map_info ? map_info->ID : 0;
+
+        //Check for bad teleports
+        bool screen_visible = true;
+        for (auto& c: cmds) {
+            auto& p = c.parameters;
+            if (c.code == RPG::EventCommand::Code::EraseScreen) {
+                screen_visible = false;
+            }
+            if (c.code == RPG::EventCommand::Code::ShowScreen) {
+                screen_visible = true;
+            }
+            if (c.code == RPG::EventCommand::Code::CallEvent) {
+                //Some teleport common event helpers turn off the screen for us.
+                if (p[0] == 0) {
+                    if (p[1] == hh3::eCeLadderUp
+                            || p[1] == hh3::eCeLadderUpStayClimbing
+                            || p[1] == hh3::eCeLadderDown
+                            || p[1] == hh3::eCeLadderDownStayClimbing) {
+                    }
+                    screen_visible = false;
+                }
+            }
+            if (c.code == RPG::EventCommand::Code::Teleport) {
+                if (screen_visible) {
+                    //Teleports to same map don't require hide screen
+                    auto target_map = c.parameters[0];
+                    if (map_id != target_map) {
+                        bug("Teleport without hide screen!");
+                    }
+                }
+            }
+        }
+    }
+
     void onEventCommand(const RPG::EventCommand& cmd) {
         auto& p = cmd.parameters;
 
