@@ -23,6 +23,13 @@ struct CheckVisitor : public VisitorBase {
     void onEnemy(const RPG::Enemy& enemy) const {
     }
 
+    void onTreeMap(const RPG::TreeMap& tm) const {
+        auto& st = tm.start;
+        if (st.party_map_id != 693 || st.party_x != 9 || st.party_y != 8) {
+            bug("Wrong Party Start Position Map=", st.party_map_id, " X=", st.party_x, " Y=", st.party_y);
+        }
+    }
+
     void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) const {
     }
 

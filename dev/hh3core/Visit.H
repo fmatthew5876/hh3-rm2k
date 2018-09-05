@@ -355,10 +355,10 @@ void visitRPG(V&& v) {
             v.loc() = { LocPath(&map_info) };
             v.onMapInfo(map_info);
             switch(map_info.type) {
-                case 0:
+                case RPG::TreeMap::MapType_root:
                     v.onMapRoot(map_info);
                     break;
-                case 1: {
+                case RPG::TreeMap::MapType_map: {
                     auto& map = MapCache::loadMap(map_info);
                     v.loc() = { LocPath(&map_info, &map) };
                     v.onMap(map_info, map);
@@ -381,7 +381,7 @@ void visitRPG(V&& v) {
                     }
                     break;
                     }
-                case 2:
+                case RPG::TreeMap::MapType_area:
                     v.onAreaMap(map_info);
                     break;
             }

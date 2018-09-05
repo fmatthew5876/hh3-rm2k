@@ -109,7 +109,25 @@ void locPrint(std::ostream& os, const RPG::Event& obj) {
 }
 
 void locPrint(std::ostream& os, const RPG::EventPage& obj) {
-    os << "page=" << obj.ID << " num_cmds=" << obj.event_commands.size() << ' ';
+    const char* trigger = "???";
+    switch (obj.trigger) {
+        case RPG::EventPage::Trigger_action:
+            trigger = "Action";
+            break;
+        case RPG::EventPage::Trigger_touched:
+            trigger = "PlayerTouch";
+            break;
+        case RPG::EventPage::Trigger_collision:
+            trigger = "EventTouch";
+            break;
+        case RPG::EventPage::Trigger_auto_start:
+            trigger = "AutoStart";
+            break;
+        case RPG::EventPage::Trigger_parallel:
+            trigger = "ParallelProcess";
+            break;
+    }
+    os << "page=" << obj.ID << " trigger=" << trigger << " num_cmds=" << obj.event_commands.size() << ' ';
 }
 
 void locPrint(std::ostream& os, const RPG::EventCommand& obj) {
