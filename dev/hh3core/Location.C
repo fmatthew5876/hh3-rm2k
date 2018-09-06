@@ -34,7 +34,8 @@ void locPrint(std::ostream& os, const RPG::Troop& obj) {
 }
 
 void locPrint(std::ostream& os, const RPG::TroopMember& obj) {
-    os << "member=" << obj.ID << ' ';
+    auto eid = obj.enemy_id;
+    os << "member=" << obj.ID << " enemy=" << Data::enemies[eid-1];
 }
 
 void locPrint(std::ostream& os, const RPG::TroopPage& obj) {

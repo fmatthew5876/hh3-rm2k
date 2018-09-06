@@ -4,7 +4,7 @@ Encounters:
 - Use parent map battle bg
 Verify Character vars are accurate
 Verify char locks
-test Clairvoyance (switch 113) on every map with a hidden room
+
 
 
 
@@ -62,10 +62,9 @@ Readjust Off/Def stance
 Re-evaluate elements
 Re-evaluate states
 
-Ensure 1HS, hit rate, etc... are accurate
+
 Heavy weapons lowering dex? - guard at base talks about this
 
-Save points should let you save directly
 
 
 
@@ -143,12 +142,6 @@ Ivory mission finished in north area. Well hidden.
 
 Maybe remove Olvan Phantom Blade
 
-Curious switches
-1536 ISOMETRICS
-114 Book spells on
-1743 ON THE SHIP!!
-638 TXXXXX8
-857-860 Txxxx3-5
 
 Sidequest stories
 - 2nd world, sad stories of struggle in dieing world
@@ -314,9 +307,6 @@ Skyflow products catalog
 Should have bottles and cigarettes on counter
 
 
-drink/smoke on ladder?
-
-after mission 2, use change graphic, not switches
 
 Rename Rafad?
 
@@ -325,11 +315,7 @@ SOTN - Crystal Teardrops - upgrade to mp3
 
 Bosun talk about Quiet Storm
 
-show party in weapon event
-
 Marx has reservations about Bosun help
-
-weapon battle needs test different leader
 
 Bosun factory rooftop
 
@@ -337,8 +323,6 @@ Knock doors in Timon (player won't have required level for this)
 - Ivor Ghetto
 - Bosun Factory
 
-
-hide screen save room
 
 inside more houses in north sector
 
@@ -352,8 +336,6 @@ flashy lights in ball room, more decorations
 
 Ayen sleeping on stool?
 
-Dreyfus title
-
 NPC talk about generals
 NPC talk about govt structure
 
@@ -361,11 +343,6 @@ Keep NIGHT switch on after meeting?
 
 Minister Said sprite
 
-
-Other women in Dreyfus room
-free other women Dreyfus prison
-
-Marx put a blanket on Lenna
 
 Redraw hell room sigil
 
@@ -383,11 +360,6 @@ Wounded soldiers at office outside
 
 Creepy whisper sound effect in office text
 
-
-map fix near boxes
-
-
-Kahran sad looks bad
 
 
 Redo mind talk after office
@@ -429,15 +401,11 @@ Dreyfus battle
 - effects don't hit Lust before transform
 - test that effects don't hit Dreyfus after transform
 
-
-Treasure Hunter can use large guns
-- Upgrade class select
+Verify class select text matches reality on equipment - do this later
 
 
 Fix Phant Blade, Hammer, Black Blade, Frenzy, Tenser for all battles...
 
-
-Check that all open shops that sell weapons have PREMENU before and PREGAME after
 
 Mage scroll descriptions should match spells
 
@@ -461,10 +429,7 @@ Lenna - My Pleasure Commander (nod to the commander)
 
 
 
-No trains due today.. (Say something else. There are always trains)
-
-
-readings are very high
+Ivor Ghetto -No trains due today.. (Say something else. There are always trains)
 
 
 disable sneak/backstab when gun equipped or unarmed
@@ -547,7 +512,6 @@ limited visibility maps
 - torch item for bigger light
 - mage light spell
 
-intro tints and sky on world map
 
 
 Predestination sounds awful
@@ -559,14 +523,8 @@ retest Fleet, including Eagle Eye skill
 
 left handed guns
 
+Scripted - set weapon attributes - hit rate, damage types, etc..
 
-ManualSave common event -> remove weapons first, save, add them back
-- check we never save outside of this event
-
-Checks:
-Verify 1H in desc matches real item
-- Also check damage type and accuracy
-- Also weapon type based on position
 
 Investigate random corruption with autodb.
 - Maybe WSL is to blame?
@@ -592,13 +550,10 @@ Search text for old names:
 - Said
 
 Do change system SE in battles?
+- Requires scripting
 
 Check battles contain only machines or non-machines, never both. Also cave monster SE.
 
-
-Check tempo in map info
-
-Check that we can escape ON_MAPDUNGIN
 
 Said is son of Rafad leader? Mentioned in Glade/Wrath battle
 Duke -> Emir?
@@ -609,7 +564,6 @@ Chester, access to forest after cutscene
 
 Check if menu enabled in party change and die
 
-Fix single teleport check - same map no need hide screen
 
 Party members in cities
 - Add switches if in lineup.
@@ -665,16 +619,10 @@ tunnels, some hint about secret area
 check for unused but named switches / vars
 
 
-search all events turn off knock switch
-
 Timon 40 years old? Alicia
 
-search for teleports with no hide
 
 rename Skyflow
-
-Check for set escape without 147:ESCAPED
-Check for teleport without 81:TELEPORT
 
 
 should increase mag influence on elemental spells. - Rebalance
@@ -692,9 +640,6 @@ COnsider: run encounters all the time.
 - Set encounter rate in MAP SETUP
 - Have separate autorun encounter event which triggers the battle
   - Also a common event version, which resets it on maps with no enemies
-
-
-For map and all child maps, report all items given
 
 
 Remove bag of coke after mission?
@@ -730,16 +675,9 @@ Consider weapon switch for barehand - to do blunt damage
 autodb - automate scrolls, conditions, set, clear, and learn CE's
 
 
-attack ing flying enemies, fleet lower half cut off
-- consider max height for enemies
 
 Mission 3 enemies need retuning
 
-
-Too many potions of healing
-
-
-Wait for them to finish approach
 
 BodyGuards too hard
 
@@ -756,7 +694,7 @@ Herp steal? + Quick FIngers
 Bard song to make all enemies fall asleep
 Bard song to reduce all enemy ep
 
-lower right house open?
+Eastland lower right house open?
 
 
 Bard song no effect
@@ -802,11 +740,7 @@ Fix NIGHT in Eastland Ghetto and Ivor Ghetto for escape
 
 More First-Aid kits?
 
-Theres a wait for all movement when exit menu. Causes big delays in Dreyfus Manor map
-
 Retest - walk/detect walk speeed situation
-
-Check that all maps with an escape point disable underwater in their MAP SETUP
 
 Check that all maps have 1 MAP SETUP event which is autorun and ends with Erase Event and has a call to ONMAP SOMETHING
 
@@ -832,19 +766,9 @@ Create a graph mapping all teleports from maps.
 Walking push anim, push the block in under city caves
 
 
-Switch use checks:
-- Event page conditions
-- Troop Page conditions
-- Enemy actions
-- Common Event Conditions
-
 Fix Nazareth treasure room
 Fix Mt Bolar puzzle
 
-Change BG
-
-Fix Ladder swamp
-Exit fort
 
 Search for incorrectly used room switches
 - should be on touch and above
@@ -897,7 +821,6 @@ Nineveh storage room? Inside gate from moat
 
 Bellum has no inn
 
-Search for inn processing with no resting cleanup
 
 
 New sprite for Lenin
@@ -916,15 +839,15 @@ Add shops to Ice castle outside - maybe tourists too
 
 Ice castle open doors - sprite on outside but not inside
 
-MAPPrevMap checks must go after set map event - check this
-
-Ice stepping - first step should animate, remaining steps no
 
 can walk through counter in ice castle
 
 Is Knock door a good idea - forced to choose Celine - Ice Caslte
 
 Should find Dwarven Jager in Dwarf caves during drow scenes
+
+grep support move commands
+check MapPrevMap actually references a neighbor
 
 Sand Worms - check disable escape when in Boat
 
@@ -953,8 +876,7 @@ Sandworm wizard spells
 
 Check You Found: not matching item, gelda
 
-Handle escape in change map.
-- CHeck underwater is more graceful
+
 Standard Full Recovery Sparkle - But not LoH/HT
 
 Check for inns
@@ -1092,23 +1014,18 @@ Flying X/Y can go away when its removed from minigames
 Convert Nazareth puzzle to modern map vars
 Convert Apollinia pictures into modern map vars
 
-to check:
-Search for calls to partymember
-Search for direct calls to party change
-search for lineup switch usage
 
-What is switch 1029: T267
-
-Search for shops that sell weapons and don't do menu/game swap
+Search for item usage above 1500
 
 review all calls to drop party / add party - ensure locking and lineup is correct
 
 Search room vars for misuse
 
-Check escape / teleport with nos witch
 
 Search for all show pictures which could be a sky event
 
 CHeck escapes not contingent on changing area
 
 SYSTEM/MENU CALLER should not use menu locals in parallel code
+
+Ice Castle less enemies in ice room

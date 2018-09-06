@@ -3,6 +3,8 @@ project(hh2-dev VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_MODULE_PATH APPEND "${CMAKE_CURRENT_SOURCE_DIR}/Modules")
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 #EasyRPG dependencies
 find_package(liblcf)
 find_program(LCF2XML, "lcf2xml")
