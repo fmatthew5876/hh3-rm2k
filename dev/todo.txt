@@ -385,6 +385,7 @@ Ayen HT
 Yurak HT
 
 SHD/SAM get level 5 wiz
+- Guard at Kandirk guild mentions this limitation
 
 BattleSwitches for scripted attacks
 
@@ -1029,3 +1030,43 @@ CHeck escapes not contingent on changing area
 SYSTEM/MENU CALLER should not use menu locals in parallel code
 
 Ice Castle less enemies in ice room
+
+Some bug with new level 2 spells
+
+Illusion of Gaia music too quiet
+
+Find all items given within a map subtree - including shosp
+
+Huge Beds in Kandirk Castle
+
+Double entrace to wizard guild
+
+Guild music has a wierd pause before it loops
+
+Church music is too loud, maybe something else.
+
+
+Check enemy encounter events
+- Verify encounter roll random covers all conditionals
+- Verify first is preemptive and second is not
+- Verify preempt and non have same enemies
+
+Use AyenInParty switch for optional events where Ayen talks - Possibly Ayen not in party!
+
+Check Battle cleanup called after battles
+- Can filter random encounters by parallel trigger type
+
+Check any battle events that set face must reset it at end
+
+Mage, Cleric - Water Breathing at level 4
+Druid - Water breathing at level 3
+
+Need to play Ayen Ninja vs Elizbeth to compare
+-> Do this after balancing other Rogues
+-> Do this after balancing Elizabeth vs party
+
+Elizabeth alignment is ice
+
+Magic Token collector in Oraculum
+
+Dump a png of monster regions for World Map
