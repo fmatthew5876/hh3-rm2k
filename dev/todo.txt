@@ -1070,3 +1070,4 @@ Elizabeth alignment is ice
 Magic Token collector in Oraculum
 
 Dump a png of monster regions for World Map
+
