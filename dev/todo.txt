@@ -1071,3 +1071,4 @@ Magic Token collector in Oraculum
 
 Dump a png of monster regions for World Map
 
+Too many glitterdust spells given in Sanctus Silva
