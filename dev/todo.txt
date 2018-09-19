@@ -1077,3 +1077,13 @@ You too, outside now!
 
 
 Poison attacks which halve your stats
+
+Check enc rate is always after on map call.
+Check that enc rate is always set if there is an ENC:NOW Autorun event
+Remove all calls to ENCOUNTERS
+
+Check ENC: Events 301+
+-First action is turn off ENC:NOW
+-NExt is conditional on ENC:ROLL
+-NExt is set ENC:ROLL
+-Next test for coverage of ENC:ROLL
