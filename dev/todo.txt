@@ -1082,8 +1082,21 @@ Check enc rate is always after on map call.
 Check that enc rate is always set if there is an ENC:NOW Autorun event
 Remove all calls to ENCOUNTERS
 
+Dwarf Cave - Change to sleep outside - to recover Daniel LoH.
+
 Check ENC: Events 301+
 -First action is turn off ENC:NOW
 -NExt is conditional on ENC:ROLL
 -NExt is set ENC:ROLL
 -Next test for coverage of ENC:ROLL
+-Calls to other Enc's don't overlap
+-Worldmap encs are inlined
+-Allow comments in pre-amble
+-ENC:NOW events are autostart, not parallel
+-ENC:NOW events must either call a single 301+ ENC CE or be inline ENC\
+-ENCOUNTERS only ENC:NOW, no legacy ENC:PAUSE
+
+Should prot from evil cure Sin effects?
+
+Lower enc rate by 20% on sea and moving ice
+Unique enemies in Bellum World Map and Bellum Cave
