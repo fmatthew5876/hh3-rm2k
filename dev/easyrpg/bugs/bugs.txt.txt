@@ -1,0 +1,18 @@
+
+
+easy rpg player bugs:
+- tempo not working
+- no screen transitions
+- Open Menu Screen - Plays sound effect
+- battle feels slower
+- Select Enemy to target - no sound effect
+- Use switch skill - no sound effect
+- Can equip shield when have a 2h weapon
+- Spell which cures states that end after battle is selectible in menu
+- No display MP cost when using healing spell - cost 2
+- Midi continues to play when focused out of window, mp3 stops. Midi does not loop
+- No F9 menu to change switches and vars
+- music is delayed when starting battle
+- double attack doesn't work
+- after battle sparkle animation doesn't work
+- small delay on flashing enemy

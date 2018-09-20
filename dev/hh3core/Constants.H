@@ -6,6 +6,7 @@ namespace hh3 {
 enum Switch {
     eSwMAPColdSnow = 17,
     eSwMAPCustomTint = 18,
+    eSwENC_NOW = 29,
     eSwMAPUnderWater = 55,
     eSwMAPIndoorWeather = 56,
     eSwTELEPORT = 81,
@@ -17,6 +18,8 @@ enum Variable {
     eVaMAPIndoorLightLevel = 18,
     eVaMapThisMap = 38,
     eVaMapPrevMap = 39,
+    eVaENC_RATE = 141,
+    eVaENC_ROLL = 143,
 };
 
 enum CommonEvent {

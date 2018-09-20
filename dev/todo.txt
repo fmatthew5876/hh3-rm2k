@@ -1073,18 +1073,17 @@ Dump a png of monster regions for World Map
 
 Too many glitterdust spells given in Sanctus Silva
 
-You too, outside now!
-
 
 Poison attacks which halve your stats
 
-Check enc rate is always after on map call.
-Check that enc rate is always set if there is an ENC:NOW Autorun event
+
+
 Remove all calls to ENCOUNTERS
 
-Dwarf Cave - Change to sleep outside - to recover Daniel LoH.
 
 Check ENC: Events 301+
+-Check enc rate is always after on map call.
+-Check that enc rate is always set if there is an ENC:NOW Autorun event
 -First action is turn off ENC:NOW
 -NExt is conditional on ENC:ROLL
 -NExt is set ENC:ROLL
@@ -1095,8 +1094,9 @@ Check ENC: Events 301+
 -ENC:NOW events are autostart, not parallel
 -ENC:NOW events must either call a single 301+ ENC CE or be inline ENC\
 -ENCOUNTERS only ENC:NOW, no legacy ENC:PAUSE
+-MAP SETUP always triggers before ENCOUNTERS - in case ENC:NOW is set during teleport into map
+-- MAP SETUP ID must be < ENCOUNTERS
 
 Should prot from evil cure Sin effects?
 
-Lower enc rate by 20% on sea and moving ice
 Unique enemies in Bellum World Map and Bellum Cave

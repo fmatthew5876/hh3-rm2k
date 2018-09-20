@@ -11,11 +11,11 @@ struct CheckVisitor : public VisitorBase {
     const CheckArgs* tool_args = nullptr;
 
     template <typename... Args>
-    void bug(Args&&... args) const {
-        std::cout << loc() << " : BUG : ";
-        (std::cout << ... << args);
-        std::cout << std::endl;
-    }
+        void bug(Args&&... args) const {
+            std::cout << loc() << " : BUG : ";
+            (std::cout << ... << args);
+            std::cout << std::endl;
+        }
 
     void onActor(const RPG::Actor& actor) const {
     }
@@ -101,14 +101,51 @@ struct CheckVisitor : public VisitorBase {
     }
 
     void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) const {
+        auto& cond = page.condition;
+        if ((cond.flags.switch_a && cond.switch_a_id == hh3::eSwENC_NOW)
+                || (cond.flags.switch_b && cond.switch_b_id == hh3::eSwENC_NOW)) {
+            if (event.name != "ENCOUNTERS") {
+                bug("Event Page is conditional on ENC:NOW but event name is not ENCOUNTERS!");
+            }
+            if (page.trigger != RPG::EventPage::Trigger_auto_start) {
+                bug("Event Page is conditional on ENC:NOW but trigger is not Autorun!");
+            }
+        }
+
+    }
+
+    void onMapEventPageCmds(const RPG::MapInfo& map_info, const RPG::Map& map,
+            const RPG::Event& event, const RPG::EventPage& page,
+            const std::vector<RPG::EventCommand>& cmds) const {
+        if (event.name == "MAP SETUP") {
+            checkMapSetupEvent(map_info, map, event, page, cmds);
+        }
+        if (event.name == "ENCOUNTERS") {
+            checkEncountersEvent(map_info, map, event, page, cmds);
+        }
+    }
+
+    void onMapEventPageCmd(const RPG::MapInfo& map_info, const RPG::Map& map,
+            const RPG::Event& event, const RPG::EventPage& page,
+            const RPG::EventCommand& cmd) const {
+        auto& p = cmd.parameters;
+        if (cmd.code == RPG::EventCommand::Code::ControlVars) {
+            if (p[0] == 0 && p[1] == hh3::eVaENC_RATE) {
+                auto iter = std::find_if(map.events.begin(), map.events.end(),
+                        [&](auto& e) { return e.name == "ENCOUNTERS"; });
+                if (iter == map.events.end()) {
+                    bug("Changed variable ", Data::variables[p[1]-1], " but no ENCOUNTERS event exists on this map!");
+                }
+            }
+        }
     }
 
     void onEventCommands(const std::vector<RPG::EventCommand>& cmds) const {
 
         auto* map_info = getPtr<RPG::MapInfo>(this->loc());
         auto map_id = map_info ? map_info->ID : 0;
-        auto* map_evt = getPtr<RPG::Event>(this->loc());
-        auto* evt_page = getPtr<RPG::EventPage>(this->loc());
+        //auto* map_evt = getPtr<RPG::Event>(this->loc());
+        //auto* evt_page = getPtr<RPG::EventPage>(this->loc());
 
         //Check for bad teleports
         bool screen_visible = true;
@@ -172,87 +209,6 @@ struct CheckVisitor : public VisitorBase {
         }
         if (had_shop && is_menu_mode) {
             bug("We setup PREMENU before the shop but didn't call PREGAME after!");
-        }
-
-        if (map_evt && map_evt->name == "MAP SETUP") {
-            int num_map_changes = 0;
-            bool got_tint_before_map = false;
-            //Check for incorrect MapPrevMapusage
-            for (auto& c: cmds) {
-                auto& p = c.parameters;
-                if (c.code == RPG::EventCommand::Code::TintScreen) {
-                    if (num_map_changes == 0) {
-                        got_tint_before_map = true;
-                    }
-                }
-                if (c.code == RPG::EventCommand::Code::CallEvent) {
-                    if (p[0] == 0) {
-                        if (p[1] == hh3::eCeONMAP_OUT
-                                || p[1] == hh3::eCeONMAP_IN
-                                || p[1] == hh3::eCeONMAP_DUNGOUT
-                                || p[1] == hh3::eCeONMAP_DUNGIN
-                                || p[1] == hh3::eCeONMAP_WORLD) {
-                            ++num_map_changes;
-                        }
-                    }
-                }
-                if (c.code == RPG::EventCommand::Code::ControlSwitches) {
-                    if (num_map_changes > 0) {
-                        auto isBad = [&](int id) {
-                            return id == hh3::eSwMAPColdSnow
-                                || (id == hh3::eSwMAPCustomTint && got_tint_before_map)
-                                || id == hh3::eSwMAPUnderWater
-                                || id == hh3::eSwMAPIndoorWeather;
-                        };
-                        if (p[0] == 0 && isBad(p[1])) {
-                            bug("Changed switch ", Data::switches[p[1]-1], " after map change event!");
-                        }
-                    }
-                }
-                if (c.code == RPG::EventCommand::Code::ControlVars) {
-                    if (num_map_changes > 0) {
-                        auto isBad = [](int id) {
-                            return id == hh3::eVaMAPIndoorLightLevel || id == hh3::eVaMAPRainStrength;
-                        };
-                        if (p[0] == 0 && isBad(p[1])) {
-                            bug("Changed variable ", Data::variables[p[1]-1], " after map change event!");
-                        }
-                    }
-                }
-                if (c.code == RPG::EventCommand::Code::ConditionalBranch) {
-                    if (p[0] == 1) {
-                        if (num_map_changes == 0) {
-                            auto isBad = [](int id) {
-                                return id == hh3::eVaMapPrevMap;
-                            };
-                            if (isBad(p[1])) {
-                                bug("Conditional on ", Data::variables[p[1]-1], " (lhs) before calling Map change event! Probably broken!");
-                            }
-                            if (p[2] == 1 && isBad(p[3])) {
-                                bug("Conditional on ", Data::variables[p[3]-1], " (lhs) before calling Map change event! Probably broken!");
-                            }
-                        } else {
-                            auto isBad = [](int id) {
-                                return id == hh3::eVaMapThisMap;
-                            };
-                            if (isBad(p[1])) {
-                                bug("Conditional on ", Data::variables[p[1]-1], " (lhs) after calling Map change event! Probably broken!");
-                            }
-                            if (p[2] == 1 && isBad(p[3])) {
-                                bug("Conditional on ", Data::variables[p[3]-1], " (rhs) after calling Map change event! Probably broken!");
-                            }
-                        }
-                    }
-                }
-            }
-            if (num_map_changes == 0 && evt_page->trigger == RPG::EventPage::Trigger_auto_start) {
-                if (map_id != 727) { //Durthall Kitchen has autostarts for a proposed mini-game. Not broken here.
-                    bug("Never called any map change event for AutoStart MAP SETUP page!");
-                }
-            }
-            if (num_map_changes > 1) {
-                bug("Called too many map change events! (", num_map_changes, ")");
-            }
         }
 
         bool stayed_at_inn = false;
@@ -330,6 +286,191 @@ struct CheckVisitor : public VisitorBase {
                 bug("Escape with wrong switch!");
             }
         }
+    }
+
+
+    void checkMapSetupEvent(const RPG::MapInfo& map_info, const RPG::Map& map,
+            const RPG::Event& event, const RPG::EventPage& page,
+            const std::vector<RPG::EventCommand>& cmds) const {
+        for (auto& other_event: map.events) {
+            if (other_event.ID == event.ID) {
+                break;
+            }
+            for (auto& op: other_event.pages) {
+                if (op.trigger == RPG::EventPage::Trigger_auto_start) {
+                    bug("Other Event ", other_event, " page ", op.ID, " is autostart and has ID < MAP SETUP ID!");
+                }
+            }
+        }
+        int num_map_changes = 0;
+        bool got_tint_before_map = false;
+        //Check for incorrect MapPrevMapusage
+        for (auto& c: cmds) {
+            auto& p = c.parameters;
+            if (c.code == RPG::EventCommand::Code::TintScreen) {
+                if (num_map_changes == 0) {
+                    got_tint_before_map = true;
+                }
+            }
+            if (c.code == RPG::EventCommand::Code::CallEvent) {
+                if (p[0] == 0) {
+                    if (p[1] == hh3::eCeONMAP_OUT
+                            || p[1] == hh3::eCeONMAP_IN
+                            || p[1] == hh3::eCeONMAP_DUNGOUT
+                            || p[1] == hh3::eCeONMAP_DUNGIN
+                            || p[1] == hh3::eCeONMAP_WORLD) {
+                        ++num_map_changes;
+                    }
+                }
+            }
+            if (c.code == RPG::EventCommand::Code::ControlSwitches) {
+                if (num_map_changes > 0) {
+                    auto isBad = [&](int id) {
+                        return id == hh3::eSwMAPColdSnow
+                            || (id == hh3::eSwMAPCustomTint && got_tint_before_map)
+                            || id == hh3::eSwMAPUnderWater
+                            || id == hh3::eSwMAPIndoorWeather;
+                    };
+                    if (p[0] == 0 && isBad(p[1])) {
+                        bug("Changed switch ", Data::switches[p[1]-1], " after map change event!");
+                    }
+                }
+            }
+            if (c.code == RPG::EventCommand::Code::ControlVars) {
+                if (num_map_changes > 0) {
+                    auto isBad = [](int id) {
+                        return id == hh3::eVaMAPIndoorLightLevel || id == hh3::eVaMAPRainStrength;
+                    };
+                    if (p[0] == 0 && isBad(p[1])) {
+                        bug("Changed variable ", Data::variables[p[1]-1], " after map change event!");
+                    }
+                } else {
+                    auto isBad = [](int id) {
+                        return id == hh3::eVaENC_RATE;
+                    };
+                    if (p[0] == 0 && isBad(p[1])) {
+                        bug("Changed variable ", Data::variables[p[1]-1], " before map change event!");
+                    }
+                }
+
+            }
+            if (c.code == RPG::EventCommand::Code::ConditionalBranch) {
+                if (p[0] == 1) {
+                    if (num_map_changes == 0) {
+                        auto isBad = [](int id) {
+                            return id == hh3::eVaMapPrevMap;
+                        };
+                        if (isBad(p[1])) {
+                            bug("Conditional on ", Data::variables[p[1]-1], " (lhs) before calling Map change event! Probably broken!");
+                        }
+                        if (p[2] == 1 && isBad(p[3])) {
+                            bug("Conditional on ", Data::variables[p[3]-1], " (lhs) before calling Map change event! Probably broken!");
+                        }
+                    } else {
+                        auto isBad = [](int id) {
+                            return id == hh3::eVaMapThisMap;
+                        };
+                        if (isBad(p[1])) {
+                            bug("Conditional on ", Data::variables[p[1]-1], " (lhs) after calling Map change event! Probably broken!");
+                        }
+                        if (p[2] == 1 && isBad(p[3])) {
+                            bug("Conditional on ", Data::variables[p[3]-1], " (rhs) after calling Map change event! Probably broken!");
+                        }
+                    }
+                }
+            }
+        }
+        if (num_map_changes == 0 && page.trigger == RPG::EventPage::Trigger_auto_start) {
+            if (map_info.ID != 727) { //Durthall Kitchen has autostarts for a proposed mini-game. Not broken here.
+                bug("Never called any map change event for AutoStart MAP SETUP page!");
+            }
+        }
+        if (num_map_changes > 1) {
+            bug("Called too many map change events! (", num_map_changes, ")");
+        }
+    }
+
+
+    void checkEncountersEvent(const RPG::MapInfo& map_info, const RPG::Map& map,
+            const RPG::Event& event, const RPG::EventPage& page,
+            const std::vector<RPG::EventCommand>& cmds) const {
+
+        if (page.trigger != RPG::EventPage::Trigger_auto_start) {
+            bug("Encounters page is not Autostart!");
+        }
+
+        auto& cond = page.condition;
+        if (!((cond.flags.switch_a && cond.switch_a_id == hh3::eSwENC_NOW)
+                || (cond.flags.switch_b && cond.switch_b_id == hh3::eSwENC_NOW))) {
+            bug("Encounters page not dependent on ENC:NOW!");
+        }
+
+        auto iter = cmds.begin();
+        auto stripComments = [&]() {
+            while (iter != cmds.end() &&
+                    (iter->code == RPG::EventCommand::Code::Comment
+                    || iter->code == RPG::EventCommand::Code::Comment_2)) {
+                ++iter;
+            }
+        };
+        stripComments();
+        if (iter == cmds.end()) {
+            bug("Encounters page is empty!");
+            return;
+        }
+
+        if (iter->code == RPG::EventCommand::Code::CallEvent) {
+            auto& p = iter->parameters;
+            if (p[0] == 0 && p[1] >= 301) {
+                //First cmd is call ENC event.
+
+                ++iter;
+                stripComments();
+                if (iter != cmds.end()) {
+                    bug("Page calls ", Data::commonevents[p[1]-1], " but does other things after!");
+                }
+                return;
+            }
+            bug("Page calls some other event!");
+            return;
+        }
+
+        if (iter->code == RPG::EventCommand::Code::ControlSwitches) {
+            auto& p = iter->parameters;
+            if (!(p[0] == 0 && p[1] == hh3::eSwENC_NOW && p[3] == 1)) {
+                bug("First cmd does not turn off ENC:NOW!");
+            }
+        } else {
+            bug("First cmd does not turn off ENC:NOW!");
+            return;
+        }
+
+        ++iter;
+
+        if (iter == cmds.end()) {
+            //Only to only turn off ENC:NOW and quit
+            return;
+        }
+
+        if (iter->code == RPG::EventCommand::Code::ConditionalBranch) {
+            auto& p = iter->parameters;
+            if (p != std::vector<int>{1, hh3::eVaENC_ROLL, 0, 0, 0, 0}) {
+                bug("Second cmd is not a conditional on ENC:ROLL == 0");
+                return;
+            }
+        }
+
+        ++iter;
+
+        if (iter->code == RPG::EventCommand::Code::ControlVars) {
+            auto& p = iter->parameters;
+            if (!(p[0] == 0 && p[1] == hh3::eVaENC_ROLL)) {
+                bug("Third cmd does not set ENC:ROLL!");
+                return;
+            }
+        }
+        return;
+
     }
 };
 
