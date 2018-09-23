@@ -1,7 +1,4 @@
 Major Refactors:
-Encounters:
-- Don't use else branches
-- Use parent map battle bg
 Verify Character vars are accurate
 Verify char locks
 
@@ -637,12 +634,6 @@ verify long descriptions of spells match short ones
 Sometimes loading the game causes erased autorun events to retrigger on load - maybe its only when changed map?
 
 
-COnsider: run encounters all the time.
-- Set encounter rate in MAP SETUP
-- Have separate autorun encounter event which triggers the battle
-  - Also a common event version, which resets it on maps with no enemies
-
-
 Remove bag of coke after mission?
 
 
@@ -1100,3 +1091,8 @@ Check ENC: Events 301+
 Should prot from evil cure Sin effects?
 
 Unique enemies in Bellum World Map and Bellum Cave
+
+
+EAsyRPG:
+What happens when you try to escape on first strike?
+First Strike - when is turn 0 and turn 1?
