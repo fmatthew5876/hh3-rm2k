@@ -2,7 +2,7 @@ Major Refactors:
 Verify Character vars are accurate
 Verify char locks
 
-
+Review encounter rates with new system - almost everything should be 35
 
 
 Revisit disclaimer at beginning of game
