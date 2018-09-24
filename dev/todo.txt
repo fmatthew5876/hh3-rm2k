@@ -1096,3 +1096,5 @@ Unique enemies in Bellum World Map and Bellum Cave
 EAsyRPG:
 What happens when you try to escape on first strike?
 First Strike - when is turn 0 and turn 1?
+
+Check Ship and Airship start pos
