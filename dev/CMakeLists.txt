@@ -11,6 +11,7 @@ find_program(LCF2XML, "lcf2xml")
 
 #Specific tools
 add_subdirectory("hh3core")
+add_subdirectory("copydb")
 add_subdirectory("autodb")
 add_subdirectory("hh3tool")
 
