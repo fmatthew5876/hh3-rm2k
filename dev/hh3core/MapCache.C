@@ -32,6 +32,10 @@ void MapCache::setEncoding(std::string e) {
 }
 
 
+const std::string& MapCache::getEncoding() {
+	return gEncoding;
+}
+
 RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
     std::lock_guard<std::mutex> lock(gMutex);
 

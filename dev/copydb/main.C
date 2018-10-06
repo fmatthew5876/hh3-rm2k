@@ -21,10 +21,13 @@ void doMain(const std::string& infile, const std::string& outfile) {
         throw Exception("Failed to load LDB database from file `" + infile  + "'");
     }
 
+#if 1
+    //rc = LDB_Reader::Save(outfile, encoding, LDB_Reader::SaveOpt::ePreserveHeader);
     rc = LDB_Reader::Save(outfile, encoding);
     if(!rc) {
         throw Exception("Failed to save LDB database from file `" + outfile  + "'");
     }
+#endif
 
 }
 
