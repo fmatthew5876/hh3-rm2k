@@ -2,6 +2,7 @@
 #include <ldb_reader.h>
 #include <lmt_reader.h>
 #include <lmu_reader.h>
+#include <lsd_reader.h>
 #include <reader_util.h>
 #include <data.h>
 
@@ -33,6 +34,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 	bool rc;
 	std::string out;
 
+#if 0
 	for (auto& map_info: Data::treemap.maps) {
 		if (map_info.type != RPG::TreeMap::MapType_map) {
 			continue;
@@ -60,6 +62,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
 		//break;
 	}
+#endif
 
 #if 0
 	logInf("Writing maps...");
@@ -67,6 +70,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 		if (map_info.type != RPG::TreeMap::MapType_map) {
 			continue;
 		}
+		std::cout << "READ MAP " << out << std::endl;
 		auto& map = MapCache::loadMap(map_info);
 		char buffer[256];
 		snprintf(buffer, sizeof(buffer), "/Map%04d.lmu.copy", map_info.ID);
@@ -80,6 +84,33 @@ void doMain(const std::string& infile, const std::string& outfile) {
 	}
 #endif
 
+	for (int save_id = 1; save_id < 16; ++save_id) {
+		char buffer[256];
+		snprintf(buffer, sizeof(buffer), "/Save%02d.lsd", save_id);
+
+		out = args.game_dir + buffer;
+
+		logInf("Reading save: ", out);
+		std::cout << "READ SAVE " << out << std::endl;
+		auto save = LSD_Reader::Load(out, MapCache::getEncoding());
+		if (!save) {
+			continue;
+			//throw Exception("Failed to load LSD save from file `" + out + "'");
+		}
+
+		out += ".copy";
+
+		logInf("Writing save: ", out);
+		rc = LSD_Reader::Save(out, *save, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+		if(!rc) {
+			throw Exception("Failed to save LSD save to file `" + out + "'");
+		}
+
+		//break;
+	}
+
+
+#if 0
 	out = args.game_dir + "/RPG_RT.lmt.copy";
 	logInf("Writing ", out, " ...");
     rc = LMT_Reader::Save(out, MapCache::getEncoding(), SaveOpt::eNoUpdate);
@@ -93,6 +124,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
     if(!rc) {
         throw Exception("Failed to save LDB database to file `" + out + "'");
     }
+#endif
 
 }
 
