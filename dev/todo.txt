@@ -1098,3 +1098,11 @@ What happens when you try to escape on first strike?
 First Strike - when is turn 0 and turn 1?
 
 Check Ship and Airship start pos
+
+0001E558 - Items
+
+liblcf:
+Test enemy with no actions
+
+Maybe we don't need flags max size
+tag_map_type for flags - use a sorted array.

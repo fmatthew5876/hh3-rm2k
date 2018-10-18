@@ -53,7 +53,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 		out += ".copy";
 
 		logInf("Writing map: ", out);
-		rc = LMU_Reader::Save(out, *map, MapCache::getEncoding());//, SaveOpt::ePreserveHeader);
+		rc = LMU_Reader::Save(out, *map, MapCache::getEncoding(), SaveOpt::eNoUpdate);
 		if(!rc) {
 			throw Exception("Failed to save LMU map to file `" + out + "'");
 		}
@@ -73,7 +73,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
 		out = args.game_dir + buffer;
 
-		rc = LMU_Reader::Save(out, map, MapCache::getEncoding());
+		rc = LMU_Reader::Save(out, map, MapCache::getEncoding(), SaveOpt::eNoUpdate);
 		if(!rc) {
 			throw Exception("Failed to save LMU map to file `" + out + "'");
 		}
@@ -82,14 +82,14 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
 	out = args.game_dir + "/RPG_RT.lmt.copy";
 	logInf("Writing ", out, " ...");
-    rc = LMT_Reader::Save(out, MapCache::getEncoding());//), SaveOpt::ePreserveHeader);
+    rc = LMT_Reader::Save(out, MapCache::getEncoding(), SaveOpt::eNoUpdate);
     if(!rc) {
         throw Exception("Failed to save LMT treemap to file `" + out + "'");
     }
 
 	out = args.game_dir + "/RPG_RT.ldb.copy";
 	logInf("Writing ", out, " ...");
-    rc = LDB_Reader::Save(out, MapCache::getEncoding());//), SaveOpt::ePreserveHeader);
+    rc = LDB_Reader::Save(out, MapCache::getEncoding(), SaveOpt::eNoUpdate);
     if(!rc) {
         throw Exception("Failed to save LDB database to file `" + out + "'");
     }
@@ -98,21 +98,21 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
 int main(int argc, char** argv) {
 
-	if (argc <= 2) {
+	if (argc <= 1) {
 		usage();
 		return -1;
 	}
 
 
-    if (argc > 3) {
+    if (argc > 2) {
         std::string args = argv[1];
         if (args == "-d") {
             setLogLevel(eLogDebug);
         }
     }
 
-    std::string infile = argv[argc-2];
-    std::string outfile = argv[argc-1];
+    std::string infile = argv[argc-1];
+    std::string outfile = "";
 
 	try {
 		doMain(infile, outfile);

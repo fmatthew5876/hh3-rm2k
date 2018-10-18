@@ -8,7 +8,7 @@ struct MapCache {
 	static const std::string& getEncoding();
 
     static RPG::Map& loadMap(const RPG::MapInfo& map_info);
-    static void saveMap(const RPG::MapInfo& map_info, const RPG::Map& map);
+    static void saveMap(const RPG::MapInfo& map_info, RPG::Map& map);
 
     static void clear();
 };

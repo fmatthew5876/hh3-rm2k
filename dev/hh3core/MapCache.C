@@ -63,7 +63,7 @@ RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
     return *p.first->second;
 }
 
-void MapCache::saveMap(const RPG::MapInfo& map_info, const RPG::Map& map) {
+void MapCache::saveMap(const RPG::MapInfo& map_info, RPG::Map& map) {
     std::lock_guard<std::mutex> lock(gMutex);
 
     if (map_info.type != 1) {
