@@ -55,7 +55,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 		out += ".copy";
 
 		logInf("Writing map: ", out);
-		rc = LMU_Reader::Save(out, *map, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+		rc = LMU_Reader::Save(out, *map, MapCache::getEncoding(), SaveOpt::ePreserveHeader);
 		if(!rc) {
 			throw Exception("Failed to save LMU map to file `" + out + "'");
 		}
@@ -77,7 +77,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 
 		out = args.game_dir + buffer;
 
-		rc = LMU_Reader::Save(out, map, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+		rc = LMU_Reader::Save(out, map, MapCache::getEncoding(), SaveOpt::ePreserveHeader);
 		if(!rc) {
 			throw Exception("Failed to save LMU map to file `" + out + "'");
 		}
@@ -101,7 +101,7 @@ void doMain(const std::string& infile, const std::string& outfile) {
 		out += ".copy";
 
 		logInf("Writing save: ", out);
-		rc = LSD_Reader::Save(out, *save, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+		rc = LSD_Reader::Save(out, *save, MapCache::getEncoding());
 		if(!rc) {
 			throw Exception("Failed to save LSD save to file `" + out + "'");
 		}
@@ -113,14 +113,14 @@ void doMain(const std::string& infile, const std::string& outfile) {
 #if 0
 	out = args.game_dir + "/RPG_RT.lmt.copy";
 	logInf("Writing ", out, " ...");
-    rc = LMT_Reader::Save(out, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+    rc = LMT_Reader::Save(out, MapCache::getEncoding(), SaveOpt::ePreserveHeader);
     if(!rc) {
         throw Exception("Failed to save LMT treemap to file `" + out + "'");
     }
 
 	out = args.game_dir + "/RPG_RT.ldb.copy";
 	logInf("Writing ", out, " ...");
-    rc = LDB_Reader::Save(out, MapCache::getEncoding(), SaveOpt::eNoUpdate);
+    rc = LDB_Reader::Save(out, MapCache::getEncoding(), SaveOpt::ePreserveHeader);
     if(!rc) {
         throw Exception("Failed to save LDB database to file `" + out + "'");
     }
