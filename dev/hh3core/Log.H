@@ -193,6 +193,7 @@ namespace detail {
 template <typename T>
 inline std::ostream& printRpg(std::ostream& os, T&& t) {
     os << '`' << t.name << "' (" << t.ID << ')';
+	return os;
 }
 };
 
