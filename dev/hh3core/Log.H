@@ -22,12 +22,8 @@ extern LogLevel kLogLevel;
 extern std::ostream* kLogStream;
 
 inline void baselog(std::ostream& os) { }
-
 template <typename T, typename... Args>
-inline void baselog(std::ostream& os, T&& t, Args&&... args) {
-    os << std::forward<T>(t);
-    baselog(os, std::forward<Args>(args)...);
-}
+inline void baselog(std::ostream& os, T&& t, Args&&... args);
 
 } //namespace detail
 
@@ -272,5 +268,11 @@ inline std::ostream& operator<<(std::ostream& os, const RPG::BattlerAnimation& t
 inline std::ostream& operator<<(std::ostream& os, const RPG::EventCommand& t) {
     os << '`' << codeToStr(RPG::EventCommand::Code::Index(t.code)) << "'(" << t.code << ')';
     return os;
+}
+
+template <typename T, typename... Args>
+inline void detail::baselog(std::ostream& os, T&& t, Args&&... args) {
+    os << std::forward<T>(t);
+    baselog(os, std::forward<Args>(args)...);
 }
 
