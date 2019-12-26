@@ -20,4 +20,5 @@ add_subdirectory("copydb")
 add_subdirectory("copyrpg")
 add_subdirectory("autodb")
 add_subdirectory("hh3tool")
+add_subdirectory("copylsd")
 
