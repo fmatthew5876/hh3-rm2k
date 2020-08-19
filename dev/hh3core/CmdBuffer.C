@@ -3,27 +3,27 @@
 #include "Cmd.H"
 #include "Exception.H"
 
-void CmdBuffer::push_back(RPG::EventCommand cmd) {
+void CmdBuffer::push_back(lcf::rpg::EventCommand cmd) {
 
     cmd.indent = _indent;
 
-    switch(cmd.code) {
-        case RPG::EventCommand::Code::ConditionalBranch:
-        case RPG::EventCommand::Code::ConditionalBranch_B:
-        case RPG::EventCommand::Code::ElseBranch:
-        case RPG::EventCommand::Code::ElseBranch_B:
-        case RPG::EventCommand::Code::Loop:
-        case RPG::EventCommand::Code::ShowChoiceOption:
-        case RPG::EventCommand::Code::VictoryHandler:
-        case RPG::EventCommand::Code::EscapeHandler:
-        case RPG::EventCommand::Code::DefeatHandler:
-        case RPG::EventCommand::Code::Transaction:
-        case RPG::EventCommand::Code::NoTransaction:
-        case RPG::EventCommand::Code::Stay:
-        case RPG::EventCommand::Code::NoStay:
+    switch((lcf::rpg::EventCommand::Code)cmd.code) {
+        case lcf::rpg::EventCommand::Code::ConditionalBranch:
+        case lcf::rpg::EventCommand::Code::ConditionalBranch_B:
+        case lcf::rpg::EventCommand::Code::ElseBranch:
+        case lcf::rpg::EventCommand::Code::ElseBranch_B:
+        case lcf::rpg::EventCommand::Code::Loop:
+        case lcf::rpg::EventCommand::Code::ShowChoiceOption:
+        case lcf::rpg::EventCommand::Code::VictoryHandler:
+        case lcf::rpg::EventCommand::Code::EscapeHandler:
+        case lcf::rpg::EventCommand::Code::DefeatHandler:
+        case lcf::rpg::EventCommand::Code::Transaction:
+        case lcf::rpg::EventCommand::Code::NoTransaction:
+        case lcf::rpg::EventCommand::Code::Stay:
+        case lcf::rpg::EventCommand::Code::NoStay:
             ++_indent;
             break;
-        case RPG::EventCommand::Code::END:
+        case lcf::rpg::EventCommand::Code::END:
             --_indent;
             break;
             default:
@@ -41,7 +41,7 @@ void CmdBuffer::push_back(RPG::EventCommand cmd) {
 
 }
 
-std::vector<RPG::EventCommand> CmdBuffer::take() {
+std::vector<lcf::rpg::EventCommand> CmdBuffer::take() {
     if(_cmds.empty()) {
         _indent = 0;
         return {};

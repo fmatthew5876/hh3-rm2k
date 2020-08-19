@@ -1,6 +1,6 @@
 #pragma once
-#include <data.h>
-#include <rpg_map.h>
+#include <lcf/data.h>
+#include <lcf/rpg/map.h>
 #include <algorithm>
 #include "Exception.H"
 #include "MapCache.H"
@@ -16,8 +16,8 @@ class VisitStopException : public Exception {
 template <typename F>
 void visitTreeMap(F&& f) {
 
-    auto& maps = Data::treemap.maps;
-    auto& tree_order= Data::treemap.tree_order;
+    auto& maps = lcf::Data::treemap.maps;
+    auto& tree_order= lcf::Data::treemap.tree_order;
 
     for (auto& map_id: tree_order) {
         auto iter = std::lower_bound(maps.begin(), maps.end(), map_id,
@@ -34,98 +34,98 @@ void visitTreeMap(F&& f) {
 //You can override for const or non-const as you like.
 class VisitorBase {
     public:
-        void onDatabase(const RPG::Database& db) const {}
+        void onDatabase(const lcf::rpg::Database& db) const {}
 
-        void onActors(const std::vector<RPG::Actor>& actor) const {}
-        void onActor(const RPG::Actor& actor) const {}
+        void onActors(const std::vector<lcf::rpg::Actor>& actor) const {}
+        void onActor(const lcf::rpg::Actor& actor) const {}
 
-        void onSkills(const std::vector<RPG::Skill>& skills) const {}
-        void onSkill(const RPG::Skill& skill) const {}
+        void onSkills(const std::vector<lcf::rpg::Skill>& skills) const {}
+        void onSkill(const lcf::rpg::Skill& skill) const {}
 
-        void onItems(const std::vector<RPG::Item>& items) const {}
-        void onItem(const RPG::Item& item) const {}
+        void onItems(const std::vector<lcf::rpg::Item>& items) const {}
+        void onItem(const lcf::rpg::Item& item) const {}
 
-        void onCommonEvents(const std::vector<RPG::CommonEvent>& ces) const {}
-        void onCommonEvent(const RPG::CommonEvent& ce) const {}
-        void onCommonEventCmds(const RPG::CommonEvent& ce, const std::vector<RPG::EventCommand>& cmds) const {}
+        void onCommonEvents(const std::vector<lcf::rpg::CommonEvent>& ces) const {}
+        void onCommonEvent(const lcf::rpg::CommonEvent& ce) const {}
+        void onCommonEventCmds(const lcf::rpg::CommonEvent& ce, const std::vector<lcf::rpg::EventCommand>& cmds) const {}
         //onEventCmds(cmds) called after this..
-        void onCommonEventCmd(const RPG::CommonEvent& ce, const RPG::EventCommand& cmd) const {}
+        void onCommonEventCmd(const lcf::rpg::CommonEvent& ce, const lcf::rpg::EventCommand& cmd) const {}
         //onEventCmd(cmds) called after this..
 
-        void onEnemies(const std::vector<RPG::Enemy>& enemies) const {}
-        void onEnemy(const RPG::Enemy& enemy) const {}
-        void onEnemyActions(const RPG::Enemy& enemy, const std::vector<RPG::EnemyAction>& actions) const {}
-        void onEnemyAction(const RPG::Enemy& enemy, const RPG::EnemyAction& action) const {}
+        void onEnemies(const std::vector<lcf::rpg::Enemy>& enemies) const {}
+        void onEnemy(const lcf::rpg::Enemy& enemy) const {}
+        void onEnemyActions(const lcf::rpg::Enemy& enemy, const std::vector<lcf::rpg::EnemyAction>& actions) const {}
+        void onEnemyAction(const lcf::rpg::Enemy& enemy, const lcf::rpg::EnemyAction& action) const {}
 
-        void onTroops(const std::vector<RPG::Troop>& troops) const {}
-        void onTroop(const RPG::Troop& troop) const {}
-        void onTroopMembers(const RPG::Troop& troop, const std::vector<RPG::TroopMember>& members) const {}
-        void onTroopMember(const RPG::Troop& troop, const RPG::TroopMember& member) const {}
-        void onTroopPages(const RPG::Troop& troop, const std::vector<RPG::TroopPage>& page) const {}
-        void onTroopPage(const RPG::Troop& troop, const RPG::TroopPage& page) const {}
-        void onTroopPageCmds(const RPG::Troop& troop, const RPG::TroopPage& page, const std::vector<RPG::EventCommand>& cmds) const {}
+        void onTroops(const std::vector<lcf::rpg::Troop>& troops) const {}
+        void onTroop(const lcf::rpg::Troop& troop) const {}
+        void onTroopMembers(const lcf::rpg::Troop& troop, const std::vector<lcf::rpg::TroopMember>& members) const {}
+        void onTroopMember(const lcf::rpg::Troop& troop, const lcf::rpg::TroopMember& member) const {}
+        void onTroopPages(const lcf::rpg::Troop& troop, const std::vector<lcf::rpg::TroopPage>& page) const {}
+        void onTroopPage(const lcf::rpg::Troop& troop, const lcf::rpg::TroopPage& page) const {}
+        void onTroopPageCmds(const lcf::rpg::Troop& troop, const lcf::rpg::TroopPage& page, const std::vector<lcf::rpg::EventCommand>& cmds) const {}
         //onEventCmds(cmds) called after this..
-        void onTroopPageCmd(const RPG::Troop& troop, const RPG::TroopPage& page, const RPG::EventCommand& cmd) const {}
+        void onTroopPageCmd(const lcf::rpg::Troop& troop, const lcf::rpg::TroopPage& page, const lcf::rpg::EventCommand& cmd) const {}
         //onEventCmd(cmd) called after this..
 
-        void onTerrains(const std::vector<RPG::Terrain>& terrains) const {}
-        void onTerrain(const RPG::Terrain& terrain) const {}
+        void onTerrains(const std::vector<lcf::rpg::Terrain>& terrains) const {}
+        void onTerrain(const lcf::rpg::Terrain& terrain) const {}
 
-        void onAttributes(const std::vector<RPG::Attribute>& attrs) const {}
-        void onAttribute(const RPG::Attribute& attr) const {}
+        void onAttributes(const std::vector<lcf::rpg::Attribute>& attrs) const {}
+        void onAttribute(const lcf::rpg::Attribute& attr) const {}
 
-        void onStates(const std::vector<RPG::State>& state) const {}
-        void onState(const RPG::State& state) const {}
+        void onStates(const std::vector<lcf::rpg::State>& state) const {}
+        void onState(const lcf::rpg::State& state) const {}
 
-        void onAnimations(const std::vector<RPG::Animation>& anims) const {}
-        void onAnimation(const RPG::Animation& anim) const {}
+        void onAnimations(const std::vector<lcf::rpg::Animation>& anims) const {}
+        void onAnimation(const lcf::rpg::Animation& anim) const {}
 
-        void onChipsets(const std::vector<RPG::Chipset>& chipsets) const {}
-        void onChipset(const RPG::Chipset& chipset) const {}
+        void onChipsets(const std::vector<lcf::rpg::Chipset>& chipsets) const {}
+        void onChipset(const lcf::rpg::Chipset& chipset) const {}
 
-        void onBattleCommands(const RPG::BattleCommands& batcmds) const {}
-        void onBattleCommandsCmds(const RPG::BattleCommands& batcmds, const std::vector<RPG::BattleCommand>& cmds) const {}
-        void onBattleCommand(const RPG::BattleCommands& batcmds, const RPG::BattleCommand& batcmd) const {}
+        void onBattleCommands(const lcf::rpg::BattleCommands& batcmds) const {}
+        void onBattleCommandsCmds(const lcf::rpg::BattleCommands& batcmds, const std::vector<lcf::rpg::BattleCommand>& cmds) const {}
+        void onBattleCommand(const lcf::rpg::BattleCommands& batcmds, const lcf::rpg::BattleCommand& batcmd) const {}
 
-        void onClasses(const std::vector<RPG::Class>& classes) const {}
-        void onClass(const RPG::Class& cls) const {}
+        void onClasses(const std::vector<lcf::rpg::Class>& classes) const {}
+        void onClass(const lcf::rpg::Class& cls) const {}
 
-        void onBattlerAnimations(const std::vector<RPG::BattlerAnimation>& batanims) const {}
-        void onBattlerAnimation(const RPG::BattlerAnimation& batanim) const {}
+        void onBattlerAnimations(const std::vector<lcf::rpg::BattlerAnimation>& batanims) const {}
+        void onBattlerAnimation(const lcf::rpg::BattlerAnimation& batanim) const {}
 
-        void onTerms(const RPG::Terms& terms) const {}
+        void onTerms(const lcf::rpg::Terms& terms) const {}
 
-        void onSystem(const RPG::System& sys) const {}
+        void onSystem(const lcf::rpg::System& sys) const {}
 
-        void onSwitches(const std::vector<RPG::Switch>& sws) const {}
-        void onSwitch(const RPG::Switch& sw) const {}
+        void onSwitches(const std::vector<lcf::rpg::Switch>& sws) const {}
+        void onSwitch(const lcf::rpg::Switch& sw) const {}
 
-        void onVariables(const std::vector<RPG::Variable>& vars) const {}
-        void onVariable(const RPG::Variable& var) const {}
+        void onVariables(const std::vector<lcf::rpg::Variable>& vars) const {}
+        void onVariable(const lcf::rpg::Variable& var) const {}
 
-        void onTreeMap(const RPG::TreeMap& tm) const {}
-        void onMapInfo(const RPG::MapInfo& map_info) const {}
+        void onTreeMap(const lcf::rpg::TreeMap& tm) const {}
+        void onMapInfo(const lcf::rpg::MapInfo& map_info) const {}
 
-        void onMapRoot(const RPG::MapInfo& map_info) const {}
+        void onMapRoot(const lcf::rpg::MapInfo& map_info) const {}
 
-        void onMap(const RPG::MapInfo& map_info, const RPG::Map& map) const {}
-        void onMapEvents(const RPG::MapInfo& map_info, const RPG::Map& map, const std::vector<RPG::Event>& events) const {}
-        void onMapEvent(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event) const {}
-        void onMapEventPages(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const std::vector<RPG::EventPage>& pages) const {}
-        void onMapEventPage(const RPG::MapInfo& map_info, const RPG::Map& map, const RPG::Event& event, const RPG::EventPage& page) const {}
-        void onMapEventPageCmds(const RPG::MapInfo& map_info, const RPG::Map& map,
-                const RPG::Event& event, const RPG::EventPage& page,
-                const std::vector<RPG::EventCommand>& cmds) const {}
+        void onMap(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map) const {}
+        void onMapEvents(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map, const std::vector<lcf::rpg::Event>& events) const {}
+        void onMapEvent(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map, const lcf::rpg::Event& event) const {}
+        void onMapEventPages(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map, const lcf::rpg::Event& event, const std::vector<lcf::rpg::EventPage>& pages) const {}
+        void onMapEventPage(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map, const lcf::rpg::Event& event, const lcf::rpg::EventPage& page) const {}
+        void onMapEventPageCmds(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map,
+                const lcf::rpg::Event& event, const lcf::rpg::EventPage& page,
+                const std::vector<lcf::rpg::EventCommand>& cmds) const {}
         //onEventCmds(cmds) called after this..
-        void onMapEventPageCmd(const RPG::MapInfo& map_info, const RPG::Map& map,
-                const RPG::Event& event, const RPG::EventPage& page,
-                const RPG::EventCommand& cmd) const {}
+        void onMapEventPageCmd(const lcf::rpg::MapInfo& map_info, const lcf::rpg::Map& map,
+                const lcf::rpg::Event& event, const lcf::rpg::EventPage& page,
+                const lcf::rpg::EventCommand& cmd) const {}
         //onEventCmd(cmds) called after this..
 
-        void onAreaMap(const RPG::MapInfo& map_info) const {}
+        void onAreaMap(const lcf::rpg::MapInfo& map_info) const {}
 
-        void onEventCommands(const std::vector<RPG::EventCommand>& cmds) const {}
-        void onEventCommand(const RPG::EventCommand& cmds) const {}
+        void onEventCommands(const std::vector<lcf::rpg::EventCommand>& cmds) const {}
+        void onEventCommand(const lcf::rpg::EventCommand& cmds) const {}
 
         Location& loc() { return _loc; }
         const Location& loc() const { return _loc; }
@@ -160,14 +160,14 @@ class VisitorBase {
 template <typename V>
 void visitRPG(V&& v) {
     if (v.do_database) {
-        v.loc() = Location(LocPath(&Data::data));
-        v.onDatabase(Data::data);
+        v.loc() = Location(LocPath(&lcf::Data::data));
+        v.onDatabase(lcf::Data::data);
     }
 
     if (v.do_actors) {
         v.loc() = {};
-        v.onActors(Data::actors);
-        for (auto& actor: Data::actors) {
+        v.onActors(lcf::Data::actors);
+        for (auto& actor: lcf::Data::actors) {
             v.loc() = Location(LocPath(&actor));
             v.onActor(actor);
         }
@@ -175,8 +175,8 @@ void visitRPG(V&& v) {
 
     if (v.do_skills) {
         v.loc() = {};
-        v.onSkills(Data::skills);
-        for (auto& skill: Data::skills) {
+        v.onSkills(lcf::Data::skills);
+        for (auto& skill: lcf::Data::skills) {
             v.loc() = Location(LocPath(&skill));
             v.onSkill(skill);
         }
@@ -184,8 +184,8 @@ void visitRPG(V&& v) {
 
     if (v.do_items) {
         v.loc() = {};
-        v.onItems(Data::items);
-        for (auto& item: Data::items) {
+        v.onItems(lcf::Data::items);
+        for (auto& item: lcf::Data::items) {
             v.loc() = Location(LocPath(&item));
             v.onItem(item);
         }
@@ -193,8 +193,8 @@ void visitRPG(V&& v) {
 
     if (v.do_commonevents) {
         v.loc() = {};
-        v.onCommonEvents(Data::commonevents);
-        for (auto& ce: Data::commonevents) {
+        v.onCommonEvents(lcf::Data::commonevents);
+        for (auto& ce: lcf::Data::commonevents) {
             v.loc() = Location(LocPath(&ce));
             v.onCommonEvent(ce);
             v.onCommonEventCmds(ce, ce.event_commands);
@@ -209,8 +209,8 @@ void visitRPG(V&& v) {
 
     if (v.do_enemies) {
         v.loc() = {};
-        v.onEnemies(Data::enemies);
-        for (auto& e: Data::enemies) {
+        v.onEnemies(lcf::Data::enemies);
+        for (auto& e: lcf::Data::enemies) {
             v.loc() = Location(LocPath(&e));
             v.onEnemy(e);
             v.onEnemyActions(e, e.actions);
@@ -223,8 +223,8 @@ void visitRPG(V&& v) {
 
     if (v.do_troops) {
         v.loc() = {};
-        v.onTroops(Data::troops);
-        for (auto& t: Data::troops) {
+        v.onTroops(lcf::Data::troops);
+        for (auto& t: lcf::Data::troops) {
             v.loc() = Location(LocPath(&t));
             v.onTroop(t);
             v.onTroopMembers(t, t.members);
@@ -249,8 +249,8 @@ void visitRPG(V&& v) {
 
     if (v.do_terrains) {
         v.loc() = {};
-        v.onTerrains(Data::terrains);
-        for (auto& t: Data::terrains) {
+        v.onTerrains(lcf::Data::terrains);
+        for (auto& t: lcf::Data::terrains) {
             v.loc() = Location(LocPath(&t));
             v.onTerrain(t);
         }
@@ -258,8 +258,8 @@ void visitRPG(V&& v) {
 
     if (v.do_attributes) {
         v.loc() = {};
-        v.onAttributes(Data::attributes);
-        for (auto& a: Data::attributes) {
+        v.onAttributes(lcf::Data::attributes);
+        for (auto& a: lcf::Data::attributes) {
             v.loc() = Location(LocPath(&a));
             v.onAttribute(a);
         }
@@ -267,8 +267,8 @@ void visitRPG(V&& v) {
 
     if (v.do_states) {
         v.loc() = {};
-        v.onStates(Data::states);
-        for (auto& s: Data::states) {
+        v.onStates(lcf::Data::states);
+        for (auto& s: lcf::Data::states) {
             v.loc() = Location(LocPath(&s));
             v.onState(s);
         }
@@ -276,8 +276,8 @@ void visitRPG(V&& v) {
 
     if (v.do_animations) {
         v.loc() = {};
-        v.onAnimations(Data::animations);
-        for (auto& a: Data::animations) {
+        v.onAnimations(lcf::Data::animations);
+        for (auto& a: lcf::Data::animations) {
             v.loc() = Location(LocPath(&a));
             v.onAnimation(a);
         }
@@ -285,27 +285,27 @@ void visitRPG(V&& v) {
 
     if (v.do_chipsets) {
         v.loc() = {};
-        v.onChipsets(Data::chipsets);
-        for (auto& c: Data::chipsets) {
+        v.onChipsets(lcf::Data::chipsets);
+        for (auto& c: lcf::Data::chipsets) {
             v.loc() = Location(LocPath(&c));
             v.onChipset(c);
         }
     }
 
     if (v.do_battlecmds) {
-        v.loc() = Location(LocPath(&Data::battlecommands));
-        v.onBattleCommands(Data::battlecommands);
-        v.onBattleCommandsCmds(Data::battlecommands, Data::battlecommands.commands);
-        for (auto& c: Data::battlecommands.commands) {
-            v.loc() = Location(LocPath(&Data::battlecommands, &c));
-            v.onBattleCommand(Data::battlecommands, c);
+        v.loc() = Location(LocPath(&lcf::Data::battlecommands));
+        v.onBattleCommands(lcf::Data::battlecommands);
+        v.onBattleCommandsCmds(lcf::Data::battlecommands, lcf::Data::battlecommands.commands);
+        for (auto& c: lcf::Data::battlecommands.commands) {
+            v.loc() = Location(LocPath(&lcf::Data::battlecommands, &c));
+            v.onBattleCommand(lcf::Data::battlecommands, c);
         }
     }
 
     if (v.do_classes) {
         v.loc() = {};
-        v.onClasses(Data::classes);
-        for (auto& c: Data::classes) {
+        v.onClasses(lcf::Data::classes);
+        for (auto& c: lcf::Data::classes) {
             v.loc() = Location(LocPath(&c));
             v.onClass(c);
         }
@@ -313,27 +313,27 @@ void visitRPG(V&& v) {
 
     if (v.do_battleranims) {
         v.loc() = {};
-        v.onBattlerAnimations(Data::battleranimations);
-        for (auto& ba: Data::battleranimations) {
+        v.onBattlerAnimations(lcf::Data::battleranimations);
+        for (auto& ba: lcf::Data::battleranimations) {
             v.loc() = { LocPath(&ba) };
             v.onBattlerAnimation(ba);
         }
     }
 
     if (v.do_terms) {
-        v.loc() = { LocPath(&Data::terms) };
-        v.onTerms(Data::terms);
+        v.loc() = { LocPath(&lcf::Data::terms) };
+        v.onTerms(lcf::Data::terms);
     }
 
     if (v.do_system) {
-        v.loc() = { LocPath(&Data::system) };
-        v.onSystem(Data::system);
+        v.loc() = { LocPath(&lcf::Data::system) };
+        v.onSystem(lcf::Data::system);
     }
 
     if (v.do_switches) {
         v.loc() = {};
-        v.onSwitches(Data::switches);
-        for (auto& sw: Data::switches) {
+        v.onSwitches(lcf::Data::switches);
+        for (auto& sw: lcf::Data::switches) {
             v.loc() = { LocPath(&sw) };
             v.onSwitch(sw);
         }
@@ -341,24 +341,24 @@ void visitRPG(V&& v) {
 
     if (v.do_variables) {
         v.loc() = {};
-        v.onVariables(Data::variables);
-        for (auto& var: Data::variables) {
+        v.onVariables(lcf::Data::variables);
+        for (auto& var: lcf::Data::variables) {
             v.loc() = { LocPath(&var) };
             v.onVariable(var);
         }
     }
 
     if (v.do_maps) {
-        v.loc() = { LocPath(&Data::treemap) };
-        v.onTreeMap(Data::treemap);
-        visitTreeMap([&](RPG::MapInfo& map_info) {
+        v.loc() = { LocPath(&lcf::Data::treemap) };
+        v.onTreeMap(lcf::Data::treemap);
+        visitTreeMap([&](lcf::rpg::MapInfo& map_info) {
             v.loc() = { LocPath(&map_info) };
             v.onMapInfo(map_info);
             switch(map_info.type) {
-                case RPG::TreeMap::MapType_root:
+                case lcf::rpg::TreeMap::MapType_root:
                     v.onMapRoot(map_info);
                     break;
-                case RPG::TreeMap::MapType_map: {
+                case lcf::rpg::TreeMap::MapType_map: {
                     auto& map = MapCache::loadMap(map_info);
                     v.loc() = { LocPath(&map_info, &map) };
                     v.onMap(map_info, map);
@@ -381,7 +381,7 @@ void visitRPG(V&& v) {
                     }
                     break;
                     }
-                case RPG::TreeMap::MapType_area:
+                case lcf::rpg::TreeMap::MapType_area:
                     v.onAreaMap(map_info);
                     break;
             }

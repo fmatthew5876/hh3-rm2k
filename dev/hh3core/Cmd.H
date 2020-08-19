@@ -1,5 +1,5 @@
 #pragma once
-#include <rpg_eventcommand.h>
+#include <lcf/rpg/eventcommand.h>
 #include "Log.H"
 
 enum EventSpecial {
@@ -12,7 +12,7 @@ enum EventSpecial {
 
 namespace Cmd {
 
-RPG::EventCommand END();
+lcf::rpg::EventCommand END();
 
 namespace ControlSwitches {
 
@@ -22,11 +22,11 @@ enum SwitchOp {
     eToggle = 2
 };
 
-RPG::EventCommand Single(int switch_id, SwitchOp op);
+lcf::rpg::EventCommand Single(int switch_id, SwitchOp op);
 
-RPG::EventCommand Batch(int first_switch_id, int last_switch_id, SwitchOp op);
+lcf::rpg::EventCommand Batch(int first_switch_id, int last_switch_id, SwitchOp op);
 
-RPG::EventCommand Variable(int var_id, SwitchOp op);
+lcf::rpg::EventCommand Variable(int var_id, SwitchOp op);
 
 } //namespace ControlSwitches
 
@@ -81,56 +81,56 @@ enum VarOther {
 };
 
 namespace Single {
-RPG::EventCommand Constant(int var_id, VarOp op, int constant);
-RPG::EventCommand Variable(int var_id, VarOp op, int other_var_id);
-RPG::EventCommand VariableID(int var_id, VarOp op, int other_var_id);
-RPG::EventCommand Random(int var_id, VarOp op, int rand_min, int rand_max);
-RPG::EventCommand Item(int var_id, VarOp op, int item_id, bool has_item);
-RPG::EventCommand Player(int var_id, VarOp op, int actor_id, PlayerAttribute pa);
-RPG::EventCommand Event(int var_id, VarOp op, int event_id, EventQuery q);
-RPG::EventCommand Other(int var_id, VarOp op, VarOther vo);
+lcf::rpg::EventCommand Constant(int var_id, VarOp op, int constant);
+lcf::rpg::EventCommand Variable(int var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand VariableID(int var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand Random(int var_id, VarOp op, int rand_min, int rand_max);
+lcf::rpg::EventCommand Item(int var_id, VarOp op, int item_id, bool has_item);
+lcf::rpg::EventCommand Player(int var_id, VarOp op, int actor_id, PlayerAttribute pa);
+lcf::rpg::EventCommand Event(int var_id, VarOp op, int event_id, EventQuery q);
+lcf::rpg::EventCommand Other(int var_id, VarOp op, VarOther vo);
 }
 namespace Batch {
-RPG::EventCommand Constant(int first_var_id, int last_var_id, VarOp op, int constant);
-RPG::EventCommand Variable(int first_var_id, int last_var_id, VarOp op, int other_var_id);
-RPG::EventCommand VariableID(int first_var_id, int last_var_id, VarOp op, int other_var_id);
-RPG::EventCommand Random(int first_var_id, int last_var_id, VarOp op, int rand_min, int rand_max);
-RPG::EventCommand Item(int first_var_id, int last_var_id, VarOp op, int item_id, bool has_item);
-RPG::EventCommand Player(int first_var_id, int last_var_id, VarOp op, int actor_id, PlayerAttribute pa);
-RPG::EventCommand Event(int first_var_id, int last_var_id, VarOp op, int event_id, EventQuery q);
-RPG::EventCommand Other(int first_var_id, int last_var_id, VarOp op, VarOther vo);
+lcf::rpg::EventCommand Constant(int first_var_id, int last_var_id, VarOp op, int constant);
+lcf::rpg::EventCommand Variable(int first_var_id, int last_var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand VariableID(int first_var_id, int last_var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand Random(int first_var_id, int last_var_id, VarOp op, int rand_min, int rand_max);
+lcf::rpg::EventCommand Item(int first_var_id, int last_var_id, VarOp op, int item_id, bool has_item);
+lcf::rpg::EventCommand Player(int first_var_id, int last_var_id, VarOp op, int actor_id, PlayerAttribute pa);
+lcf::rpg::EventCommand Event(int first_var_id, int last_var_id, VarOp op, int event_id, EventQuery q);
+lcf::rpg::EventCommand Other(int first_var_id, int last_var_id, VarOp op, VarOther vo);
 }
 namespace Variable {
-RPG::EventCommand Constant(int var_id, VarOp op, int constant);
-RPG::EventCommand Variable(int var_id, VarOp op, int other_var_id);
-RPG::EventCommand VariableID(int var_id, VarOp op, int other_var_id);
-RPG::EventCommand Random(int var_id, VarOp op, int rand_min, int rand_max);
-RPG::EventCommand Item(int var_id, VarOp op, int item_id, bool has_item);
-RPG::EventCommand Player(int var_id, VarOp op, int actor_id, PlayerAttribute pa);
-RPG::EventCommand Event(int var_id, VarOp op, int event_id, EventQuery q);
-RPG::EventCommand Other(int var_id, VarOp op, VarOther vo);
+lcf::rpg::EventCommand Constant(int var_id, VarOp op, int constant);
+lcf::rpg::EventCommand Variable(int var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand VariableID(int var_id, VarOp op, int other_var_id);
+lcf::rpg::EventCommand Random(int var_id, VarOp op, int rand_min, int rand_max);
+lcf::rpg::EventCommand Item(int var_id, VarOp op, int item_id, bool has_item);
+lcf::rpg::EventCommand Player(int var_id, VarOp op, int actor_id, PlayerAttribute pa);
+lcf::rpg::EventCommand Event(int var_id, VarOp op, int event_id, EventQuery q);
+lcf::rpg::EventCommand Other(int var_id, VarOp op, VarOther vo);
 }
 } //namespace ControlVars
 
 namespace ChangeItems {
 namespace Increase {
 namespace Fixed {
-RPG::EventCommand Constant(int item_id, int amt);
-RPG::EventCommand Variable(int item_id, int amt_var_id);
+lcf::rpg::EventCommand Constant(int item_id, int amt);
+lcf::rpg::EventCommand Variable(int item_id, int amt_var_id);
 }
 namespace Variable {
-RPG::EventCommand Constant(int var_item_id, int amt);
-RPG::EventCommand Variable(int var_item_id, int amt_var_id);
+lcf::rpg::EventCommand Constant(int var_item_id, int amt);
+lcf::rpg::EventCommand Variable(int var_item_id, int amt_var_id);
 }
 }
 namespace Decrease {
 namespace Fixed {
-RPG::EventCommand Constant(int item_id, int amt);
-RPG::EventCommand Variable(int item_id, int amt_var_id);
+lcf::rpg::EventCommand Constant(int item_id, int amt);
+lcf::rpg::EventCommand Variable(int item_id, int amt_var_id);
 }
 namespace Variable {
-RPG::EventCommand Constant(int var_item_id, int amt);
-RPG::EventCommand Variable(int var_item_id, int amt_var_id);
+lcf::rpg::EventCommand Constant(int var_item_id, int amt);
+lcf::rpg::EventCommand Variable(int var_item_id, int amt_var_id);
 }
 }
 } //namespace ChangeItems
@@ -147,24 +147,24 @@ enum RemoveType {
 
 namespace EntireParty {
 namespace Change {
-RPG::EventCommand Fixed(int item_id);
-RPG::EventCommand Variable(int item_var_id);
+lcf::rpg::EventCommand Fixed(int item_id);
+lcf::rpg::EventCommand Variable(int item_var_id);
 } //Change
-RPG::EventCommand Remove(RemoveType rt);
+lcf::rpg::EventCommand Remove(RemoveType rt);
 } //EntireParty
 namespace Fixed {
 namespace Change {
-RPG::EventCommand Fixed(int actor_id, int item_id);
-RPG::EventCommand Variable(int actor_id, int item_var_id);
+lcf::rpg::EventCommand Fixed(int actor_id, int item_id);
+lcf::rpg::EventCommand Variable(int actor_id, int item_var_id);
 } //Change
-RPG::EventCommand Remove(int actor_id, RemoveType rt);
+lcf::rpg::EventCommand Remove(int actor_id, RemoveType rt);
 } //Fixed
 namespace Variable {
 namespace Change {
-RPG::EventCommand Fixed(int var_id, int item_id);
-RPG::EventCommand Variable(int var_id, int item_var_id);
+lcf::rpg::EventCommand Fixed(int var_id, int item_id);
+lcf::rpg::EventCommand Variable(int var_id, int item_var_id);
 } //Change
-RPG::EventCommand Remove(int var_id, RemoveType rt);
+lcf::rpg::EventCommand Remove(int var_id, RemoveType rt);
 } //Variable
 } //namespace ChangeEquipment
 
@@ -179,43 +179,43 @@ enum Compare {
     eCmpNE = 5
 };
 
-RPG::EventCommand Switch(int swid, bool on, bool has_else);
+lcf::rpg::EventCommand Switch(int swid, bool on, bool has_else);
 
 namespace Variable {
 
-RPG::EventCommand Constant(int varid, Compare cmp, int constant, bool has_else);
-RPG::EventCommand Variable(int varid, Compare cmp, int other_varid, bool has_else);
+lcf::rpg::EventCommand Constant(int varid, Compare cmp, int constant, bool has_else);
+lcf::rpg::EventCommand Variable(int varid, Compare cmp, int other_varid, bool has_else);
 
 } //namespace Variable
 namespace Actor {
 
-RPG::EventCommand IsInParty(int actor_id, bool has_else);
+lcf::rpg::EventCommand IsInParty(int actor_id, bool has_else);
 
-RPG::EventCommand NameIs(int actor_id, std::string name, bool has_else);
+lcf::rpg::EventCommand NameIs(int actor_id, std::string name, bool has_else);
 
-RPG::EventCommand LevelIsGE(int actor_id, int level, bool has_else);
+lcf::rpg::EventCommand LevelIsGE(int actor_id, int level, bool has_else);
 
-RPG::EventCommand HPIsGE(int actor_id, int hp, bool has_else);
+lcf::rpg::EventCommand HPIsGE(int actor_id, int hp, bool has_else);
 
-RPG::EventCommand SkillLearned(int actor_id, int skill_id, bool has_else);
+lcf::rpg::EventCommand SkillLearned(int actor_id, int skill_id, bool has_else);
 
-RPG::EventCommand ItemEquipped(int actor_id, int item_id, bool has_else);
+lcf::rpg::EventCommand ItemEquipped(int actor_id, int item_id, bool has_else);
 
-RPG::EventCommand StateInflicted(int actor_id, int state_id, bool has_else);
+lcf::rpg::EventCommand StateInflicted(int actor_id, int state_id, bool has_else);
 
 } //namespace Actor
 } //ConditionalBranch
 
-RPG::EventCommand PlayBGM(std::string bgm, int fadein_ms, int volume, int tempo, int balance);
+lcf::rpg::EventCommand PlayBGM(std::string bgm, int fadein_ms, int volume, int tempo, int balance);
 
-RPG::EventCommand Comment(std::string msg);
+lcf::rpg::EventCommand Comment(std::string msg);
 
-RPG::EventCommand Comment_2(std::string msg);
+lcf::rpg::EventCommand Comment_2(std::string msg);
 
-RPG::EventCommand ElseBranch();
+lcf::rpg::EventCommand ElseBranch();
 
-RPG::EventCommand EndBranch();
+lcf::rpg::EventCommand EndBranch();
 
-void logCmd(int idx, const RPG::EventCommand& cmd, LogLevel ll = eLogInfo);
+void logCmd(int idx, const lcf::rpg::EventCommand& cmd, LogLevel ll = eLogInfo);
 
 } //namespace cmd

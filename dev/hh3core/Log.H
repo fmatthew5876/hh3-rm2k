@@ -2,10 +2,10 @@
 #include <utility>
 #include <ostream>
 #include <sstream>
-#include <data.h>
-#include <rpg_map.h>
-#include <rpg_event.h>
-#include <rpg_eventpage.h>
+#include <lcf/data.h>
+#include <lcf/rpg/map.h>
+#include <lcf/rpg/event.h>
+#include <lcf/rpg/eventpage.h>
 #include "Code.H"
 
 enum LogLevel {
@@ -193,82 +193,84 @@ inline std::ostream& printRpg(std::ostream& os, T&& t) {
 }
 };
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Actor& t) {
+#if 0
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Actor& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Skill& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Skill& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Item& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Item& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Enemy& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Enemy& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Troop& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Troop& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Terrain& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Terrain& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Attribute& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Attribute& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::State& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::State& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Animation& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Animation& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Chipset& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Chipset& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::CommonEvent& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::CommonEvent& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Switch& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Switch& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Variable& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Variable& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Event& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Event& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::MapInfo& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::MapInfo& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::BattleCommand& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::BattleCommand& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::Class& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::Class& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::BattlerAnimation& t) {
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::BattlerAnimation& t) {
     return detail::printRpg(os, t);
 }
 
-inline std::ostream& operator<<(std::ostream& os, const RPG::EventCommand& t) {
-    os << '`' << codeToStr(RPG::EventCommand::Code::Index(t.code)) << "'(" << t.code << ')';
+inline std::ostream& operator<<(std::ostream& os, const lcf::rpg::EventCommand& t) {
+    os << '`' << codeToStr(lcf::rpg::EventCommand::Code(t.code)) << "'(" << t.code << ')';
     return os;
 }
+#endif
 
 template <typename T, typename... Args>
 inline void detail::baselog(std::ostream& os, T&& t, Args&&... args) {

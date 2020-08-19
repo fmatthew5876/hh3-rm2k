@@ -1,7 +1,7 @@
 #include "Load.H"
-#include <ldb_reader.h>
-#include <lmt_reader.h>
-#include <reader_util.h>
+#include <lcf/ldb/reader.h>
+#include <lcf/lmt/reader.h>
+#include <lcf/reader_util.h>
 #include "Log.H"
 #include "Exception.H"
 #include "MapCache.H"
@@ -36,14 +36,14 @@ void loadRPG(const LoadArgs& in_args) {
 
         //CHeck if file exists
 
-        encoding = ReaderUtil::GetEncoding(args.ini_path);
+        encoding = lcf::ReaderUtil::GetEncoding(args.ini_path);
     }
     MapCache::setEncoding(encoding);
 
     if (!args.ldb_path.empty()) {
         logInf("Loading RPG_RT database `", args.ldb_path, "' [", encoding, "] ...");
 
-        auto rc = LDB_Reader::Load(args.ldb_path, encoding);
+        auto rc = lcf::LDB_Reader::Load(args.ldb_path, encoding);
         if(!rc) {
             die("Failed to load LDB database from file `" + args.ldb_path  + "'");
         }
@@ -52,7 +52,7 @@ void loadRPG(const LoadArgs& in_args) {
     if(!args.lmt_path.empty()) {
         logInf("Loading LMT tree `", args.lmt_path, "' [", encoding, "] ...");
 
-        auto rc = LMT_Reader::Load(args.lmt_path, encoding);
+        auto rc = lcf::LMT_Reader::Load(args.lmt_path, encoding);
         if(!rc) {
             throw Exception("Failed to load LMT tree from file `" + args.lmt_path  + "'");
         }

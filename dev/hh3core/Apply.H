@@ -192,6 +192,6 @@ void applyMaps(const std::string& nameid, F&& f) {
 }
 
 template <typename F>
-void applyMapEvents(const RPG::Map& map, const std::string& nameid, F&& f) {
+void applyMapEvents(const lcf::rpg::Map& map, const std::string& nameid, F&& f) {
     applyNameId("Event", map.events, nameid, std::forward<F>(f));
 }

@@ -1,274 +1,274 @@
 #pragma once
-#include <rpg_eventcommand.h>
+#include <lcf/rpg/eventcommand.h>
 #include <ostream>
 
-constexpr const char* codeToStr(RPG::EventCommand::Code::Index code) {
+constexpr const char* codeToStr(lcf::rpg::EventCommand::Code code) {
     switch(code) {
-        case RPG::EventCommand::Code::END:
+        case lcf::rpg::EventCommand::Code::END:
             return "END";
-        case RPG::EventCommand::Code::CallCommonEvent:
+        case lcf::rpg::EventCommand::Code::CallCommonEvent:
             return "CallCommonEvent";
-        case RPG::EventCommand::Code::ForceFlee:
+        case lcf::rpg::EventCommand::Code::ForceFlee:
             return "ForceFlee";
-        case RPG::EventCommand::Code::EnableCombo:
+        case lcf::rpg::EventCommand::Code::EnableCombo:
             return "EnableCombo";
-        case RPG::EventCommand::Code::ChangeClass:
+        case lcf::rpg::EventCommand::Code::ChangeClass:
             return "ChangeClass";
-        case RPG::EventCommand::Code::ChangeBattleCommands:
+        case lcf::rpg::EventCommand::Code::ChangeBattleCommands:
             return "ChangeBattleCommands";
-        case RPG::EventCommand::Code::OpenLoadMenu:
+        case lcf::rpg::EventCommand::Code::OpenLoadMenu:
             return "OpenLoadMenu";
-        case RPG::EventCommand::Code::ExitGame:
+        case lcf::rpg::EventCommand::Code::ExitGame:
             return "ExitGame";
-        case RPG::EventCommand::Code::ToggleAtbMode:
+        case lcf::rpg::EventCommand::Code::ToggleAtbMode:
             return "ToggleAtbMode";
-        case RPG::EventCommand::Code::ToggleFullscreen:
+        case lcf::rpg::EventCommand::Code::ToggleFullscreen:
             return "ToggleFullscreen";
-        case RPG::EventCommand::Code::OpenVideoOptions:
+        case lcf::rpg::EventCommand::Code::OpenVideoOptions:
             return "OpenVideoOptions";
-        case RPG::EventCommand::Code::ShowMessage:
+        case lcf::rpg::EventCommand::Code::ShowMessage:
             return "ShowMessage";
-        case RPG::EventCommand::Code::MessageOptions:
+        case lcf::rpg::EventCommand::Code::MessageOptions:
             return "MessageOptions";
-        case RPG::EventCommand::Code::ChangeFaceGraphic:
+        case lcf::rpg::EventCommand::Code::ChangeFaceGraphic:
             return "ChangeFaceGraphic";
-        case RPG::EventCommand::Code::ShowChoice:
+        case lcf::rpg::EventCommand::Code::ShowChoice:
             return "ShowChoice";
-        case RPG::EventCommand::Code::InputNumber:
+        case lcf::rpg::EventCommand::Code::InputNumber:
             return "InputNumber";
-        case RPG::EventCommand::Code::ControlSwitches:
+        case lcf::rpg::EventCommand::Code::ControlSwitches:
             return "ControlSwitches";
-        case RPG::EventCommand::Code::ControlVars:
+        case lcf::rpg::EventCommand::Code::ControlVars:
             return "ControlVars";
-        case RPG::EventCommand::Code::TimerOperation:
+        case lcf::rpg::EventCommand::Code::TimerOperation:
             return "TimerOperation";
-        case RPG::EventCommand::Code::ChangeGold:
+        case lcf::rpg::EventCommand::Code::ChangeGold:
             return "ChangeGold";
-        case RPG::EventCommand::Code::ChangeItems:
+        case lcf::rpg::EventCommand::Code::ChangeItems:
             return "ChangeItems";
-        case RPG::EventCommand::Code::ChangePartyMembers:
+        case lcf::rpg::EventCommand::Code::ChangePartyMembers:
             return "ChangePartyMembers";
-        case RPG::EventCommand::Code::ChangeExp:
+        case lcf::rpg::EventCommand::Code::ChangeExp:
             return "ChangeExp";
-        case RPG::EventCommand::Code::ChangeLevel:
+        case lcf::rpg::EventCommand::Code::ChangeLevel:
             return "ChangeLevel";
-        case RPG::EventCommand::Code::ChangeParameters:
+        case lcf::rpg::EventCommand::Code::ChangeParameters:
             return "ChangeParameters";
-        case RPG::EventCommand::Code::ChangeSkills:
+        case lcf::rpg::EventCommand::Code::ChangeSkills:
             return "ChangeSkills";
-        case RPG::EventCommand::Code::ChangeEquipment:
+        case lcf::rpg::EventCommand::Code::ChangeEquipment:
             return "ChangeEquipment";
-        case RPG::EventCommand::Code::ChangeHP:
+        case lcf::rpg::EventCommand::Code::ChangeHP:
             return "ChangeHP";
-        case RPG::EventCommand::Code::ChangeSP:
+        case lcf::rpg::EventCommand::Code::ChangeSP:
             return "ChangeSP";
-        case RPG::EventCommand::Code::ChangeCondition:
+        case lcf::rpg::EventCommand::Code::ChangeCondition:
             return "ChangeCondition";
-        case RPG::EventCommand::Code::FullHeal:
+        case lcf::rpg::EventCommand::Code::FullHeal:
             return "FullHeal";
-        case RPG::EventCommand::Code::SimulatedAttack:
+        case lcf::rpg::EventCommand::Code::SimulatedAttack:
             return "SimulatedAttack";
-        case RPG::EventCommand::Code::ChangeHeroName:
+        case lcf::rpg::EventCommand::Code::ChangeHeroName:
             return "ChangeHeroName";
-        case RPG::EventCommand::Code::ChangeHeroTitle:
+        case lcf::rpg::EventCommand::Code::ChangeHeroTitle:
             return "ChangeHeroTitle";
-        case RPG::EventCommand::Code::ChangeSpriteAssociation:
+        case lcf::rpg::EventCommand::Code::ChangeSpriteAssociation:
             return "ChangeSpriteAssociation";
-        case RPG::EventCommand::Code::ChangeActorFace:
+        case lcf::rpg::EventCommand::Code::ChangeActorFace:
             return "ChangeActorFace";
-        case RPG::EventCommand::Code::ChangeVehicleGraphic:
+        case lcf::rpg::EventCommand::Code::ChangeVehicleGraphic:
             return "ChangeVehicleGraphic";
-        case RPG::EventCommand::Code::ChangeSystemBGM:
+        case lcf::rpg::EventCommand::Code::ChangeSystemBGM:
             return "ChangeSystemBGM";
-        case RPG::EventCommand::Code::ChangeSystemSFX:
+        case lcf::rpg::EventCommand::Code::ChangeSystemSFX:
             return "ChangeSystemSFX";
-        case RPG::EventCommand::Code::ChangeSystemGraphics:
+        case lcf::rpg::EventCommand::Code::ChangeSystemGraphics:
             return "ChangeSystemGraphics";
-        case RPG::EventCommand::Code::ChangeScreenTransitions:
+        case lcf::rpg::EventCommand::Code::ChangeScreenTransitions:
             return "ChangeScreenTransitions";
-        case RPG::EventCommand::Code::EnemyEncounter:
+        case lcf::rpg::EventCommand::Code::EnemyEncounter:
             return "EnemyEncounter";
-        case RPG::EventCommand::Code::OpenShop:
+        case lcf::rpg::EventCommand::Code::OpenShop:
             return "OpenShop";
-        case RPG::EventCommand::Code::ShowInn:
+        case lcf::rpg::EventCommand::Code::ShowInn:
             return "ShowInn";
-        case RPG::EventCommand::Code::EnterHeroName:
+        case lcf::rpg::EventCommand::Code::EnterHeroName:
             return "EnterHeroName";
-        case RPG::EventCommand::Code::Teleport:
+        case lcf::rpg::EventCommand::Code::Teleport:
             return "Teleport";
-        case RPG::EventCommand::Code::MemorizeLocation:
+        case lcf::rpg::EventCommand::Code::MemorizeLocation:
             return "MemorizeLocation";
-        case RPG::EventCommand::Code::RecallToLocation:
+        case lcf::rpg::EventCommand::Code::RecallToLocation:
             return "RecallToLocation";
-        case RPG::EventCommand::Code::EnterExitVehicle:
+        case lcf::rpg::EventCommand::Code::EnterExitVehicle:
             return "EnterExitVehicle";
-        case RPG::EventCommand::Code::SetVehicleLocation:
+        case lcf::rpg::EventCommand::Code::SetVehicleLocation:
             return "SetVehicleLocation";
-        case RPG::EventCommand::Code::ChangeEventLocation:
+        case lcf::rpg::EventCommand::Code::ChangeEventLocation:
             return "ChangeEventLocation";
-        case RPG::EventCommand::Code::TradeEventLocations:
+        case lcf::rpg::EventCommand::Code::TradeEventLocations:
             return "TradeEventLocations";
-        case RPG::EventCommand::Code::StoreTerrainID:
+        case lcf::rpg::EventCommand::Code::StoreTerrainID:
             return "StoreTerrainID";
-        case RPG::EventCommand::Code::StoreEventID:
+        case lcf::rpg::EventCommand::Code::StoreEventID:
             return "StoreEventID";
-        case RPG::EventCommand::Code::EraseScreen:
+        case lcf::rpg::EventCommand::Code::EraseScreen:
             return "EraseScreen";
-        case RPG::EventCommand::Code::ShowScreen:
+        case lcf::rpg::EventCommand::Code::ShowScreen:
             return "ShowScreen";
-        case RPG::EventCommand::Code::TintScreen:
+        case lcf::rpg::EventCommand::Code::TintScreen:
             return "TintScreen";
-        case RPG::EventCommand::Code::FlashScreen:
+        case lcf::rpg::EventCommand::Code::FlashScreen:
             return "FlashScreen";
-        case RPG::EventCommand::Code::ShakeScreen:
+        case lcf::rpg::EventCommand::Code::ShakeScreen:
             return "ShakeScreen";
-        case RPG::EventCommand::Code::PanScreen:
+        case lcf::rpg::EventCommand::Code::PanScreen:
             return "PanScreen";
-        case RPG::EventCommand::Code::WeatherEffects:
+        case lcf::rpg::EventCommand::Code::WeatherEffects:
             return "WeatherEffects";
-        case RPG::EventCommand::Code::ShowPicture:
+        case lcf::rpg::EventCommand::Code::ShowPicture:
             return "ShowPicture";
-        case RPG::EventCommand::Code::MovePicture:
+        case lcf::rpg::EventCommand::Code::MovePicture:
             return "MovePicture";
-        case RPG::EventCommand::Code::ErasePicture:
+        case lcf::rpg::EventCommand::Code::ErasePicture:
             return "ErasePicture";
-        case RPG::EventCommand::Code::ShowBattleAnimation:
+        case lcf::rpg::EventCommand::Code::ShowBattleAnimation:
             return "ShowBattleAnimation";
-        case RPG::EventCommand::Code::SpriteTransparency:
+        case lcf::rpg::EventCommand::Code::SpriteTransparency:
             return "SpriteTransparency";
-        case RPG::EventCommand::Code::FlashSprite:
+        case lcf::rpg::EventCommand::Code::FlashSprite:
             return "FlashSprite";
-        case RPG::EventCommand::Code::MoveEvent:
+        case lcf::rpg::EventCommand::Code::MoveEvent:
             return "MoveEvent";
-        case RPG::EventCommand::Code::ProceedWithMovement:
+        case lcf::rpg::EventCommand::Code::ProceedWithMovement:
             return "ProceedWithMovement";
-        case RPG::EventCommand::Code::HaltAllMovement:
+        case lcf::rpg::EventCommand::Code::HaltAllMovement:
             return "HaltAllMovement";
-        case RPG::EventCommand::Code::Wait:
+        case lcf::rpg::EventCommand::Code::Wait:
             return "Wait";
-        case RPG::EventCommand::Code::PlayBGM:
+        case lcf::rpg::EventCommand::Code::PlayBGM:
             return "PlayBGM";
-        case RPG::EventCommand::Code::FadeOutBGM:
+        case lcf::rpg::EventCommand::Code::FadeOutBGM:
             return "FadeOutBGM";
-        case RPG::EventCommand::Code::MemorizeBGM:
+        case lcf::rpg::EventCommand::Code::MemorizeBGM:
             return "MemorizeBGM";
-        case RPG::EventCommand::Code::PlayMemorizedBGM:
+        case lcf::rpg::EventCommand::Code::PlayMemorizedBGM:
             return "PlayMemorizedBGM";
-        case RPG::EventCommand::Code::PlaySound:
+        case lcf::rpg::EventCommand::Code::PlaySound:
             return "PlaySound";
-        case RPG::EventCommand::Code::PlayMovie:
+        case lcf::rpg::EventCommand::Code::PlayMovie:
             return "PlayMovie";
-        case RPG::EventCommand::Code::KeyInputProc:
+        case lcf::rpg::EventCommand::Code::KeyInputProc:
             return "KeyInputProc";
-        case RPG::EventCommand::Code::ChangeMapTileset:
+        case lcf::rpg::EventCommand::Code::ChangeMapTileset:
             return "ChangeMapTileset";
-        case RPG::EventCommand::Code::ChangePBG:
+        case lcf::rpg::EventCommand::Code::ChangePBG:
             return "ChangePBG";
-        case RPG::EventCommand::Code::ChangeEncounterRate:
+        case lcf::rpg::EventCommand::Code::ChangeEncounterRate:
             return "ChangeEncounterRate";
-        case RPG::EventCommand::Code::TileSubstitution:
+        case lcf::rpg::EventCommand::Code::TileSubstitution:
             return "TileSubstitution";
-        case RPG::EventCommand::Code::TeleportTargets:
+        case lcf::rpg::EventCommand::Code::TeleportTargets:
             return "TeleportTargets";
-        case RPG::EventCommand::Code::ChangeTeleportAccess:
+        case lcf::rpg::EventCommand::Code::ChangeTeleportAccess:
             return "ChangeTeleportAccess";
-        case RPG::EventCommand::Code::EscapeTarget:
+        case lcf::rpg::EventCommand::Code::EscapeTarget:
             return "EscapeTarget";
-        case RPG::EventCommand::Code::ChangeEscapeAccess:
+        case lcf::rpg::EventCommand::Code::ChangeEscapeAccess:
             return "ChangeEscapeAccess";
-        case RPG::EventCommand::Code::OpenSaveMenu:
+        case lcf::rpg::EventCommand::Code::OpenSaveMenu:
             return "OpenSaveMenu";
-        case RPG::EventCommand::Code::ChangeSaveAccess:
+        case lcf::rpg::EventCommand::Code::ChangeSaveAccess:
             return "ChangeSaveAccess";
-        case RPG::EventCommand::Code::OpenMainMenu:
+        case lcf::rpg::EventCommand::Code::OpenMainMenu:
             return "OpenMainMenu";
-        case RPG::EventCommand::Code::ChangeMainMenuAccess:
+        case lcf::rpg::EventCommand::Code::ChangeMainMenuAccess:
             return "ChangeMainMenuAccess";
-        case RPG::EventCommand::Code::ConditionalBranch:
+        case lcf::rpg::EventCommand::Code::ConditionalBranch:
             return "ConditionalBranch";
-        case RPG::EventCommand::Code::Label:
+        case lcf::rpg::EventCommand::Code::Label:
             return "Label";
-        case RPG::EventCommand::Code::JumpToLabel:
+        case lcf::rpg::EventCommand::Code::JumpToLabel:
             return "JumpToLabel";
-        case RPG::EventCommand::Code::Loop:
+        case lcf::rpg::EventCommand::Code::Loop:
             return "Loop";
-        case RPG::EventCommand::Code::BreakLoop:
+        case lcf::rpg::EventCommand::Code::BreakLoop:
             return "BreakLoop";
-        case RPG::EventCommand::Code::EndEventProcessing:
+        case lcf::rpg::EventCommand::Code::EndEventProcessing:
             return "EndEventProcessing";
-        case RPG::EventCommand::Code::EraseEvent:
+        case lcf::rpg::EventCommand::Code::EraseEvent:
             return "EraseEvent";
-        case RPG::EventCommand::Code::CallEvent:
+        case lcf::rpg::EventCommand::Code::CallEvent:
             return "CallEvent";
-        case RPG::EventCommand::Code::Comment:
+        case lcf::rpg::EventCommand::Code::Comment:
             return "Comment";
-        case RPG::EventCommand::Code::GameOver:
+        case lcf::rpg::EventCommand::Code::GameOver:
             return "GameOver";
-        case RPG::EventCommand::Code::ReturntoTitleScreen:
+        case lcf::rpg::EventCommand::Code::ReturntoTitleScreen:
             return "ReturntoTitleScreen";
-        case RPG::EventCommand::Code::ChangeMonsterHP:
+        case lcf::rpg::EventCommand::Code::ChangeMonsterHP:
             return "ChangeMonsterHP";
-        case RPG::EventCommand::Code::ChangeMonsterMP:
+        case lcf::rpg::EventCommand::Code::ChangeMonsterMP:
             return "ChangeMonsterMP";
-        case RPG::EventCommand::Code::ChangeMonsterCondition:
+        case lcf::rpg::EventCommand::Code::ChangeMonsterCondition:
             return "ChangeMonsterCondition";
-        case RPG::EventCommand::Code::ShowHiddenMonster:
+        case lcf::rpg::EventCommand::Code::ShowHiddenMonster:
             return "ShowHiddenMonster";
-        case RPG::EventCommand::Code::ChangeBattleBG:
+        case lcf::rpg::EventCommand::Code::ChangeBattleBG:
             return "ChangeBattleBG";
-        case RPG::EventCommand::Code::ShowBattleAnimation_B:
+        case lcf::rpg::EventCommand::Code::ShowBattleAnimation_B:
             return "ShowBattleAnimation_B";
-        case RPG::EventCommand::Code::ConditionalBranch_B:
+        case lcf::rpg::EventCommand::Code::ConditionalBranch_B:
             return "ConditionalBranch_B";
-        case RPG::EventCommand::Code::TerminateBattle:
+        case lcf::rpg::EventCommand::Code::TerminateBattle:
             return "TerminateBattle";
-        case RPG::EventCommand::Code::ShowMessage_2:
+        case lcf::rpg::EventCommand::Code::ShowMessage_2:
             return "ShowMessage_2";
-        case RPG::EventCommand::Code::ShowChoiceOption:
+        case lcf::rpg::EventCommand::Code::ShowChoiceOption:
             return "ShowChoiceOption";
-        case RPG::EventCommand::Code::ShowChoiceEnd:
+        case lcf::rpg::EventCommand::Code::ShowChoiceEnd:
             return "ShowChoiceEnd";
-        case RPG::EventCommand::Code::VictoryHandler:
+        case lcf::rpg::EventCommand::Code::VictoryHandler:
             return "VictoryHandler";
-        case RPG::EventCommand::Code::EscapeHandler:
+        case lcf::rpg::EventCommand::Code::EscapeHandler:
             return "EscapeHandler";
-        case RPG::EventCommand::Code::DefeatHandler:
+        case lcf::rpg::EventCommand::Code::DefeatHandler:
             return "DefeatHandler";
-        case RPG::EventCommand::Code::EndBattle:
+        case lcf::rpg::EventCommand::Code::EndBattle:
             return "EndBattle";
-        case RPG::EventCommand::Code::Transaction:
+        case lcf::rpg::EventCommand::Code::Transaction:
             return "Transaction";
-        case RPG::EventCommand::Code::NoTransaction:
+        case lcf::rpg::EventCommand::Code::NoTransaction:
             return "NoTransaction";
-        case RPG::EventCommand::Code::EndShop:
+        case lcf::rpg::EventCommand::Code::EndShop:
             return "EndShop";
-        case RPG::EventCommand::Code::Stay:
+        case lcf::rpg::EventCommand::Code::Stay:
             return "Stay";
-        case RPG::EventCommand::Code::NoStay:
+        case lcf::rpg::EventCommand::Code::NoStay:
             return "NoStay";
-        case RPG::EventCommand::Code::EndInn:
+        case lcf::rpg::EventCommand::Code::EndInn:
             return "EndInn";
-        case RPG::EventCommand::Code::ElseBranch:
+        case lcf::rpg::EventCommand::Code::ElseBranch:
             return "ElseBranch";
-        case RPG::EventCommand::Code::EndBranch:
+        case lcf::rpg::EventCommand::Code::EndBranch:
             return "EndBranch";
-        case RPG::EventCommand::Code::EndLoop:
+        case lcf::rpg::EventCommand::Code::EndLoop:
             return "EndLoop";
-        case RPG::EventCommand::Code::Comment_2:
+        case lcf::rpg::EventCommand::Code::Comment_2:
             return "Comment_2";
-        case RPG::EventCommand::Code::ElseBranch_B:
+        case lcf::rpg::EventCommand::Code::ElseBranch_B:
             return "ElseBranch_B";
-        case RPG::EventCommand::Code::EndBranch_B:
+        case lcf::rpg::EventCommand::Code::EndBranch_B:
             return "EndBranch_B";
     }
     return "???";
 }
 
 struct Code {
-    explicit Code(RPG::EventCommand::Code::Index c) : code(RPG::EventCommand::Code::Index(c)) {}
-    explicit Code(int c) : code(RPG::EventCommand::Code::Index(c)) {}
+    explicit Code(lcf::rpg::EventCommand::Code c) : code(lcf::rpg::EventCommand::Code(c)) {}
+    explicit Code(int c) : code(lcf::rpg::EventCommand::Code(c)) {}
 
-    RPG::EventCommand::Code::Index code = RPG::EventCommand::Code::END;
+    lcf::rpg::EventCommand::Code code = lcf::rpg::EventCommand::Code::END;
 };
 
 inline std::ostream& operator <<(std::ostream& os, const Code& c) {

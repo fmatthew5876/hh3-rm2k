@@ -5,13 +5,13 @@
 #include <memory>
 #include <sstream>
 #include <iomanip>
-#include <lmu_reader.h>
+#include <lcf/lmu/reader.h>
 #include <mutex>
 
 namespace {
 std::string gMapDir;
 std::string gEncoding;
-std::unordered_map<int,std::unique_ptr<RPG::Map>> gMapCache;
+std::unordered_map<int,std::unique_ptr<lcf::rpg::Map>> gMapCache;
 std::mutex gMutex;
 }
 
@@ -36,7 +36,7 @@ const std::string& MapCache::getEncoding() {
 	return gEncoding;
 }
 
-RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
+lcf::rpg::Map& MapCache::loadMap(const lcf::rpg::MapInfo& map_info) {
     std::lock_guard<std::mutex> lock(gMutex);
 
     if (map_info.type != 1) {
@@ -54,7 +54,7 @@ RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
 
     logDbg("Loading map file `", map_path, "' with encoding=", gEncoding, " ...");
 
-    auto map = LMU_Reader::Load(map_path, gEncoding);
+    auto map = lcf::LMU_Reader::Load(map_path, gEncoding);
     if (!map) {
         die("Failed to load map file from `", map_path, "'");
     }
@@ -63,7 +63,7 @@ RPG::Map& MapCache::loadMap(const RPG::MapInfo& map_info) {
     return *p.first->second;
 }
 
-void MapCache::saveMap(const RPG::MapInfo& map_info, RPG::Map& map) {
+void MapCache::saveMap(const lcf::rpg::MapInfo& map_info, lcf::rpg::Map& map) {
     std::lock_guard<std::mutex> lock(gMutex);
 
     if (map_info.type != 1) {
@@ -76,14 +76,14 @@ void MapCache::saveMap(const RPG::MapInfo& map_info, RPG::Map& map) {
 
     logDbg("Saving map file `", map_path, "' ...");
 
-    auto rc = LMU_Reader::Save(map_path, map, "");
+    auto rc = lcf::LMU_Reader::Save(map_path, map, "");
     if (!rc) {
         die("Failed to save map file to `", map_path, "'");
     }
 
     auto p = gMapCache.insert({map_info.ID, nullptr});
     if (p.second) {
-        p.first->second = std::make_unique<RPG::Map>(map);
+        p.first->second = std::make_unique<lcf::rpg::Map>(map);
     } else {
         *p.first->second = map;
     }
